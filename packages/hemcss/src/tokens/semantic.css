@@ -1,0 +1,45 @@
+/* Semantic aliases and role tokens — the required surface.
+ * Every theme must define these (or accept the :root defaults).
+ * Components consume only these tokens, never raw palette tokens.
+ *
+ * Defaults here are a "light" appearance on :root so an unthemed page
+ * renders correctly. The bundled light.css theme redefines them under
+ * [data-theme="light"] for explicit toggling.
+ */
+@layer tokens {
+  :root {
+    /* ---- Semantic color aliases ---- */
+    --hem-primary:   var(--hem-color-primary-500);
+    --hem-secondary: var(--hem-color-secondary-500);
+    --hem-success:   var(--hem-color-success-500);
+    --hem-info:      var(--hem-color-info-500);
+    --hem-warning:   var(--hem-color-warning-500);
+    --hem-error:     var(--hem-color-error-500);
+    --hem-neutral:   var(--hem-color-neutral-700);
+
+    /* ---- Text role tokens ---- */
+    --hem-text:             var(--hem-color-neutral-700);
+    --hem-text-dimmed:      var(--hem-color-neutral-400);
+    --hem-text-muted:       var(--hem-color-neutral-500);
+    --hem-text-toned:       var(--hem-color-neutral-600);
+    --hem-text-highlighted: var(--hem-color-neutral-900);
+    --hem-text-inverted:    oklch(100% 0 0deg);
+
+    /* ---- Background role tokens ---- */
+    --hem-bg:          oklch(100% 0 0deg);
+    --hem-bg-muted:    var(--hem-color-neutral-50);
+    --hem-bg-elevated: var(--hem-color-neutral-100);
+    --hem-bg-accented: var(--hem-color-neutral-200);
+    --hem-bg-inverted: var(--hem-color-neutral-900);
+
+    /* ---- Border role tokens ---- */
+    --hem-border:          var(--hem-color-neutral-200);
+    --hem-border-muted:    var(--hem-color-neutral-100);
+    --hem-border-accented: var(--hem-color-neutral-300);
+    --hem-border-inverted: var(--hem-color-neutral-900);
+
+    /* ---- Ring tokens (focus ring) ---- */
+    --hem-ring:        var(--hem-primary);
+    --hem-ring-offset: var(--hem-bg);
+  }
+}

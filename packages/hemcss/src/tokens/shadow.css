@@ -1,0 +1,23 @@
+/* Shadow tokens.
+ *
+ * Scale tuned to Tailwind's refined-shadow style — a tight inner drop plus
+ * a softer spread for md/lg. Alpha is kept low so shadows read as premium
+ * rather than heavy.
+ *
+ * --hem-shadow-ring is the focus-halo token used by interactive components.
+ * It references --hem-ring at computed-style time via color-mix(), so
+ * changing --hem-ring (directly or via the plugin's focusRing option)
+ * rethemes every focus state consistently.
+ */
+@layer tokens {
+  :root {
+    --hem-shadow-sm: 0 1px 2px 0 oklch(0% 0 0deg / 5%);
+    --hem-shadow-md:
+      0 4px 6px -1px oklch(0% 0 0deg / 8%),
+      0 2px 4px -2px oklch(0% 0 0deg / 6%);
+    --hem-shadow-lg:
+      0 10px 15px -3px oklch(0% 0 0deg / 10%),
+      0 4px 6px -4px oklch(0% 0 0deg / 8%);
+    --hem-shadow-ring: 0 0 0 3px color-mix(in oklch, var(--hem-ring) 50%, transparent);
+  }
+}

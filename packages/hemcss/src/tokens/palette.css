@@ -1,0 +1,104 @@
+/* Raw OKLCH palette — 77 tokens, all optional for custom themes.
+ * These are shipped as reference so theme authors can see working values.
+ * Custom themes may redefine individual shades, redefine semantic aliases
+ * only (see semantic.css), or skip the raw palette entirely.
+ *
+ * Aesthetic: modern shadcn-inspired — electric indigo-violet
+ * primary, cyan-teal secondary, emerald success, amber warning, rose error,
+ * sky info, and a cool zinc-leaning neutral with a deep near-black floor.
+ * Chroma peaks sit at 500 (light-mode accent) and 400 (dark-mode accent).
+ */
+@layer tokens {
+  :root {
+    /* ---- primary (electric indigo-violet) ---- */
+    --hem-color-primary-50:  oklch(97% 0.018 268deg);
+    --hem-color-primary-100: oklch(94% 0.038 268deg);
+    --hem-color-primary-200: oklch(88% 0.076 268deg);
+    --hem-color-primary-300: oklch(79% 0.128 268deg);
+    --hem-color-primary-400: oklch(68% 0.178 268deg);
+    --hem-color-primary-500: oklch(58% 0.220 268deg);
+    --hem-color-primary-600: oklch(50% 0.215 268deg);
+    --hem-color-primary-700: oklch(42% 0.190 268deg);
+    --hem-color-primary-800: oklch(34% 0.155 268deg);
+    --hem-color-primary-900: oklch(27% 0.115 268deg);
+    --hem-color-primary-950: oklch(18% 0.075 268deg);
+
+    /* ---- secondary (cyan-teal, complementary to primary) ---- */
+    --hem-color-secondary-50:  oklch(97% 0.020 195deg);
+    --hem-color-secondary-100: oklch(94% 0.040 195deg);
+    --hem-color-secondary-200: oklch(88% 0.080 195deg);
+    --hem-color-secondary-300: oklch(80% 0.120 195deg);
+    --hem-color-secondary-400: oklch(72% 0.140 195deg);
+    --hem-color-secondary-500: oklch(65% 0.150 195deg);
+    --hem-color-secondary-600: oklch(55% 0.140 195deg);
+    --hem-color-secondary-700: oklch(45% 0.120 195deg);
+    --hem-color-secondary-800: oklch(36% 0.095 195deg);
+    --hem-color-secondary-900: oklch(28% 0.070 195deg);
+    --hem-color-secondary-950: oklch(20% 0.045 195deg);
+
+    /* ---- success (emerald) ---- */
+    --hem-color-success-50:  oklch(97% 0.020 160deg);
+    --hem-color-success-100: oklch(94% 0.042 160deg);
+    --hem-color-success-200: oklch(88% 0.080 160deg);
+    --hem-color-success-300: oklch(80% 0.125 160deg);
+    --hem-color-success-400: oklch(70% 0.160 160deg);
+    --hem-color-success-500: oklch(60% 0.175 160deg);
+    --hem-color-success-600: oklch(52% 0.165 160deg);
+    --hem-color-success-700: oklch(44% 0.145 160deg);
+    --hem-color-success-800: oklch(36% 0.118 160deg);
+    --hem-color-success-900: oklch(28% 0.090 160deg);
+    --hem-color-success-950: oklch(20% 0.062 160deg);
+
+    /* ---- info (sky blue) ---- */
+    --hem-color-info-50:  oklch(97% 0.018 215deg);
+    --hem-color-info-100: oklch(94% 0.040 215deg);
+    --hem-color-info-200: oklch(88% 0.080 215deg);
+    --hem-color-info-300: oklch(80% 0.125 215deg);
+    --hem-color-info-400: oklch(72% 0.160 215deg);
+    --hem-color-info-500: oklch(64% 0.180 215deg);
+    --hem-color-info-600: oklch(56% 0.170 215deg);
+    --hem-color-info-700: oklch(48% 0.148 215deg);
+    --hem-color-info-800: oklch(38% 0.120 215deg);
+    --hem-color-info-900: oklch(30% 0.090 215deg);
+    --hem-color-info-950: oklch(22% 0.062 215deg);
+
+    /* ---- warning (amber) ---- */
+    --hem-color-warning-50:  oklch(97% 0.020 70deg);
+    --hem-color-warning-100: oklch(95% 0.042 70deg);
+    --hem-color-warning-200: oklch(90% 0.085 70deg);
+    --hem-color-warning-300: oklch(84% 0.130 70deg);
+    --hem-color-warning-400: oklch(78% 0.165 70deg);
+    --hem-color-warning-500: oklch(72% 0.180 70deg);
+    --hem-color-warning-600: oklch(62% 0.170 70deg);
+    --hem-color-warning-700: oklch(52% 0.148 70deg);
+    --hem-color-warning-800: oklch(42% 0.120 70deg);
+    --hem-color-warning-900: oklch(32% 0.090 70deg);
+    --hem-color-warning-950: oklch(22% 0.062 70deg);
+
+    /* ---- error (rose) ---- */
+    --hem-color-error-50:  oklch(97% 0.020 15deg);
+    --hem-color-error-100: oklch(94% 0.042 15deg);
+    --hem-color-error-200: oklch(88% 0.082 15deg);
+    --hem-color-error-300: oklch(80% 0.130 15deg);
+    --hem-color-error-400: oklch(70% 0.178 15deg);
+    --hem-color-error-500: oklch(60% 0.220 15deg);
+    --hem-color-error-600: oklch(52% 0.212 15deg);
+    --hem-color-error-700: oklch(44% 0.188 15deg);
+    --hem-color-error-800: oklch(36% 0.155 15deg);
+    --hem-color-error-900: oklch(28% 0.118 15deg);
+    --hem-color-error-950: oklch(20% 0.080 15deg);
+
+    /* ---- neutral (cool zinc — deeper dark-end for premium feel) ---- */
+    --hem-color-neutral-50:  oklch(98% 0.002 250deg);
+    --hem-color-neutral-100: oklch(96% 0.003 250deg);
+    --hem-color-neutral-200: oklch(92% 0.005 250deg);
+    --hem-color-neutral-300: oklch(85% 0.008 250deg);
+    --hem-color-neutral-400: oklch(70% 0.012 250deg);
+    --hem-color-neutral-500: oklch(55% 0.014 250deg);
+    --hem-color-neutral-600: oklch(42% 0.014 250deg);
+    --hem-color-neutral-700: oklch(32% 0.012 250deg);
+    --hem-color-neutral-800: oklch(22% 0.010 250deg);
+    --hem-color-neutral-900: oklch(14% 0.008 250deg);
+    --hem-color-neutral-950: oklch(9% 0.006 250deg);
+  }
+}

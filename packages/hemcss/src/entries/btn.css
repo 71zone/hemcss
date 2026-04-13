@@ -1,0 +1,5 @@
+/* Standalone btn component entry.
+ * Import after hemcss/base to get just the button component.
+ */
+@import url("../layers.css");
+@import url("../components/btn.css");

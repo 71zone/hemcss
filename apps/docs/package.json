@@ -1,0 +1,18 @@
+{
+  "name": "@hemcss/docs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "VitePress docs site for hemcss. Imports hemcss via the workspace, renders component previews directly in markdown.",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "dependencies": {
+    "hemcss": "workspace:*"
+  },
+  "devDependencies": {
+    "vitepress": "^1"
+  }
+}

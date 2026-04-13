@@ -1,0 +1,8 @@
+/* Styles barrel — component-layout variants that sit alongside the
+ * default Hanoi components in @layer component.
+ *
+ * Each style file scopes its rules to a data-theme prefix selector
+ * (e.g. [data-theme^="saigon-"]) so the rules are inert until a user
+ * opts in by setting the matching attribute on <html>.
+ */
+@import url("./saigon.css");

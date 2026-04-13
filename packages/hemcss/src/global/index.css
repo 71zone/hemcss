@@ -1,0 +1,14 @@
+/* src/global/index.css — narrow base styles that consume tokens.
+ * Deliberately minimal to coexist with Tailwind Preflight when
+ * users opt out of hemcss's own reset layer.
+ */
+@layer global {
+  :root {
+    font-family: var(--hem-font-sans);
+    font-size: var(--hem-text-size);
+    font-weight: var(--hem-text-weight);
+    line-height: var(--hem-line-height);
+    color: var(--hem-text);
+    background-color: var(--hem-bg);
+  }
+}

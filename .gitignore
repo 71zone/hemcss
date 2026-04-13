@@ -1,0 +1,18 @@
+node_modules/
+**/node_modules/
+
+# hemcss build output
+packages/*/dist/
+
+# app build outputs
+apps/*/storybook-static/
+apps/**/.vitepress/dist/
+apps/**/.vitepress/cache/
+
+# misc
+.DS_Store
+*.log
+.env
+.vscode/
+.idea/
+coverage/

@@ -1,0 +1,45 @@
+/* Typography tokens.
+ *
+ * Inter is the preferred sans face for the modern look. It falls back
+ * gracefully to the platform system font so nothing breaks if Inter
+ * isn't loaded — themes or the host page can add @font-face to load it.
+ *
+ * The scale is a minimal subset of Tailwind's text-* scale plus three
+ * semantic font weights and three tracking steps. Components consume
+ * these tokens directly instead of hard-coding numeric values so themes
+ * can retune all typography with a single token override.
+ */
+@layer tokens {
+  :root {
+    --hem-font-sans:   "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif;
+    --hem-font-mono:   ui-monospace, "SF Mono", monaco, consolas, "Liberation Mono", "Courier New", monospace;
+    --hem-text-size:   1rem;
+    --hem-text-weight: 400;
+    --hem-line-height: 1.5;
+
+    /* ---- Font weight scale ---- */
+    --hem-font-weight-normal:    400;
+    --hem-font-weight-medium:    500;
+    --hem-font-weight-semibold:  600;
+    --hem-font-weight-bold:      700;
+
+    /* ---- Text size scale ---- */
+    --hem-text-2xs:  0.625rem;   /* 10px — used by xs button in Saigon */
+    --hem-text-xs:   0.75rem;
+    --hem-text-sm:   0.875rem;
+    --hem-text-base: 1rem;
+    --hem-text-lg:   1.125rem;
+    --hem-text-xl:   1.25rem;
+    --hem-text-2xl:  1.5rem;
+
+    /* ---- Tracking (letter-spacing) ---- */
+    --hem-tracking-tight:  -0.015em;
+    --hem-tracking-normal: 0;
+    --hem-tracking-wide:   0.025em;
+
+    /* ---- Line heights ---- */
+    --hem-leading-tight:   1.25;
+    --hem-leading-normal:  1.5;
+    --hem-leading-relaxed: 1.625;
+  }
+}

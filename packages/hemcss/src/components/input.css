@@ -1,0 +1,84 @@
+/* src/components/input.css — text input component.
+ * Inset surface (--hem-bg, not elevated). Size via private --_size.
+ * States: :invalid:not(:placeholder-shown) pairs with .is-invalid.
+ *
+ * Layout values all come from --hem-input-* component tokens defined in
+ * src/tokens/components.css. Style variants (Saigon) override those
+ * tokens in src/styles/saigon.css.
+ */
+@layer component {
+  /* ==== Structure ==== */
+  .input {
+    --_size: var(--hem-size-field);
+
+    display: inline-flex;
+    align-items: center;
+    /* -unit tokens are unitless; multiplied by --_size at use site. */
+    padding-inline: calc(var(--_size) * var(--hem-input-padding-x-unit));
+    padding-block:  calc(var(--_size) * var(--hem-input-padding-y-unit));
+    min-height:     calc(var(--_size) * var(--hem-input-height-unit));
+    font-size:      var(--hem-input-font-size);
+    line-height:    var(--hem-input-line-height);
+
+    /* Default skin — variant classes override the relevant parts. */
+    background-color: var(--hem-bg);
+    color: var(--hem-text);
+    border: var(--hem-input-border-width) solid var(--hem-border);
+    border-radius: var(--hem-input-radius);
+    font-family: inherit;
+    outline: none;
+    transition:
+      border-color     var(--hem-transition-fast),
+      background-color var(--hem-transition-fast),
+      box-shadow       var(--hem-transition-fast),
+      opacity          var(--hem-transition-fast);
+  }
+
+  .input::placeholder {
+    color: var(--hem-text-muted);
+  }
+
+  /* Focus matches .btn: border-color → ring + box-shadow ring glow. */
+  .input:focus-visible {
+    border-color: var(--hem-ring);
+    box-shadow: var(--hem-shadow-ring);
+  }
+
+  /* ==== Variants ==== */
+  .input-bordered {
+    border-color: var(--hem-border-accented);
+  }
+
+  .input-ghost {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .input-ghost:focus-visible {
+    background-color: var(--hem-bg);
+    border-color: var(--hem-ring);
+  }
+
+  /* ==== Sizes ==== */
+  .input-sm {
+    --_size: var(--hem-input-sm-size-unit);
+
+    font-size: var(--hem-input-sm-font-size);
+    border-radius: var(--hem-input-sm-radius);
+  }
+  .input-lg {
+    --_size: var(--hem-input-lg-size-unit);
+
+    font-size: var(--hem-input-lg-font-size);
+  }
+
+  /* ==== States ==== */
+  .input:where(.is-invalid, :invalid:not(:placeholder-shown)) {
+    border-color: var(--hem-error);
+  }
+
+  .input:where(:disabled, [disabled], .is-disabled) {
+    cursor: not-allowed;
+    background-color: var(--hem-bg-muted);
+    color: var(--hem-text-muted);
+  }
+}

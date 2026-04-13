@@ -1,0 +1,48 @@
+/* src/themes/hanoi-dark.css — Hanoi layout + dark color palette.
+ *
+ * Inspired by DaisyUI's "luxury" — deep near-black base with warm
+ * gold text and a white primary. Rich, opulent, premium feel.
+ *
+ * Surface scale is very tight in the low end (luxury-style deep dark):
+ *   bg 14% → muted 17% → elevated 20% → accented 23%
+ * Cards rely on the subtle bg-elevated lift plus a gold-tinted border.
+ */
+@import url("../layers.css");
+
+@layer themes {
+  [data-theme="hanoi-dark"] {
+    /* ---- Semantic aliases ---- */
+    --hem-primary:   oklch(100% 0 0deg);                   /* white */
+    --hem-secondary: oklch(27.581% 0.064 261.069deg);      /* deep navy */
+    --hem-success:   oklch(78.119% 0.192 132.154deg);      /* bright green */
+    --hem-info:      oklch(79.061% 0.121 237.133deg);      /* sky blue */
+    --hem-warning:   oklch(86.127% 0.136 102.891deg);      /* warm yellow */
+    --hem-error:     oklch(71.753% 0.176 22.568deg);       /* muted red */
+    --hem-neutral:   oklch(24.27% 0.057 59.825deg);        /* dark warm brown */
+
+    /* ---- Text roles ---- */
+    --hem-text:             oklch(75.687% 0.123 76.89deg); /* warm gold */
+    --hem-text-dimmed:      oklch(50% 0.06 70deg);
+    --hem-text-muted:       oklch(55% 0.08 75deg);
+    --hem-text-toned:       oklch(65% 0.1 78deg);
+    --hem-text-highlighted: oklch(93.203% 0.089 90.861deg);/* bright gold */
+    --hem-text-inverted:    oklch(20% 0 0deg);
+
+    /* ---- Background roles (deep luxury dark) ---- */
+    --hem-bg:          oklch(14.076% 0.004 285.822deg);    /* near-black */
+    --hem-bg-muted:    oklch(17% 0.004 290deg);
+    --hem-bg-elevated: oklch(20.219% 0.004 308.229deg);    /* cards */
+    --hem-bg-accented: oklch(23.219% 0.004 308.229deg);    /* hover */
+    --hem-bg-inverted: oklch(93% 0.06 80deg);
+
+    /* ---- Border roles (subtle warm tint) ---- */
+    --hem-border:          oklch(26% 0.015 300deg);
+    --hem-border-muted:    oklch(22% 0.01 295deg);
+    --hem-border-accented: oklch(32% 0.025 65deg);         /* gold tint */
+    --hem-border-inverted: oklch(93% 0.06 80deg);
+
+    /* ---- Ring ---- */
+    --hem-ring:        var(--hem-primary);
+    --hem-ring-offset: var(--hem-bg);
+  }
+}

@@ -1,0 +1,6 @@
+/* hemcss layer order — declared once, consumed everywhere.
+ * User unlayered CSS always wins. themes > component so theme overrides
+ * don't need specificity hacks. themes (plural) avoids collision with
+ * Tailwind v4's own `theme` layer.
+ */
+@layer reset, tokens, global, component, themes, overrides;

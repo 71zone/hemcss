@@ -1,0 +1,71 @@
+/* src/styles/saigon.css — Saigon component style overrides.
+ *
+ * Saigon is hemcss's compact-dense style. It shares the color palette
+ * with Hanoi but tightens everything density-wise:
+ *
+ *   button  -> h-7 (28px) / gap-1 / px-2 / py-0.5 / text-xs-relaxed
+ *              / rounded-md (8px) / 2px ring at 30% opacity
+ *   button-xs -> h-5 (20px) / rounded-sm (6px) / text-[10px]
+ *   input   -> h-7 (28px) / px-2 / py-0.5 / rounded-md / same focus
+ *   card    -> rounded-lg (10px) / text-xs-relaxed / card-title text-sm
+ *
+ * Activated by setting data-theme="saigon-light" or "saigon-dark" on
+ * <html>. The scope selector [data-theme^="saigon-"] matches both.
+ *
+ * This file contains ONLY token overrides. No `.btn` / `.card` /
+ * `.input` selectors appear here — the component CSS consumes tokens
+ * and the tokens alone determine the layout. Adding a new style
+ * variant is purely a matter of writing a new token override block
+ * like this one.
+ *
+ * Size-scaled tokens are unitless multipliers (see components.css);
+ * Saigon just reduces the numbers (7 vs Hanoi's 8 -> 28px vs 32px).
+ *
+ * Specificity: [data-theme^="saigon-"] is 0,1,0 which matches :root's
+ * 0,1,0. Source order (this file is imported after components.css in
+ * the tokens barrel) breaks the tie — Saigon tokens win when the
+ * attribute is set, and fall through to :root defaults otherwise.
+ */
+@layer tokens {
+  [data-theme^="saigon-"] {
+    /* ---- Button ---- */
+    --hem-btn-height-unit:    7;      /* 28px */
+    --hem-btn-padding-x-unit: 2;      /* 8px  */
+    --hem-btn-padding-y-unit: 1;      /* 4px  */
+    --hem-btn-gap-unit:       1;      /* 4px  */
+    --hem-btn-font-size:      var(--hem-text-xs);         /* 12px */
+    --hem-btn-line-height:    var(--hem-leading-relaxed); /* 1.625 */
+    --hem-btn-radius:         var(--hem-radius-md);       /* 8px  */
+    --hem-btn-xs-size-unit:   0.18rem;                    /* -> ~20px */
+    --hem-btn-sm-size-unit:   0.215rem;                   /* -> ~24px */
+    --hem-btn-lg-size-unit:   0.29rem;                    /* -> ~32px */
+    --hem-btn-xs-font-size:   var(--hem-text-2xs);        /* 10px */
+    --hem-btn-sm-font-size:   var(--hem-text-xs);         /* 12px */
+    --hem-btn-lg-font-size:   var(--hem-text-xs);         /* 12px */
+    --hem-btn-xs-radius:      var(--hem-radius-sm);       /* 6px  */
+    --hem-btn-sm-radius:      var(--hem-radius-md);       /* 8px  */
+
+    /* ---- Input ---- */
+    --hem-input-height-unit:    7;
+    --hem-input-padding-x-unit: 2;
+    --hem-input-padding-y-unit: 0.5;
+    --hem-input-font-size:      var(--hem-text-xs);
+    --hem-input-line-height:    var(--hem-leading-relaxed);
+    --hem-input-radius:         var(--hem-radius-md);
+    --hem-input-sm-size-unit:   0.215rem;
+    --hem-input-lg-size-unit:   0.29rem;
+    --hem-input-sm-font-size:   var(--hem-text-xs);
+    --hem-input-lg-font-size:   var(--hem-text-xs);
+    --hem-input-sm-radius:      var(--hem-radius-md);
+
+    /* ---- Card ---- */
+    --hem-card-radius:            var(--hem-radius);            /* 10px */
+    --hem-card-font-size:         var(--hem-text-xs);
+    --hem-card-line-height:       var(--hem-leading-relaxed);
+    --hem-card-title-font-size:   var(--hem-text-sm);
+    --hem-card-title-line-height: var(--hem-leading-tight);
+
+    /* ---- Focus halo ---- */
+    --hem-shadow-ring: 0 0 0 2px color-mix(in oklch, var(--hem-ring) 30%, transparent);
+  }
+}

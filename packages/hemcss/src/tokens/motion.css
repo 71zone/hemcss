@@ -1,0 +1,21 @@
+/* Motion + state tokens.
+ *
+ * Transitions use the Tailwind/material cubic-bezier for a subtle spring
+ * feel. Three speeds cover most interaction needs:
+ *   fast   — micro interactions (hover, focus)
+ *   base   — component-level transitions (open/close)
+ *   slow   — layout shifts
+ *
+ * State opacity is extracted so themes can tune how muted disabled and
+ * loading elements feel — some designs want disabled at 0.4 (more faded),
+ * others at 0.6 (less faded).
+ */
+@layer tokens {
+  :root {
+    --hem-transition-fast: .15s cubic-bezier(.4, 0, .2, 1);
+    --hem-transition-base: .2s cubic-bezier(.4, 0, .2, 1);
+    --hem-transition-slow: .3s cubic-bezier(.4, 0, .2, 1);
+    --hem-opacity-disabled: 0.5;
+    --hem-opacity-loading:  0.7;
+  }
+}

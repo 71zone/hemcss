@@ -1,0 +1,111 @@
+/* src/tokens/components.css — component-level layout tokens.
+ *
+ * Every internal layout knob for btn/input/card is declared here as a
+ * named token. Component CSS files consume only these tokens and never
+ * reference primitive scales (--hem-space-*, --hem-text-*, etc.) inline.
+ *
+ * Benefits:
+ *   - Style variants (Saigon in src/styles/saigon.css) swap density by
+ *     overriding tokens, not by rewriting component rules
+ *   - Every lever a theme author might want to tune is discoverable
+ *     in one file
+ *   - Consumer projects can override individual tokens in their own
+ *     CSS without forking the library
+ *
+ * --- Why -unit tokens are unitless ---
+ * Tokens that scale with --_size (height, padding, gap, spinner size)
+ * are declared as *unitless numbers*, e.g. --hem-btn-height-unit: 8.
+ * The component rule does the multiplication at use site:
+ *
+ *   min-height: calc(var(--_size) * var(--hem-btn-height-unit));
+ *
+ * We cannot do `--hem-btn-height: calc(var(--_size) * 8)` at :root,
+ * because --_size is undefined at :root, which makes the whole custom
+ * property invalid at computed-value time (CSS Variables spec §3.3 —
+ * guaranteed-invalid propagates through inheritance, it does NOT
+ * lazily re-resolve when a descendant defines --_size later).
+ *
+ * Static tokens (radius, font-size, colors, weights, etc.) don't
+ * depend on --_size and stay length/keyword-valued.
+ *
+ * Defaults implement shadcn Hanoi layout (Dec 2025 release — the
+ * default shadcn component style).
+ */
+@layer tokens {
+  :root {
+    /* ==================== Button ==================== */
+    /* Size-scaled (unitless multipliers) */
+    --hem-btn-height-unit:    8;      /* → 32px @ --_size 0.25rem */
+    --hem-btn-padding-x-unit: 2.5;    /* → 10px */
+    --hem-btn-padding-y-unit: 1;      /* → 4px  */
+    --hem-btn-gap-unit:       1.5;    /* → 6px  */
+    --hem-btn-spinner-unit:   4;      /* → 16px — spinner glyph box */
+
+    /* Static (no --_size dependency) */
+    --hem-btn-font-size:      var(--hem-text-sm);            /* 14px */
+    --hem-btn-font-weight:    var(--hem-font-weight-medium);
+    --hem-btn-letter-spacing: var(--hem-tracking-tight);
+    --hem-btn-line-height:    var(--hem-leading-normal);
+    --hem-btn-radius:         var(--hem-radius);             /* 10px (rounded-lg) */
+    --hem-btn-border-width:   var(--hem-border-width);
+    --hem-btn-spinner-border: calc(var(--hem-border-width) * 2);
+    --hem-btn-spinner-radius: var(--hem-radius-badge);
+
+    /* Size modifiers — each sets its own --_size (a length) and may
+     * override individual per-size tokens (font, radius). Non-xs/sm
+     * sizes inherit --hem-btn-radius from the base rule. */
+    --hem-btn-xs-size-unit:   0.1875rem;                     /* → 24px */
+    --hem-btn-sm-size-unit:   0.2188rem;                     /* → 28px (4dp) */
+    --hem-btn-lg-size-unit:   0.2813rem;                     /* → 36px (4dp) */
+    --hem-btn-xs-font-size:   var(--hem-text-xs);            /* 12px */
+    --hem-btn-sm-font-size:   var(--hem-text-xs);            /* 12px */
+    --hem-btn-lg-font-size:   var(--hem-btn-font-size);      /* inherit base */
+
+    /* Hanoi uses rounded-md (8px) at xs/sm and rounded-lg (10px) at md/lg. */
+    --hem-btn-xs-radius:      var(--hem-radius-md);          /* 8px */
+    --hem-btn-sm-radius:      var(--hem-radius-md);          /* 8px */
+
+    /* State opacities + press animation */
+    --hem-btn-disabled-opacity:   var(--hem-opacity-disabled);
+    --hem-btn-loading-opacity:    var(--hem-opacity-loading);
+    --hem-btn-active-translate-y: 1px;
+
+
+    /* ==================== Input ==================== */
+    /* Size-scaled */
+    --hem-input-height-unit:    8;    /* → 32px */
+    --hem-input-padding-x-unit: 2.5;  /* → 10px */
+    --hem-input-padding-y-unit: 1;    /* → 4px  */
+
+    /* Static */
+    --hem-input-font-size:    var(--hem-text-sm);            /* 14px */
+    --hem-input-line-height:  var(--hem-leading-normal);
+    --hem-input-radius:       var(--hem-radius);             /* 10px */
+    --hem-input-border-width: var(--hem-border-width);
+    --hem-input-sm-size-unit: 0.2188rem;                     /* → 28px */
+    --hem-input-lg-size-unit: 0.2813rem;                     /* → 36px */
+    --hem-input-sm-font-size: var(--hem-text-xs);
+    --hem-input-lg-font-size: var(--hem-input-font-size);
+    --hem-input-sm-radius:    var(--hem-radius-md);          /* Hanoi: sm → rounded-md */
+    --hem-input-disabled-opacity: var(--hem-opacity-disabled);
+
+
+    /* ==================== Card ==================== */
+    /* Cards have no --_size dependency — all static. */
+    --hem-card-radius:        var(--hem-radius-box);         /* 14px (rounded-xl) */
+    --hem-card-gap:           var(--hem-space-4);            /* 16px */
+    --hem-card-font-size:     var(--hem-text-sm);            /* 14px */
+    --hem-card-line-height:   var(--hem-leading-normal);
+    --hem-card-border-width:  var(--hem-border-width);
+    --hem-card-body-padding:  var(--hem-space-4);            /* 16px */
+    --hem-card-body-gap:      var(--hem-space-2);            /* 8px  */
+    --hem-card-title-color:       var(--hem-text-highlighted);
+    --hem-card-title-font-size:   var(--hem-text-base);      /* 16px */
+    --hem-card-title-font-weight: var(--hem-font-weight-medium);
+    --hem-card-title-line-height: var(--hem-leading-tight);
+    --hem-card-actions-gap:        var(--hem-space-2);
+    --hem-card-actions-margin-top: var(--hem-space-2);
+    --hem-card-compact-body-padding: var(--hem-space-3);     /* 12px */
+    --hem-card-compact-body-gap:     var(--hem-space-1);     /* 4px  */
+  }
+}

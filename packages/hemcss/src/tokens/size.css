@@ -1,0 +1,36 @@
+/* Size tokens.
+ *
+ * --hem-size-field / --hem-size-selector are the per-component base units
+ * that drive sizing via private --_size (see spec §5.3).
+ *
+ * --hem-space-* is a minimal spacing scale (Tailwind-style 4px base). It's
+ * consumed by component padding/gap/margin rules so themes can retune
+ * density everywhere at once.
+ *
+ * --hem-border-width / --hem-ring-width / --hem-ring-offset-width are
+ * line widths. Ring width drives the focus outline; ring-offset-width
+ * drives outline-offset.
+ */
+@layer tokens {
+  :root {
+    /* ---- Per-component size base units ---- */
+    --hem-size-field:    0.25rem;
+    --hem-size-selector: 0.2rem;
+
+    /* ---- Line widths ---- */
+    --hem-border-width:       1px;
+    --hem-ring-width:         2px;
+    --hem-ring-offset-width:  2px;
+
+    /* ---- Spacing scale (4px base) ---- */
+    --hem-space-0:  0;
+    --hem-space-1:  0.25rem;   /* 4px  */
+    --hem-space-2:  0.5rem;    /* 8px  */
+    --hem-space-3:  0.75rem;   /* 12px */
+    --hem-space-4:  1rem;      /* 16px */
+    --hem-space-5:  1.25rem;   /* 20px */
+    --hem-space-6:  1.5rem;    /* 24px */
+    --hem-space-7:  1.75rem;   /* 28px */
+    --hem-space-8:  2rem;      /* 32px */
+  }
+}

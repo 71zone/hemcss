@@ -1,0 +1,16 @@
+/* src/base.css — hemcss base entry (no components).
+ *
+ * Imports everything the component layer needs to function — layer
+ * order, reset, tokens, global styles, and style variants — but
+ * does NOT import any component CSS. Pair with individual component
+ * imports for tree-shaken builds:
+ *
+ *   @import "hemcss/base";
+ *   @import "hemcss/components/btn";
+ *   @import "hemcss/components/card";
+ */
+@import url("./layers.css");
+@import url("./reset/index.css");
+@import url("./tokens/index.css");
+@import url("./global/index.css");
+@import url("./styles/index.css");

@@ -1,0 +1,24 @@
+/* Radius tokens — single base + component aliases.
+ *
+ * Base is 0.625rem (10px) to match shadcn's `--radius` convention.
+ * Components consume specific ratios of the base so the whole scale
+ * retunes together when the base moves:
+ *   btn/field  — calc(base * 0.8) = 8px  (Tailwind rounded-md)
+ *   box (card) — base             = 10px (Tailwind rounded-lg)
+ *   badge      — 9999px           (pill)
+ *
+ * The 0.625rem base is directly lifted from shadcn/ui's globals.css
+ * (the Vega/Hanoi/Saigon shared :root). Saigon overrides individual
+ * component utility classes, not the base radius.
+ */
+@layer tokens {
+  :root {
+    --hem-radius:        0.625rem;
+    --hem-radius-sm:     calc(var(--hem-radius) * 0.6);   /* 6px  — rounded-sm */
+    --hem-radius-md:     calc(var(--hem-radius) * 0.8);   /* 8px  — rounded-md (Saigon buttons) */
+    --hem-radius-btn:    var(--hem-radius);               /* 10px — rounded-lg (Hanoi default) */
+    --hem-radius-field:  var(--hem-radius);               /* 10px — rounded-lg (Hanoi default) */
+    --hem-radius-box:    calc(var(--hem-radius) * 1.4);   /* 14px — rounded-xl (Hanoi card) */
+    --hem-radius-badge:  9999px;
+  }
+}

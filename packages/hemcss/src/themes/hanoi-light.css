@@ -1,0 +1,52 @@
+/* src/themes/hanoi-light.css — Hanoi layout + light color palette.
+ *
+ * Inspired by DaisyUI's "caramellatte" — warm creamy tones with a
+ * black primary and coffee-brown accents. Formal, cozy, readable.
+ *
+ * Hanoi is hemcss's DEFAULT component layout (spacious, formal).
+ * This theme file only provides the color-token mapping scoped to
+ * [data-theme="hanoi-light"]; the default Hanoi-layout component CSS
+ * already matches out of the box because no style variant is active.
+ *
+ * Each theme file is a standalone entry point — it imports ../layers.css
+ * so the @layer themes slot exists even when the theme is loaded alone.
+ */
+@import url("../layers.css");
+
+@layer themes {
+  [data-theme="hanoi-light"] {
+    /* ---- Semantic aliases ---- */
+    --hem-primary:   oklch(0% 0 0deg);                    /* black */
+    --hem-secondary: oklch(22.45% 0.075 37.85deg);        /* dark espresso */
+    --hem-success:   oklch(43% 0.095 166.913deg);          /* muted green */
+    --hem-info:      oklch(42% 0.199 265.638deg);          /* deep blue */
+    --hem-warning:   oklch(82% 0.189 84.429deg);           /* warm amber */
+    --hem-error:     oklch(70% 0.191 22.216deg);           /* muted red */
+    --hem-neutral:   oklch(55% 0.195 38.402deg);           /* warm brown */
+
+    /* ---- Text roles ---- */
+    --hem-text:             oklch(40% 0.123 38.172deg);    /* warm dark brown */
+    --hem-text-dimmed:      oklch(60% 0.06 50deg);
+    --hem-text-muted:       oklch(55% 0.08 45deg);
+    --hem-text-toned:       oklch(45% 0.1 40deg);
+    --hem-text-highlighted: oklch(25% 0.06 35deg);
+    --hem-text-inverted:    oklch(100% 0 0deg);
+
+    /* ---- Background roles ---- */
+    --hem-bg:          oklch(98% 0.016 73.684deg);         /* warm cream */
+    --hem-bg-muted:    oklch(96.5% 0.027 74deg);
+    --hem-bg-elevated: oklch(95% 0.038 75.164deg);         /* latte */
+    --hem-bg-accented: oklch(90% 0.076 70.697deg);         /* deeper caramel */
+    --hem-bg-inverted: oklch(25% 0.06 35deg);
+
+    /* ---- Border roles ---- */
+    --hem-border:          oklch(88% 0.06 72deg);
+    --hem-border-muted:    oklch(92% 0.04 74deg);
+    --hem-border-accented: oklch(82% 0.08 68deg);
+    --hem-border-inverted: oklch(25% 0.06 35deg);
+
+    /* ---- Ring ---- */
+    --hem-ring:        var(--hem-primary);
+    --hem-ring-offset: var(--hem-bg);
+  }
+}

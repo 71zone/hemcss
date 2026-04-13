@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "description": "hemcss component manifest — authored manually, consumed by future scanner (v2). Keep in sync with src/components/*.css. All names are bare (no class prefix): variants/sizes/modifiers get the component prefix applied by the scanner; states get the universal 'is-' prefix; parts get the component prefix applied.",
+  "components": {
+    "btn": {
+      "file": "./btn.css",
+      "variants": ["primary", "secondary", "success", "info", "warning", "error", "neutral", "ghost", "outline", "link"],
+      "sizes": ["xs", "sm", "lg"],
+      "states": ["loading", "disabled"],
+      "requires": []
+    },
+    "card": {
+      "file": "./card.css",
+      "parts": ["body", "title", "actions"],
+      "modifiers": ["bordered", "compact", "side"],
+      "variants": [],
+      "sizes": [],
+      "states": [],
+      "requires": []
+    },
+    "input": {
+      "file": "./input.css",
+      "variants": ["bordered", "ghost"],
+      "sizes": ["sm", "lg"],
+      "states": ["invalid", "disabled"],
+      "requires": []
+    }
+  }
+}

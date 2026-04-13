@@ -1,0 +1,5 @@
+/* Standalone input component entry.
+ * Import after hemcss/base to get just the input component.
+ */
+@import url("../layers.css");
+@import url("../components/input.css");

@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "description": "hemcss token contract — required tokens every theme must define.",
+  "tokens": [
+    { "name": "--hem-primary",        "category": "semantic-color", "required": true  },
+    { "name": "--hem-secondary",      "category": "semantic-color", "required": true  },
+    { "name": "--hem-success",        "category": "semantic-color", "required": true  },
+    { "name": "--hem-info",           "category": "semantic-color", "required": true  },
+    { "name": "--hem-warning",        "category": "semantic-color", "required": true  },
+    { "name": "--hem-error",          "category": "semantic-color", "required": true  },
+    { "name": "--hem-neutral",        "category": "semantic-color", "required": true  },
+
+    { "name": "--hem-text",             "category": "text-role", "required": true },
+    { "name": "--hem-text-dimmed",      "category": "text-role", "required": true },
+    { "name": "--hem-text-muted",       "category": "text-role", "required": true },
+    { "name": "--hem-text-toned",       "category": "text-role", "required": true },
+    { "name": "--hem-text-highlighted", "category": "text-role", "required": true },
+    { "name": "--hem-text-inverted",    "category": "text-role", "required": true },
+
+    { "name": "--hem-bg",          "category": "bg-role", "required": true },
+    { "name": "--hem-bg-muted",    "category": "bg-role", "required": true },
+    { "name": "--hem-bg-elevated", "category": "bg-role", "required": true },
+    { "name": "--hem-bg-accented", "category": "bg-role", "required": true },
+    { "name": "--hem-bg-inverted", "category": "bg-role", "required": true },
+
+    { "name": "--hem-border",          "category": "border-role", "required": true },
+    { "name": "--hem-border-muted",    "category": "border-role", "required": true },
+    { "name": "--hem-border-accented", "category": "border-role", "required": true },
+    { "name": "--hem-border-inverted", "category": "border-role", "required": true },
+
+    { "name": "--hem-ring",        "category": "ring", "required": true },
+    { "name": "--hem-ring-offset", "category": "ring", "required": true },
+
+    { "name": "--hem-radius",       "category": "radius", "required": true  },
+    { "name": "--hem-radius-sm",    "category": "radius", "required": false },
+    { "name": "--hem-radius-btn",   "category": "radius", "required": false },
+    { "name": "--hem-radius-field", "category": "radius", "required": false },
+    { "name": "--hem-radius-box",   "category": "radius", "required": false },
+    { "name": "--hem-radius-badge", "category": "radius", "required": false },
+
+    { "name": "--hem-size-field",    "category": "size", "required": true },
+    { "name": "--hem-size-selector", "category": "size", "required": true },
+
+    { "name": "--hem-shadow-sm",   "category": "shadow", "required": true  },
+    { "name": "--hem-shadow-md",   "category": "shadow", "required": true  },
+    { "name": "--hem-shadow-lg",   "category": "shadow", "required": true  },
+    { "name": "--hem-shadow-ring", "category": "shadow", "required": false },
+
+    { "name": "--hem-font-sans",   "category": "typography", "required": true },
+    { "name": "--hem-font-mono",   "category": "typography", "required": true },
+    { "name": "--hem-text-size",   "category": "typography", "required": true },
+    { "name": "--hem-text-weight", "category": "typography", "required": true },
+    { "name": "--hem-line-height", "category": "typography", "required": true },
+
+    { "name": "--hem-font-weight-normal",    "category": "typography", "required": false },
+    { "name": "--hem-font-weight-medium",    "category": "typography", "required": false },
+    { "name": "--hem-font-weight-semibold",  "category": "typography", "required": false },
+    { "name": "--hem-font-weight-bold",      "category": "typography", "required": false },
+
+    { "name": "--hem-text-2xs",  "category": "typography", "required": false },
+    { "name": "--hem-text-xs",   "category": "typography", "required": false },
+    { "name": "--hem-text-sm",   "category": "typography", "required": false },
+    { "name": "--hem-text-base", "category": "typography", "required": false },
+    { "name": "--hem-text-lg",   "category": "typography", "required": false },
+    { "name": "--hem-text-xl",   "category": "typography", "required": false },
+    { "name": "--hem-text-2xl",  "category": "typography", "required": false },
+
+    { "name": "--hem-tracking-tight",  "category": "typography", "required": false },
+    { "name": "--hem-tracking-normal", "category": "typography", "required": false },
+    { "name": "--hem-tracking-wide",   "category": "typography", "required": false },
+
+    { "name": "--hem-leading-tight",   "category": "typography", "required": false },
+    { "name": "--hem-leading-normal",  "category": "typography", "required": false },
+    { "name": "--hem-leading-relaxed", "category": "typography", "required": false },
+
+    { "name": "--hem-border-width",      "category": "size", "required": false },
+    { "name": "--hem-ring-width",        "category": "size", "required": false },
+    { "name": "--hem-ring-offset-width", "category": "size", "required": false },
+
+    { "name": "--hem-space-0", "category": "size", "required": false },
+    { "name": "--hem-space-1", "category": "size", "required": false },
+    { "name": "--hem-space-2", "category": "size", "required": false },
+    { "name": "--hem-space-3", "category": "size", "required": false },
+    { "name": "--hem-space-4", "category": "size", "required": false },
+    { "name": "--hem-space-5", "category": "size", "required": false },
+    { "name": "--hem-space-6", "category": "size", "required": false },
+    { "name": "--hem-space-7", "category": "size", "required": false },
+    { "name": "--hem-space-8", "category": "size", "required": false },
+
+    { "name": "--hem-transition-fast", "category": "motion", "required": false },
+    { "name": "--hem-transition-base", "category": "motion", "required": false },
+    { "name": "--hem-transition-slow", "category": "motion", "required": false },
+
+    { "name": "--hem-opacity-disabled", "category": "motion", "required": false },
+    { "name": "--hem-opacity-loading",  "category": "motion", "required": false },
+
+    { "name": "--hem-color-primary-500",   "category": "palette", "required": false },
+    { "name": "--hem-color-secondary-500", "category": "palette", "required": false },
+    { "name": "--hem-color-success-500",   "category": "palette", "required": false },
+    { "name": "--hem-color-info-500",      "category": "palette", "required": false },
+    { "name": "--hem-color-warning-500",   "category": "palette", "required": false },
+    { "name": "--hem-color-error-500",     "category": "palette", "required": false },
+    { "name": "--hem-color-neutral-500",   "category": "palette", "required": false }
+  ]
+}

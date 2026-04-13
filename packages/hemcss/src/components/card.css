@@ -1,0 +1,69 @@
+/* src/components/card.css — card container component.
+ * No color variants in v1. Parts: card-body, card-title, card-actions.
+ * Modifiers: bordered, compact, side.
+ *
+ * Layout values all come from --hem-card-* component tokens defined in
+ * src/tokens/components.css. Style variants (Saigon) override those
+ * tokens in src/styles/saigon.css.
+ */
+@layer component {
+  /* ==== Structure ==== */
+  /* Default skin is inlined on the base so a bare .card renders.
+   * v1 has no color variants; a future .card-primary etc. would
+   * override background-color + border-color the same way .btn-* does. */
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--hem-card-gap);
+    background-color: var(--hem-bg-elevated);
+    color: var(--hem-text);
+    border: var(--hem-card-border-width) solid var(--hem-border);
+    border-radius: var(--hem-card-radius);
+    overflow: hidden;
+    font-size: var(--hem-card-font-size);
+    line-height: var(--hem-card-line-height);
+  }
+
+  /* ==== Parts ==== */
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--hem-card-body-gap);
+    padding: var(--hem-card-body-padding);
+    flex: 1 1 auto;
+  }
+
+  .card-title {
+    color: var(--hem-card-title-color);
+    font-weight: var(--hem-card-title-font-weight);
+    font-size: var(--hem-card-title-font-size);
+    line-height: var(--hem-card-title-line-height);
+  }
+
+  .card-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--hem-card-actions-gap);
+    margin-top: var(--hem-card-actions-margin-top);
+  }
+
+  /* ==== Modifiers ==== */
+  .card-bordered {
+    border-color: var(--hem-border-accented);
+  }
+
+  .card-compact .card-body {
+    padding: var(--hem-card-compact-body-padding);
+    gap: var(--hem-card-compact-body-gap);
+  }
+
+  .card-side {
+    flex-direction: row;
+    gap: 0;
+  }
+  /* Only .card-body flexes — fixed-width media children
+   * (e.g., <figure><img></figure>) keep their natural size. */
+  .card-side > .card-body {
+    flex: 1 1 auto;
+  }
+}

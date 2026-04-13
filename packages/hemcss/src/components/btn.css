@@ -1,0 +1,175 @@
+/* src/components/btn.css — button component.
+ * OOCSS: structure in .btn, skin in .btn-<variant>, size in .btn-<size>,
+ * state via .is-* classes paired with native attributes.
+ *
+ * Layout values all come from --hem-btn-* component tokens defined in
+ * src/tokens/components.css. Style variants (Saigon) override those
+ * tokens in src/styles/saigon.css; this file never needs changes when
+ * adding or retuning a style.
+ */
+@layer component {
+  /* ==== Structure ==== */
+  .btn {
+    --_size: var(--hem-size-field);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* -unit tokens are unitless; multiplied by --_size at use site
+     * because :root can't resolve var(--_size). See components.css. */
+    gap:            calc(var(--_size) * var(--hem-btn-gap-unit));
+    padding-inline: calc(var(--_size) * var(--hem-btn-padding-x-unit));
+    padding-block:  calc(var(--_size) * var(--hem-btn-padding-y-unit));
+    min-height:     calc(var(--_size) * var(--hem-btn-height-unit));
+    font-size:      var(--hem-btn-font-size);
+    line-height:    var(--hem-btn-line-height);
+
+    /* Default skin — variant classes override these. */
+    background-color: var(--hem-bg-elevated);
+    color: var(--hem-text);
+    border: var(--hem-btn-border-width) solid var(--hem-border);
+    border-radius: var(--hem-btn-radius);
+    font-weight: var(--hem-btn-font-weight);
+    letter-spacing: var(--hem-btn-letter-spacing);
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition:
+      background-color var(--hem-transition-fast),
+      color            var(--hem-transition-fast),
+      border-color     var(--hem-transition-fast),
+      box-shadow       var(--hem-transition-fast),
+      transform        var(--hem-transition-fast),
+      opacity          var(--hem-transition-fast);
+  }
+
+  /* Focus: border → ring + box-shadow halo. Visible indicator replaces
+   * the suppressed outline. */
+  .btn:focus-visible {
+    border-color: var(--hem-ring);
+    box-shadow: var(--hem-shadow-ring);
+  }
+
+  /* Subtle press animation. */
+  .btn:active {
+    transform: translateY(var(--hem-btn-active-translate-y));
+  }
+
+  /* ==== Variants (skin) ==== */
+  .btn-primary {
+    background-color: var(--hem-primary);
+    color: var(--hem-text-inverted);
+    border-color: transparent;
+  }
+  .btn-secondary {
+    background-color: var(--hem-secondary);
+    color: var(--hem-text-inverted);
+    border-color: transparent;
+  }
+  .btn-success {
+    background-color: var(--hem-success);
+    color: var(--hem-text-inverted);
+    border-color: transparent;
+  }
+  .btn-info {
+    background-color: var(--hem-info);
+    color: var(--hem-text-inverted);
+    border-color: transparent;
+  }
+  .btn-warning {
+    background-color: var(--hem-warning);
+    color: var(--hem-text-inverted);
+    border-color: transparent;
+  }
+  .btn-error {
+    background-color: var(--hem-error);
+    color: var(--hem-text-inverted);
+    border-color: transparent;
+  }
+  .btn-neutral {
+    background-color: var(--hem-neutral);
+    color: var(--hem-text-inverted);
+    border-color: transparent;
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--hem-text);
+    border-color: transparent;
+  }
+  .btn-ghost:hover {
+    background-color: var(--hem-bg-accented);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--hem-text);
+    border-color: var(--hem-border);
+  }
+  .btn-outline:hover {
+    background-color: var(--hem-bg-accented);
+  }
+
+  .btn-link {
+    background-color: transparent;
+    color: var(--hem-primary);
+    border-color: transparent;
+    text-decoration: underline;
+  }
+
+  /* ==== Sizes ==== */
+  /* Each size swaps --_size and optionally overrides the per-size
+   * font-size / border-radius tokens. The base rule picks them up
+   * because every size-specific token has a :root default. */
+  .btn-xs {
+    --_size: var(--hem-btn-xs-size-unit);
+
+    font-size: var(--hem-btn-xs-font-size);
+    border-radius: var(--hem-btn-xs-radius);
+  }
+  .btn-sm {
+    --_size: var(--hem-btn-sm-size-unit);
+
+    font-size: var(--hem-btn-sm-font-size);
+    border-radius: var(--hem-btn-sm-radius);
+  }
+  .btn-lg {
+    --_size: var(--hem-btn-lg-size-unit);
+
+    font-size: var(--hem-btn-lg-font-size);
+  }
+
+  /* ==== Width ==== */
+  .btn-block {
+    display: flex;
+    width: 100%;
+  }
+
+  /* ==== States ==== */
+  .btn:where(.is-loading) {
+    pointer-events: none;
+    opacity: var(--hem-btn-loading-opacity);
+  }
+  .btn:where(.is-loading)::after {
+    content: "";
+    width: calc(var(--_size) * var(--hem-btn-spinner-unit));
+    height: calc(var(--_size) * var(--hem-btn-spinner-unit));
+    border: var(--hem-btn-spinner-border) solid currentcolor;
+    border-top-color: transparent;
+    border-radius: var(--hem-btn-spinner-radius);
+    animation: hem-btn-spin 0.7s linear infinite;
+  }
+
+  .btn:where(:disabled, [disabled], .is-disabled) {
+    pointer-events: none;
+    opacity: var(--hem-btn-disabled-opacity);
+    cursor: not-allowed;
+  }
+
+  @keyframes hem-btn-spin {
+    to { transform: rotate(360deg); }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "hemcss-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Workspace root for the hemcss CSS component library, its docs site, Storybook, and demo page.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.20.0",
+  "scripts": {
+    "build": "pnpm --filter hemcss build",
+    "dev": "pnpm --filter hemcss dev",
+    "test": "pnpm --filter hemcss test",
+    "test:watch": "pnpm --filter hemcss test:watch",
+    "lint": "pnpm --filter hemcss lint",
+    "lint:fix": "pnpm --filter hemcss lint:fix",
+    "demo": "pnpm --filter @hemcss/demo demo",
+    "storybook": "pnpm --filter @hemcss/storybook storybook",
+    "storybook:build": "pnpm --filter @hemcss/storybook storybook:build",
+    "docs:dev": "pnpm --filter @hemcss/docs dev",
+    "docs:build": "pnpm --filter @hemcss/docs build",
+    "docs:preview": "pnpm --filter @hemcss/docs preview"
+  }
+}

@@ -1,0 +1,121 @@
+/* Docs-site styling — maps VitePress CSS variables to hemcss tokens
+ * so the entire docs site reflects the active hemcss theme.
+ *
+ * When the user switches between Hanoi/Saigon or light/dark, every
+ * VitePress surface, text, border, and accent color updates live.
+ */
+
+/* ---- VitePress ← hemcss token bridge ---- */
+:root {
+  /* Backgrounds */
+  --vp-c-bg:      var(--hem-bg);
+  --vp-c-bg-alt:  var(--hem-bg-muted);
+  --vp-c-bg-elv:  var(--hem-bg-elevated);
+  --vp-c-bg-soft: var(--hem-bg-elevated);
+
+  /* Text — toned (not muted) for text-2 so sidebar links stay readable
+   * on warm/colored backgrounds like caramellatte */
+  --vp-c-text-1: var(--hem-text-highlighted);
+  --vp-c-text-2: var(--hem-text-toned);
+  --vp-c-text-3: var(--hem-text-muted);
+
+  /* Borders & dividers */
+  --vp-c-border:  var(--hem-border-accented);
+  --vp-c-divider: var(--hem-border);
+  --vp-c-gutter:  var(--hem-border-muted);
+
+  /* Brand / primary accent */
+  --vp-c-brand-1:    var(--hem-primary);
+  --vp-c-brand-2:    var(--hem-primary);
+  --vp-c-brand-3:    var(--hem-primary);
+  --vp-c-brand-soft: var(--hem-bg-accented);
+
+  /* Semantic soft tints (custom containers, badges) */
+  --vp-c-default-soft: var(--hem-bg-elevated);
+  --vp-c-green-soft:   color-mix(in oklch, var(--hem-success) 14%, transparent);
+  --vp-c-yellow-soft:  color-mix(in oklch, var(--hem-warning) 14%, transparent);
+  --vp-c-red-soft:     color-mix(in oklch, var(--hem-error) 14%, transparent);
+  --vp-c-purple-soft:  color-mix(in oklch, var(--hem-secondary) 14%, transparent);
+  --vp-c-indigo-soft:  color-mix(in oklch, var(--hem-info) 14%, transparent);
+
+  /* Semantic solid (custom container borders/labels) */
+  --vp-c-green-1:  var(--hem-success);
+  --vp-c-green-2:  var(--hem-success);
+  --vp-c-green-3:  var(--hem-success);
+  --vp-c-yellow-1: var(--hem-warning);
+  --vp-c-yellow-2: var(--hem-warning);
+  --vp-c-yellow-3: var(--hem-warning);
+  --vp-c-red-1:    var(--hem-error);
+  --vp-c-red-2:    var(--hem-error);
+  --vp-c-red-3:    var(--hem-error);
+  --vp-c-purple-1: var(--hem-secondary);
+  --vp-c-purple-2: var(--hem-secondary);
+  --vp-c-purple-3: var(--hem-secondary);
+  --vp-c-indigo-1: var(--hem-info);
+  --vp-c-indigo-2: var(--hem-info);
+  --vp-c-indigo-3: var(--hem-info);
+
+  /* Inline code */
+  --vp-code-color: var(--hem-text-toned);
+  --vp-code-bg:    var(--hem-bg-elevated);
+
+  /* Code blocks */
+  --vp-code-block-bg: var(--hem-bg-muted);
+
+  /* Nav & sidebar */
+  --vp-nav-bg-color:     var(--hem-bg);
+  --vp-sidebar-bg-color: var(--hem-bg-muted);
+}
+
+/* Dark mode — same mapping, no overrides needed because hemcss tokens
+ * already resolve to dark values when data-theme ends in "-dark".
+ * VitePress's .dark class triggers this block, but the var() bridge
+ * above already points to the correct hemcss tokens. We just repeat
+ * the mapping here so VitePress's dark-mode specificity is satisfied. */
+.dark {
+  --vp-c-bg:      var(--hem-bg);
+  --vp-c-bg-alt:  var(--hem-bg-muted);
+  --vp-c-bg-elv:  var(--hem-bg-elevated);
+  --vp-c-bg-soft: var(--hem-bg-elevated);
+  --vp-c-text-1:  var(--hem-text-highlighted);
+  --vp-c-text-2:  var(--hem-text-toned);
+  --vp-c-text-3:  var(--hem-text-muted);
+  --vp-c-border:  var(--hem-border-accented);
+  --vp-c-divider: var(--hem-border);
+  --vp-c-gutter:  var(--hem-border-muted);
+  --vp-c-brand-1:    var(--hem-primary);
+  --vp-c-brand-2:    var(--hem-primary);
+  --vp-c-brand-3:    var(--hem-primary);
+  --vp-c-brand-soft: var(--hem-bg-accented);
+  --vp-code-color:    var(--hem-text-toned);
+  --vp-code-bg:       var(--hem-bg-accented);
+  --vp-code-block-bg: var(--hem-bg-muted);
+}
+
+/* ---- Component preview containers ---- */
+.preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  margin: 1rem 0 0.75rem;
+  background-color: var(--hem-bg);
+  border: 1px dashed var(--hem-border-accented);
+  border-radius: var(--hem-radius);
+}
+
+.preview.preview-stack {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.preview.preview-center > * {
+  margin: 0 auto;
+}
+
+/* Ensure VitePress's own typography doesn't leak into live previews
+ * (e.g. the default link underline would show up on .btn-link). */
+.preview a {
+  text-decoration: none;
+}

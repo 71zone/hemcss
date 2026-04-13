@@ -1,0 +1,18 @@
+{
+  "name": "@hemcss/storybook",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Storybook component explorer for hemcss. Renders plain DOM via Storybook's HTML framework and imports hemcss CSS from the workspace.",
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build"
+  },
+  "dependencies": {
+    "hemcss": "workspace:*"
+  },
+  "devDependencies": {
+    "@storybook/html-vite": "^9",
+    "storybook": "^9"
+  }
+}

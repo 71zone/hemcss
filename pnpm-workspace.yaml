@@ -1,0 +1,21 @@
+# hemcss workspace root.
+#
+# The hemcss package itself lives at the repo root (this directory).
+# The `packages/*` glob is reserved for future subpackages:
+#   - hemcss-theme-<name>   community themes published from the monorepo
+#   - hemcss-scanner        future v2 scanner plugin (spec §11.1)
+#   - hemcss-theme-cli      future theme generator (spec §11.4)
+#
+# Adding a new package is just: mkdir packages/<name>; cp template files;
+# run `pnpm install`. The workspace protocol (`workspace:*`) lets packages
+# depend on each other without publishing.
+packages:
+  - .
+  - packages/*
+  - apps/*
+
+# esbuild ships prebuilt binaries and doesn't need to run its postinstall
+# script; keeping it ignored keeps the install surface smaller without
+# breaking Vitest or Storybook (both use the prebuilt binary).
+ignoredBuiltDependencies:
+  - esbuild

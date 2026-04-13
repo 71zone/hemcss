@@ -1,0 +1,12 @@
+/* Tokens barrel — imports all token source files in a specific order.
+ * Order matters: palette defines raw values; semantic.css references them;
+ * non-color tokens are independent.
+ */
+@import url("./palette.css");
+@import url("./semantic.css");
+@import url("./radius.css");
+@import url("./size.css");
+@import url("./shadow.css");
+@import url("./typography.css");
+@import url("./motion.css");
+@import url("./components.css");

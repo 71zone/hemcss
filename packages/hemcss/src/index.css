@@ -1,0 +1,19 @@
+/* src/index.css — hemcss core entry (themeless by default).
+ * Themes are built as separate entry points in src/themes/.
+ *
+ * Load order:
+ *   1. layers.css      — @layer declaration
+ *   2. reset/          — CSS reset
+ *   3. tokens/         — design tokens (palette, semantic, radius, etc.)
+ *   4. global/         — root body styles
+ *   5. components/     — default Hanoi-layout components
+ *   6. styles/         — optional style variants (Saigon), scoped by
+ *                        data-theme prefix so they're inert until
+ *                        the user opts in
+ */
+@import url("./layers.css");
+@import url("./reset/index.css");
+@import url("./tokens/index.css");
+@import url("./global/index.css");
+@import url("./components/index.css");
+@import url("./styles/index.css");

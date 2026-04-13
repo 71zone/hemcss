@@ -1,0 +1,6 @@
+/* Components barrel — one @import per component file.
+ * Each component file wraps its rules in @layer component.
+ */
+@import url("./btn.css");
+@import url("./card.css");
+@import url("./input.css");
