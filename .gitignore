@@ -16,3 +16,9 @@ apps/**/.vitepress/cache/
 .vscode/
 .idea/
 coverage/
+
+# superpowers / playwright / screenshots
+.superpowers/
+.playwright-mcp/
+docs/superpowers/
+*.png
