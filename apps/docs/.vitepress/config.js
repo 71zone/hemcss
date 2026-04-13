@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base: '/hemcss/',
   title: 'hemcss',
   description:
     'A semantic-class CSS component library with OKLCH tokens, cascade layers, and zero Tailwind dependency.',
