@@ -1,19 +1,44 @@
 // stories/radio.stories.js — hemcss radio button component.
 
-let radioId = 0
+const createRadioWithLabel = (name, classes, label, checked, disabled) => {
+  const wrapper = document.createElement('label')
+  wrapper.style.display = 'inline-flex'
+  wrapper.style.alignItems = 'center'
+  wrapper.style.gap = '0.5rem'
+  wrapper.style.cursor = disabled ? 'not-allowed' : 'pointer'
+
+  const el = document.createElement('input')
+  el.type = 'radio'
+  el.name = name
+  el.className = classes.join(' ')
+  if (checked) el.checked = true
+  if (disabled) el.disabled = true
+
+  const span = document.createElement('span')
+  span.className = 'label-text'
+  span.textContent = label
+
+  wrapper.appendChild(el)
+  wrapper.appendChild(span)
+  return wrapper
+}
+
 const renderRadio = ({ color, size, checked, disabled }) => {
   const classes = ['radio']
   if (color) classes.push(`radio-${color}`)
   if (size) classes.push(`radio-${size}`)
   if (disabled) classes.push('is-disabled')
 
-  const el = document.createElement('input')
-  el.type = 'radio'
-  el.name = `radio-story-${++radioId}`
-  el.className = classes.join(' ')
-  if (checked) el.checked = true
-  if (disabled) el.disabled = true
-  return el
+  const group = document.createElement('div')
+  group.style.display = 'flex'
+  group.style.flexDirection = 'column'
+  group.style.gap = '0.5rem'
+
+  const name = `radio-${Date.now()}`
+  group.appendChild(createRadioWithLabel(name, classes, 'Option A', checked, disabled))
+  group.appendChild(createRadioWithLabel(name, classes, 'Option B', false, disabled))
+  group.appendChild(createRadioWithLabel(name, classes, 'Option C', false, disabled))
+  return group
 }
 
 /** @type { import('@storybook/html-vite').Meta } */
@@ -59,11 +84,15 @@ export const AllColors = {
   render: () => {
     const wrap = document.createElement('div')
     wrap.style.display = 'flex'
-    wrap.style.gap = '0.5rem'
+    wrap.style.gap = '1rem'
     wrap.style.alignItems = 'center'
     const colors = ['', 'primary', 'secondary', 'success', 'info', 'warning', 'error', 'neutral']
     for (const c of colors) {
-      wrap.appendChild(renderRadio({ color: c, size: '', checked: true, disabled: false }))
+      const cls = ['radio']
+      if (c) cls.push(`radio-${c}`)
+      wrap.appendChild(
+        createRadioWithLabel(`all-colors`, cls, c || 'default', c === '', false),
+      )
     }
     return wrap
   },

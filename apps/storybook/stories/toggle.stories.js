@@ -1,17 +1,42 @@
 // stories/toggle.stories.js — hemcss toggle/switch component.
 
-const renderToggle = ({ color, size, checked, disabled }) => {
-  const classes = ['toggle']
-  if (color) classes.push(`toggle-${color}`)
-  if (size) classes.push(`toggle-${size}`)
-  if (disabled) classes.push('is-disabled')
+const createToggleWithLabel = (classes, label, checked, disabled) => {
+  const wrapper = document.createElement('label')
+  wrapper.style.display = 'inline-flex'
+  wrapper.style.alignItems = 'center'
+  wrapper.style.gap = '0.5rem'
+  wrapper.style.cursor = disabled ? 'not-allowed' : 'pointer'
 
   const el = document.createElement('input')
   el.type = 'checkbox'
   el.className = classes.join(' ')
   if (checked) el.checked = true
   if (disabled) el.disabled = true
-  return el
+
+  const span = document.createElement('span')
+  span.className = 'label-text'
+  span.textContent = label
+
+  wrapper.appendChild(el)
+  wrapper.appendChild(span)
+  return wrapper
+}
+
+const renderToggle = ({ color, size, checked, disabled }) => {
+  const classes = ['toggle']
+  if (color) classes.push(`toggle-${color}`)
+  if (size) classes.push(`toggle-${size}`)
+  if (disabled) classes.push('is-disabled')
+
+  const group = document.createElement('div')
+  group.style.display = 'flex'
+  group.style.flexDirection = 'column'
+  group.style.gap = '0.5rem'
+
+  group.appendChild(createToggleWithLabel(classes, 'Dark mode', checked, disabled))
+  group.appendChild(createToggleWithLabel(classes, 'Notifications', false, disabled))
+  group.appendChild(createToggleWithLabel(classes, 'Auto-save', false, disabled))
+  return group
 }
 
 /** @type { import('@storybook/html-vite').Meta } */
@@ -57,11 +82,13 @@ export const AllColors = {
   render: () => {
     const wrap = document.createElement('div')
     wrap.style.display = 'flex'
-    wrap.style.gap = '0.5rem'
+    wrap.style.gap = '1rem'
     wrap.style.alignItems = 'center'
     const colors = ['', 'primary', 'secondary', 'success', 'info', 'warning', 'error', 'neutral']
     for (const c of colors) {
-      wrap.appendChild(renderToggle({ color: c, size: '', checked: true, disabled: false }))
+      const cls = ['toggle']
+      if (c) cls.push(`toggle-${c}`)
+      wrap.appendChild(createToggleWithLabel(cls, c || 'default', true, false))
     }
     return wrap
   },

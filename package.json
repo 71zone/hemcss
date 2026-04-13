@@ -10,17 +10,24 @@
   },
   "packageManager": "pnpm@10.20.0",
   "scripts": {
-    "build": "pnpm --filter hemcss build",
-    "dev": "pnpm --filter hemcss dev",
-    "test": "pnpm --filter hemcss test",
-    "test:watch": "pnpm --filter hemcss test:watch",
-    "lint": "pnpm --filter hemcss lint",
-    "lint:fix": "pnpm --filter hemcss lint:fix",
+    "build": "pnpm --filter @71z/hemcss build",
+    "dev": "pnpm --filter @71z/hemcss dev",
+    "test": "pnpm --filter @71z/hemcss test",
+    "test:watch": "pnpm --filter @71z/hemcss test:watch",
+    "lint": "pnpm --filter @71z/hemcss lint",
+    "lint:fix": "pnpm --filter @71z/hemcss lint:fix",
     "demo": "pnpm --filter @hemcss/demo demo",
     "storybook": "pnpm --filter @hemcss/storybook storybook",
     "storybook:build": "pnpm --filter @hemcss/storybook storybook:build",
     "docs:dev": "pnpm --filter @hemcss/docs dev",
     "docs:build": "pnpm --filter @hemcss/docs build",
-    "docs:preview": "pnpm --filter @hemcss/docs preview"
+    "docs:preview": "pnpm --filter @hemcss/docs preview",
+    "changeset": "changeset",
+    "release": "bash scripts/release.sh",
+    "release:dry": "bash scripts/release.sh --dry-run"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.6.0",
+    "@changesets/cli": "^2.30.0"
   }
 }
