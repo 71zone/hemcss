@@ -1,139 +1,102 @@
 # hemcss
 
-A semantic-class CSS component library with OKLCH tokens, cascade layers, and zero Tailwind dependency.
+Semantic-class CSS components. OKLCH tokens. Cascade layers. Zero Tailwind dependency.
 
-```html
-<link rel="stylesheet" href="https://cdn/hemcss@1/hemcss.min.css">
-<link rel="stylesheet" href="https://cdn/hemcss@1/themes/dark.min.css">
-
-<button class="btn btn-primary">Save</button>
-<div class="card">
-  <div class="card-body">
-    <h3 class="card-title">Hello</h3>
-  </div>
-</div>
-```
-
-## Repo layout
-
-This repository is a pnpm workspace monorepo.
-
-```
-hemcss/
-├── packages/
-│   └── hemcss/          # the CSS library (published to npm as `hemcss`)
-├── apps/
-│   ├── demo/            # zero-build static demo page
-│   ├── storybook/       # Storybook component explorer
-│   └── docs/            # VitePress documentation site
-├── docs/
-│   └── superpowers/     # internal specs and execution plans (not user-facing)
-├── pnpm-workspace.yaml
-├── package.json         # workspace root — meta scripts only
-└── README.md
-```
-
-- **`packages/hemcss/`** is the actual library: source, PostCSS plugin, Vite wrapper, tests, token schema, build config. It's the only thing that gets published.
-- **`apps/*`** are private workspaces (`"private": true`) that consume `hemcss` via `"hemcss": "workspace:*"`. They never publish.
-- **`docs/superpowers/`** holds the spec and implementation plan used to build hemcss. Kept for reference; not shipped.
-
-## Development
-
-**Requirements:**
-
-- Node ≥22 (see `.nvmrc`)
-- pnpm ≥10 (via Corepack: `corepack enable pnpm`)
-
-```bash
-nvm use                  # picks Node 22 from .nvmrc
-pnpm install             # installs every workspace
-
-pnpm build               # build hemcss core → packages/hemcss/dist/
-pnpm dev                 # watch-mode rebuild (postcss-cli --watch)
-pnpm test                # vitest run on packages/hemcss/test/
-pnpm lint                # stylelint on packages/hemcss/src/
-
-pnpm demo                # serve apps/demo/ static page at http://localhost:3000/apps/demo/
-pnpm storybook           # start Storybook on :6006
-pnpm storybook:build     # static-build Storybook → apps/storybook/storybook-static/
-
-pnpm docs:dev            # VitePress dev server on :5173
-                         # (avoids `pnpm docs`, which is pnpm's
-                         #  built-in "open package documentation"
-                         #  command inherited from npm)
-pnpm docs:build          # static-build the docs site
-pnpm docs:preview        # preview the built docs locally
-```
-
-All scripts at the root delegate into the appropriate workspace via `pnpm --filter`. You can also run package-scoped commands directly:
-
-```bash
-pnpm --filter hemcss test
-pnpm --filter @hemcss/storybook storybook
-pnpm --filter @hemcss/docs dev
-```
-
-## First-time build order
-
-The apps (`demo`, `storybook`, `docs`) all import `hemcss` via the workspace protocol, which resolves to `packages/hemcss/dist/`. That directory is gitignored and only exists after `pnpm build`. On a fresh clone:
-
-```bash
-pnpm install
-pnpm build        # populates packages/hemcss/dist/
-pnpm storybook    # or pnpm docs:dev, or pnpm demo
-```
-
-If you see a missing-asset error when starting an app, you probably skipped `pnpm build`.
-
-## What's in v1
-
-- Three reference components: `btn` (10 variants, 3 sizes, 2 states), `card` (modifiers + parts), `input` (2 variants, 2 sizes, 2 states).
-- OKLCH-based token system following Nuxt UI's role vocabulary (text/bg/border roles), prefixed `--hem-`.
-- Cascade layers: `reset, tokens, global, component, themes, overrides`.
-- Standalone theme system — themes are portable CSS files, extensible by anyone.
-- Two bundled themes: `light` and `dark`.
-- PostCSS plugin with `reset`, `themes`, `focusRing`, `validateThemes` options.
-- Vite plugin wrapper.
-- Tailwind integration via the `reset: false` escape hatch.
-
-Full DaisyUI-level component set is on the roadmap — see `docs/superpowers/specs/2026-04-11-hemcss-bootstrap-design.md` §12.
-
-## Using hemcss in your project
-
-See the full documentation at **apps/docs** (run `pnpm docs:dev` to browse it locally). Quick summary:
+## Quick start
 
 ```bash
 pnpm add hemcss
 ```
 
 ```css
+/* All components + base */
 @import "hemcss";
-@import "hemcss/themes/dark";
+@import "hemcss/themes/hanoi-light";
+
+/* Or pick only what you need */
+@import "hemcss/base";
+@import "hemcss/components/btn";
+@import "hemcss/components/card";
+@import "hemcss/themes/hanoi-light";
 ```
 
 ```html
-<html data-theme="dark">
+<html data-theme="hanoi-light">
   <button class="btn btn-primary">Save</button>
+  <button class="btn btn-error btn-sm">Delete</button>
+  <button class="btn btn-ghost btn-block">Full width</button>
 </html>
 ```
 
-For build-time configuration (reset toggle, bundled themes, focus-ring override, theme validation), use the PostCSS plugin:
+## Themes
+
+Four bundled themes — two styles x two color modes:
+
+| Theme | Style | Palette |
+|---|---|---|
+| `hanoi-light` | Spacious | Warm cream, black primary (caramellatte) |
+| `hanoi-dark` | Spacious | Deep dark, gold text, white primary (luxury) |
+| `saigon-light` | Compact | Clean white, cyan/magenta (cmyk) |
+| `saigon-dark` | Compact | Purple-tinted dark, pink primary (dracula) |
+
+Switch at runtime:
 
 ```js
-// postcss.config.cjs
-module.exports = {
-  plugins: [
-    require('hemcss/plugin')({
-      reset: true,
-      themes: ['light', 'dark'],
-      focusRing: 'primary',
-    }),
-    require('postcss-import')(),
-    require('postcss-nesting')(),
-  ],
-}
+document.documentElement.dataset.theme = 'saigon-dark'
+```
+
+## Components
+
+| Component | Classes |
+|---|---|
+| **Button** | `.btn` `.btn-{primary,secondary,success,info,warning,error,neutral}` `.btn-{ghost,outline,link}` `.btn-{xs,sm,lg}` `.btn-block` `.is-loading` `.is-disabled` |
+| **Card** | `.card` `.card-body` `.card-title` `.card-actions` `.card-bordered` `.card-compact` `.card-side` |
+| **Input** | `.input` `.input-{bordered,ghost}` `.input-{sm,lg}` `.is-invalid` `.is-disabled` |
+
+## Exports
+
+| Import | Contents |
+|---|---|
+| `hemcss` | Everything bundled |
+| `hemcss/base` | Tokens, reset, global styles (no components) |
+| `hemcss/components/btn` | Button only |
+| `hemcss/components/card` | Card only |
+| `hemcss/components/input` | Input only |
+| `hemcss/themes/{name}` | Color theme |
+| `hemcss/plugin` | PostCSS plugin |
+| `hemcss/vite` | Vite plugin wrapper |
+
+Minified variants available at `hemcss/min`, `hemcss/base/min`, `hemcss/components/btn/min`, etc.
+
+## Development
+
+```bash
+node -v               # >= 22 (see .nvmrc)
+corepack enable pnpm  # pnpm >= 10
+
+pnpm install
+pnpm build            # build hemcss -> dist/
+pnpm dev              # watch mode
+pnpm test             # vitest
+pnpm lint             # stylelint
+
+pnpm storybook        # component explorer on :6006
+pnpm docs:dev         # VitePress docs on :5173
+```
+
+## Repo layout
+
+```
+hemcss/
+├── packages/hemcss/     # the library (published to npm)
+├── apps/
+│   ├── demo/            # static demo page
+│   ├── storybook/       # Storybook v9 (HTML)
+│   └── docs/            # VitePress docs
+├── pnpm-workspace.yaml
+└── package.json
 ```
 
 ## License
 
-MIT. See `LICENSE`.
+MIT
