@@ -1,0 +1,5 @@
+/* Standalone toggle component entry.
+ * Import after hemcss/base to get just the toggle component.
+ */
+@import url("../layers.css");
+@import url("../components/toggle.css");

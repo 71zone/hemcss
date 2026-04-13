@@ -65,6 +65,54 @@
     --hem-card-title-font-size:   var(--hem-text-sm);
     --hem-card-title-line-height: var(--hem-leading-tight);
 
+    /* ---- Textarea ---- */
+    --hem-textarea-height-unit:      16;
+    --hem-textarea-padding-x-unit:   2;
+    --hem-textarea-padding-y-unit:   1;
+    --hem-textarea-font-size:        var(--hem-text-xs);
+    --hem-textarea-line-height:      var(--hem-leading-relaxed);
+    --hem-textarea-radius:           var(--hem-radius-md);
+    --hem-textarea-sm-size-unit:     0.215rem;
+    --hem-textarea-lg-size-unit:     0.29rem;
+    --hem-textarea-sm-font-size:     var(--hem-text-xs);
+    --hem-textarea-lg-font-size:     var(--hem-text-xs);
+    --hem-textarea-sm-radius:        var(--hem-radius-md);
+
+    /* ---- Select ---- */
+    --hem-select-height-unit:      7;
+    --hem-select-padding-x-unit:   2;
+    --hem-select-padding-y-unit:   0.5;
+    --hem-select-font-size:        var(--hem-text-xs);
+    --hem-select-line-height:      var(--hem-leading-relaxed);
+    --hem-select-radius:           var(--hem-radius-md);
+    --hem-select-sm-size-unit:     0.215rem;
+    --hem-select-lg-size-unit:     0.29rem;
+    --hem-select-sm-font-size:     var(--hem-text-xs);
+    --hem-select-lg-font-size:     var(--hem-text-xs);
+    --hem-select-sm-radius:        var(--hem-radius-md);
+
+    /* ---- Checkbox ---- */
+    --hem-checkbox-size-unit:      4;
+    --hem-checkbox-radius:         var(--hem-radius-sm);
+    --hem-checkbox-sm-size-unit:   0.215rem;
+    --hem-checkbox-lg-size-unit:   0.29rem;
+
+    /* ---- Radio ---- */
+    --hem-radio-size-unit:         4;
+    --hem-radio-sm-size-unit:      0.215rem;
+    --hem-radio-lg-size-unit:      0.29rem;
+
+    /* ---- Toggle ---- */
+    --hem-toggle-width-unit:       8;
+    --hem-toggle-height-unit:      4;
+    --hem-toggle-thumb-unit:       3;
+    --hem-toggle-sm-size-unit:     0.215rem;
+    --hem-toggle-lg-size-unit:     0.29rem;
+
+    /* ---- Label ---- */
+    --hem-label-font-size:         var(--hem-text-xs);
+    --hem-label-alt-font-size:     var(--hem-text-2xs);
+
     /* ---- Focus halo ---- */
     --hem-shadow-ring: 0 0 0 2px color-mix(in oklch, var(--hem-ring) 30%, transparent);
   }

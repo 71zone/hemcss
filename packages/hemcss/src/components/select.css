@@ -1,0 +1,82 @@
+/* src/components/select.css — native select component.
+ * Inset surface with custom caret via background-image SVG.
+ * Size via private --_size. Same variant/state pattern as input.
+ *
+ * Layout values all come from --hem-select-* component tokens defined in
+ * src/tokens/components.css. Style variants (Saigon) override those
+ * tokens in src/styles/saigon.css.
+ */
+@layer component {
+  /* ==== Structure ==== */
+  .select {
+    --_size: var(--hem-size-field);
+
+    display: inline-flex;
+    align-items: center;
+    padding-inline: calc(var(--_size) * var(--hem-select-padding-x-unit));
+    padding-block:  calc(var(--_size) * var(--hem-select-padding-y-unit));
+    min-height:     calc(var(--_size) * var(--hem-select-height-unit));
+    font-size:      var(--hem-select-font-size);
+    line-height:    var(--hem-select-line-height);
+
+    /* Default skin — variant classes override the relevant parts. */
+    background-color: var(--hem-bg);
+    color: var(--hem-text);
+    border: var(--hem-select-border-width) solid var(--hem-border);
+    border-radius: var(--hem-select-radius);
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%236b7280' stroke-width='1.5'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right calc(var(--_size) * var(--hem-select-padding-x-unit)) center;
+    background-size: 1em;
+    padding-right: calc(var(--_size) * var(--hem-select-padding-x-unit) * 2 + 1em);
+    transition:
+      border-color     var(--hem-transition-fast),
+      background-color var(--hem-transition-fast),
+      box-shadow       var(--hem-transition-fast),
+      opacity          var(--hem-transition-fast);
+  }
+
+  .select:focus-visible {
+    border-color: var(--hem-ring);
+    box-shadow: var(--hem-shadow-ring);
+  }
+
+  /* ==== Variants ==== */
+  .select-bordered {
+    border-color: var(--hem-border-accented);
+  }
+
+  .select-ghost {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .select-ghost:focus-visible {
+    background-color: var(--hem-bg);
+    border-color: var(--hem-ring);
+  }
+
+  /* ==== Sizes ==== */
+  .select-sm {
+    --_size: var(--hem-select-sm-size-unit);
+
+    font-size: var(--hem-select-sm-font-size);
+    border-radius: var(--hem-select-sm-radius);
+  }
+  .select-lg {
+    --_size: var(--hem-select-lg-size-unit);
+
+    font-size: var(--hem-select-lg-font-size);
+  }
+
+  /* ==== States ==== */
+  .select:where(:disabled, [disabled], .is-disabled) {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: var(--hem-bg-muted);
+    color: var(--hem-text-muted);
+  }
+}

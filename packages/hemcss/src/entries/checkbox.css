@@ -1,0 +1,5 @@
+/* Standalone checkbox component entry.
+ * Import after hemcss/base to get just the checkbox component.
+ */
+@import url("../layers.css");
+@import url("../components/checkbox.css");

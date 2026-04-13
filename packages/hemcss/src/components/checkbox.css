@@ -1,0 +1,89 @@
+/* src/components/checkbox.css — checkbox component.
+ * Custom appearance via appearance: none + pseudo-element checkmark.
+ * Size via private --_size. Color variants override border + background.
+ *
+ * Layout values all come from --hem-checkbox-* component tokens defined in
+ * src/tokens/components.css. Style variants (Saigon) override those
+ * tokens in src/styles/saigon.css.
+ */
+@layer component {
+  /* ==== Structure ==== */
+  .checkbox {
+    --_size: var(--hem-size-selector);
+
+    display: inline-flex;
+    width:  calc(var(--_size) * var(--hem-checkbox-size-unit));
+    height: calc(var(--_size) * var(--hem-checkbox-size-unit));
+    flex-shrink: 0;
+    appearance: none;
+    background-color: var(--hem-bg);
+    color: var(--hem-text-inverted);
+    border: var(--hem-checkbox-border-width) solid var(--hem-border);
+    border-radius: var(--hem-checkbox-radius);
+    cursor: pointer;
+    outline: none;
+    transition:
+      background-color var(--hem-transition-fast),
+      border-color     var(--hem-transition-fast),
+      box-shadow       var(--hem-transition-fast);
+  }
+
+  .checkbox:focus-visible {
+    border-color: var(--hem-ring);
+    box-shadow: var(--hem-shadow-ring);
+  }
+
+  .checkbox:checked {
+    background-color: var(--hem-primary);
+    border-color: var(--hem-primary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3.5 8 3 3 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+
+  /* ==== Color variants ==== */
+  .checkbox-primary:checked {
+    background-color: var(--hem-primary);
+    border-color: var(--hem-primary);
+  }
+  .checkbox-secondary:checked {
+    background-color: var(--hem-secondary);
+    border-color: var(--hem-secondary);
+  }
+  .checkbox-success:checked {
+    background-color: var(--hem-success);
+    border-color: var(--hem-success);
+  }
+  .checkbox-info:checked {
+    background-color: var(--hem-info);
+    border-color: var(--hem-info);
+  }
+  .checkbox-warning:checked {
+    background-color: var(--hem-warning);
+    border-color: var(--hem-warning);
+  }
+  .checkbox-error:checked {
+    background-color: var(--hem-error);
+    border-color: var(--hem-error);
+  }
+  .checkbox-neutral:checked {
+    background-color: var(--hem-neutral);
+    border-color: var(--hem-neutral);
+  }
+
+  /* ==== Sizes ==== */
+  .checkbox-sm {
+    --_size: var(--hem-checkbox-sm-size-unit);
+  }
+  .checkbox-lg {
+    --_size: var(--hem-checkbox-lg-size-unit);
+  }
+
+  /* ==== States ==== */
+  .checkbox:where(:disabled, [disabled], .is-disabled) {
+    pointer-events: none;
+    opacity: var(--hem-checkbox-disabled-opacity);
+    cursor: not-allowed;
+  }
+}

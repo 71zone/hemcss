@@ -1,0 +1,96 @@
+/* src/components/toggle.css — toggle/switch component.
+ * CSS-only switch using appearance: none + ::before thumb.
+ * Size via private --_size. Color variants override checked background.
+ *
+ * Layout values all come from --hem-toggle-* component tokens defined in
+ * src/tokens/components.css. Style variants (Saigon) override those
+ * tokens in src/styles/saigon.css.
+ */
+@layer component {
+  /* ==== Structure ==== */
+  .toggle {
+    --_size: var(--hem-size-selector);
+
+    display: inline-flex;
+    align-items: center;
+    width:  calc(var(--_size) * var(--hem-toggle-width-unit));
+    height: calc(var(--_size) * var(--hem-toggle-height-unit));
+    flex-shrink: 0;
+    appearance: none;
+    background-color: var(--hem-border);
+    border: var(--hem-toggle-border-width) solid transparent;
+    border-radius: var(--hem-toggle-radius);
+    cursor: pointer;
+    outline: none;
+    transition:
+      background-color var(--hem-transition-fast),
+      border-color     var(--hem-transition-fast),
+      box-shadow       var(--hem-transition-fast);
+  }
+
+  .toggle::before {
+    content: "";
+    display: block;
+    width:  calc(var(--_size) * var(--hem-toggle-thumb-unit));
+    height: calc(var(--_size) * var(--hem-toggle-thumb-unit));
+    margin-inline-start: calc(var(--_size) * var(--hem-toggle-thumb-offset-unit));
+    background-color: var(--hem-bg-elevated);
+    border-radius: var(--hem-radius-badge);
+    transition: margin var(--hem-transition-fast);
+  }
+
+  .toggle:focus-visible {
+    border-color: var(--hem-ring);
+    box-shadow: var(--hem-shadow-ring);
+  }
+
+  .toggle:checked {
+    background-color: var(--hem-primary);
+  }
+  .toggle:where(:checked)::before {
+    margin-inline-start: calc(
+      var(--_size) * var(--hem-toggle-width-unit) -
+      var(--_size) * var(--hem-toggle-thumb-unit) -
+      var(--_size) * var(--hem-toggle-thumb-offset-unit) -
+      var(--hem-toggle-border-width) * 2
+    );
+  }
+
+  /* ==== Color variants ==== */
+  .toggle-primary:checked {
+    background-color: var(--hem-primary);
+  }
+  .toggle-secondary:checked {
+    background-color: var(--hem-secondary);
+  }
+  .toggle-success:checked {
+    background-color: var(--hem-success);
+  }
+  .toggle-info:checked {
+    background-color: var(--hem-info);
+  }
+  .toggle-warning:checked {
+    background-color: var(--hem-warning);
+  }
+  .toggle-error:checked {
+    background-color: var(--hem-error);
+  }
+  .toggle-neutral:checked {
+    background-color: var(--hem-neutral);
+  }
+
+  /* ==== Sizes ==== */
+  .toggle-sm {
+    --_size: var(--hem-toggle-sm-size-unit);
+  }
+  .toggle-lg {
+    --_size: var(--hem-toggle-lg-size-unit);
+  }
+
+  /* ==== States ==== */
+  .toggle:where(:disabled, [disabled], .is-disabled) {
+    pointer-events: none;
+    opacity: var(--hem-toggle-disabled-opacity);
+    cursor: not-allowed;
+  }
+}

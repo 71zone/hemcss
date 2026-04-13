@@ -1,0 +1,5 @@
+/* Standalone label component entry.
+ * Import after hemcss/base to get just the label component.
+ */
+@import url("../layers.css");
+@import url("../components/label.css");

@@ -107,5 +107,90 @@
     --hem-card-actions-margin-top: var(--hem-space-2);
     --hem-card-compact-body-padding: var(--hem-space-3);     /* 12px */
     --hem-card-compact-body-gap:     var(--hem-space-1);     /* 4px  */
+
+
+    /* ==================== Textarea ==================== */
+    /* Size-scaled */
+    --hem-textarea-height-unit:      20;     /* → 80px min (5 rows) */
+    --hem-textarea-padding-x-unit:   2.5;    /* → 10px */
+    --hem-textarea-padding-y-unit:   1.5;    /* → 6px  */
+
+    /* Static */
+    --hem-textarea-font-size:      var(--hem-text-sm);
+    --hem-textarea-line-height:    var(--hem-leading-normal);
+    --hem-textarea-radius:         var(--hem-radius);
+    --hem-textarea-border-width:   var(--hem-border-width);
+    --hem-textarea-sm-size-unit:   0.2188rem;
+    --hem-textarea-lg-size-unit:   0.2813rem;
+    --hem-textarea-sm-font-size:   var(--hem-text-xs);
+    --hem-textarea-lg-font-size:   var(--hem-textarea-font-size);
+    --hem-textarea-sm-radius:      var(--hem-radius-md);
+    --hem-textarea-disabled-opacity: var(--hem-opacity-disabled);
+
+
+    /* ==================== Select ==================== */
+    /* Size-scaled */
+    --hem-select-height-unit:      8;       /* → 32px */
+    --hem-select-padding-x-unit:   2.5;     /* → 10px */
+    --hem-select-padding-y-unit:   1;       /* → 4px  */
+
+    /* Static */
+    --hem-select-font-size:      var(--hem-text-sm);
+    --hem-select-line-height:    var(--hem-leading-normal);
+    --hem-select-radius:         var(--hem-radius);
+    --hem-select-border-width:   var(--hem-border-width);
+    --hem-select-sm-size-unit:   0.2188rem;
+    --hem-select-lg-size-unit:   0.2813rem;
+    --hem-select-sm-font-size:   var(--hem-text-xs);
+    --hem-select-lg-font-size:   var(--hem-select-font-size);
+    --hem-select-sm-radius:      var(--hem-radius-md);
+    --hem-select-disabled-opacity: var(--hem-opacity-disabled);
+
+
+    /* ==================== Checkbox ==================== */
+    /* Size-scaled */
+    --hem-checkbox-size-unit:    5;       /* → 20px */
+
+    /* Static */
+    --hem-checkbox-radius:       var(--hem-radius-sm);
+    --hem-checkbox-border-width: var(--hem-border-width);
+    --hem-checkbox-sm-size-unit: 0.2188rem;
+    --hem-checkbox-lg-size-unit: 0.2813rem;
+    --hem-checkbox-disabled-opacity: var(--hem-opacity-disabled);
+
+
+    /* ==================== Radio ==================== */
+    /* Size-scaled */
+    --hem-radio-size-unit:       5;       /* → 20px */
+
+    /* Static */
+    --hem-radio-border-width:    var(--hem-border-width);
+    --hem-radio-sm-size-unit:    0.2188rem;
+    --hem-radio-lg-size-unit:    0.2813rem;
+    --hem-radio-disabled-opacity: var(--hem-opacity-disabled);
+
+
+    /* ==================== Toggle ==================== */
+    /* Size-scaled */
+    --hem-toggle-width-unit:     9;       /* → 36px */
+    --hem-toggle-height-unit:    5;       /* → 20px */
+    --hem-toggle-thumb-unit:     4;       /* → 16px */
+    --hem-toggle-thumb-offset-unit: 0.5;  /* → 2px  */
+
+    /* Static */
+    --hem-toggle-border-width:   var(--hem-border-width);
+    --hem-toggle-radius:         var(--hem-radius-badge);
+    --hem-toggle-sm-size-unit:   0.2188rem;
+    --hem-toggle-lg-size-unit:   0.2813rem;
+    --hem-toggle-disabled-opacity: var(--hem-opacity-disabled);
+
+
+    /* ==================== Label ==================== */
+    --hem-label-gap:             var(--hem-space-1);
+    --hem-label-font-size:       var(--hem-text-sm);
+    --hem-label-font-weight:     var(--hem-font-weight-medium);
+    --hem-label-line-height:     var(--hem-leading-normal);
+    --hem-label-alt-font-size:   var(--hem-text-xs);
+    --hem-label-alt-color:       var(--hem-text-muted);
   }
 }

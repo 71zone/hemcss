@@ -1,0 +1,88 @@
+/* src/components/radio.css — radio button component.
+ * Custom appearance via appearance: none + inner circle on :checked.
+ * Size via private --_size. Color variants override border + background.
+ *
+ * Layout values all come from --hem-radio-* component tokens defined in
+ * src/tokens/components.css. Style variants (Saigon) override those
+ * tokens in src/styles/saigon.css.
+ */
+@layer component {
+  /* ==== Structure ==== */
+  .radio {
+    --_size: var(--hem-size-selector);
+
+    display: inline-flex;
+    width:  calc(var(--_size) * var(--hem-radio-size-unit));
+    height: calc(var(--_size) * var(--hem-radio-size-unit));
+    flex-shrink: 0;
+    appearance: none;
+    background-color: var(--hem-bg);
+    border: var(--hem-radio-border-width) solid var(--hem-border);
+    border-radius: var(--hem-radius-badge);
+    cursor: pointer;
+    outline: none;
+    transition:
+      background-color var(--hem-transition-fast),
+      border-color     var(--hem-transition-fast),
+      box-shadow       var(--hem-transition-fast);
+  }
+
+  .radio:focus-visible {
+    border-color: var(--hem-ring);
+    box-shadow: var(--hem-shadow-ring);
+  }
+
+  .radio:checked {
+    background-color: var(--hem-primary);
+    border-color: var(--hem-primary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Ccircle cx='8' cy='8' r='4' fill='white'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+
+  /* ==== Color variants ==== */
+  .radio-primary:checked {
+    background-color: var(--hem-primary);
+    border-color: var(--hem-primary);
+  }
+  .radio-secondary:checked {
+    background-color: var(--hem-secondary);
+    border-color: var(--hem-secondary);
+  }
+  .radio-success:checked {
+    background-color: var(--hem-success);
+    border-color: var(--hem-success);
+  }
+  .radio-info:checked {
+    background-color: var(--hem-info);
+    border-color: var(--hem-info);
+  }
+  .radio-warning:checked {
+    background-color: var(--hem-warning);
+    border-color: var(--hem-warning);
+  }
+  .radio-error:checked {
+    background-color: var(--hem-error);
+    border-color: var(--hem-error);
+  }
+  .radio-neutral:checked {
+    background-color: var(--hem-neutral);
+    border-color: var(--hem-neutral);
+  }
+
+  /* ==== Sizes ==== */
+  .radio-sm {
+    --_size: var(--hem-radio-sm-size-unit);
+  }
+  .radio-lg {
+    --_size: var(--hem-radio-lg-size-unit);
+  }
+
+  /* ==== States ==== */
+  .radio:where(:disabled, [disabled], .is-disabled) {
+    pointer-events: none;
+    opacity: var(--hem-radio-disabled-opacity);
+    cursor: not-allowed;
+  }
+}

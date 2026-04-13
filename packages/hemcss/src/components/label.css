@@ -1,0 +1,32 @@
+/* src/components/label.css — form label component.
+ * Wrapper for form field labels with primary and alternative text.
+ * No --_size dependency — all static tokens.
+ *
+ * Layout values all come from --hem-label-* component tokens defined in
+ * src/tokens/components.css. Style variants (Saigon) override those
+ * tokens in src/styles/saigon.css.
+ */
+@layer component {
+  /* ==== Structure ==== */
+  .label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--hem-label-gap);
+    padding-block: var(--hem-label-gap);
+    user-select: none;
+  }
+
+  .label-text {
+    font-size: var(--hem-label-font-size);
+    font-weight: var(--hem-label-font-weight);
+    line-height: var(--hem-label-line-height);
+    color: var(--hem-text);
+  }
+
+  .label-text-alt {
+    font-size: var(--hem-label-alt-font-size);
+    line-height: var(--hem-label-line-height);
+    color: var(--hem-label-alt-color);
+  }
+}
