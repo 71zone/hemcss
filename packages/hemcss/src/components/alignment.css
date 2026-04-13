@@ -1,0 +1,16 @@
+/* src/components/alignment.css — shared alignment utility classes.
+ * Used with both .stack and .grid containers.
+ */
+@layer component {
+  .items-start { align-items: flex-start; }
+  .items-center { align-items: center; }
+  .items-end { align-items: flex-end; }
+  .items-stretch { align-items: stretch; }
+
+  .justify-start { justify-content: flex-start; }
+  .justify-center { justify-content: center; }
+  .justify-end { justify-content: flex-end; }
+  .justify-between { justify-content: space-between; }
+  .justify-around { justify-content: space-around; }
+  .justify-evenly { justify-content: space-evenly; }
+}

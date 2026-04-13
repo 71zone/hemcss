@@ -1,0 +1,30 @@
+/* src/components/stack.css — flex stack layout component.
+ * Default direction is column (vertical stacking).
+ * Gap via data-* attributes using CSS attr() with type().
+ *
+ * Uses CSS attr() with type() (Chromium 133+). For Firefox/Safari,
+ * load the optional polyfill at hemcss/polyfill/grid.
+ */
+@layer component {
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: attr(data-gap type(<length>), var(--gap, 0px)); /* stylelint-disable-line length-zero-no-unit */
+  }
+
+  .stack[data-gap-x] {
+    column-gap: attr(data-gap-x type(<length>), var(--gap-x));
+  }
+
+  .stack[data-gap-y] {
+    row-gap: attr(data-gap-y type(<length>), var(--gap-y));
+  }
+
+  .stack-row {
+    flex-direction: row;
+  }
+
+  .stack-wrap {
+    flex-wrap: wrap;
+  }
+}

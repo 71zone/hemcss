@@ -1,0 +1,68 @@
+/* src/components/grid.css — CSS Grid layout component.
+ * Dynamic columns, rows, gap, and child placement via data-* attributes.
+ *
+ * Uses CSS attr() with type() (Chromium 133+). For Firefox/Safari,
+ * load the optional polyfill at hemcss/polyfill/grid.
+ */
+@layer component {
+  /* ==== Container ==== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(attr(data-cols type(<integer>), var(--cols, 1)), 1fr);
+    gap: attr(data-gap type(<length>), var(--gap, 0px)); /* stylelint-disable-line length-zero-no-unit */
+  }
+
+  .grid[data-rows] {
+    grid-template-rows: repeat(attr(data-rows type(<integer>), var(--rows, 1)), 1fr);
+  }
+
+  .grid[data-gap-x] {
+    column-gap: attr(data-gap-x type(<length>), var(--gap-x));
+  }
+
+  .grid[data-gap-y] {
+    row-gap: attr(data-gap-y type(<length>), var(--gap-y));
+  }
+
+  .grid-flow-row { grid-auto-flow: row; }
+  .grid-flow-col { grid-auto-flow: column; }
+  .grid-flow-dense { grid-auto-flow: dense; }
+
+  /* ==== Subgrid ==== */
+  .subgrid {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+  }
+
+  .subgrid-col {
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  .subgrid-row {
+    display: grid;
+    grid-template-rows: subgrid;
+  }
+
+  /* ==== Children ==== */
+  [data-span] {
+    grid-column: span attr(data-span type(<integer>), var(--span, 1));
+  }
+
+  [data-row-span] {
+    grid-row: span attr(data-row-span type(<integer>), var(--row-span, 1));
+  }
+
+  [data-col-start] {
+    grid-column-start: attr(data-col-start type(<integer>), var(--col-start));
+  }
+
+  [data-row-start] {
+    grid-row-start: attr(data-row-start type(<integer>), var(--row-start));
+  }
+
+  [data-area] {
+    grid-area: attr(data-area type(<custom-ident>), var(--area));
+  }
+}

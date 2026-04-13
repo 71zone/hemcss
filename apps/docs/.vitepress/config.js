@@ -53,6 +53,13 @@ export default defineConfig({
             { text: 'Label', link: '/components/label' },
           ],
         },
+        {
+          text: 'Layout',
+          items: [
+            { text: 'Stack', link: '/components/stack' },
+            { text: 'Grid', link: '/components/grid' },
+          ],
+        },
       ],
     },
 
