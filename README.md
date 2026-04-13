@@ -1,6 +1,10 @@
-# hemcss
+<p align="center">
+  <img src="packages/hemcss/logo-full.svg" alt="HẻmCSS" width="240">
+</p>
 
-Semantic-class CSS components. OKLCH tokens. Cascade layers. Zero Tailwind dependency.
+<p align="center">
+  Semantic-class CSS components. OKLCH tokens. Cascade layers. Zero Tailwind dependency.
+</p>
 
 ## Quick start
 

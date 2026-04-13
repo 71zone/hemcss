@@ -2,14 +2,17 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   base: '/hemcss/',
-  title: 'hemcss',
+  title: 'HẻmCSS',
   description:
     'A semantic-class CSS component library with OKLCH tokens, cascade layers, and zero Tailwind dependency.',
   cleanUrls: true,
   lastUpdated: true,
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/hemcss/favicon.svg' }],
+  ],
 
   themeConfig: {
-    logo: undefined,
+    logo: '/favicon.svg',
 
     nav: [
       { text: 'Guide', link: '/guide/install' },
@@ -59,7 +62,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2026 hemcss contributors',
+      copyright: 'Copyright © 2026 HẻmCSS contributors',
     },
   },
 })

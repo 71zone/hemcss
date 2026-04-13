@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: hemcss
+  name: HẻmCSS
   text: Semantic components, zero Tailwind.
   tagline: OKLCH tokens, cascade layers, and a PostCSS plugin that coexists with Tailwind when you want it to.
   actions:

@@ -4,7 +4,7 @@
     "access": "public"
   },
   "version": "0.1.0",
-  "description": "A semantic-class CSS component library with OKLCH tokens, cascade layers, and zero Tailwind dependency.",
+  "description": "HẻmCSS — a semantic-class CSS component library with OKLCH tokens, cascade layers, and zero Tailwind dependency.",
   "keywords": [
     "css",
     "components",

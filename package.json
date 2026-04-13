@@ -2,7 +2,7 @@
   "name": "hemcss-monorepo",
   "version": "0.0.0",
   "private": true,
-  "description": "Workspace root for the hemcss CSS component library, its docs site, Storybook, and demo page.",
+  "description": "Workspace root for HẻmCSS — CSS component library, docs, Storybook, and demo.",
   "license": "MIT",
   "type": "module",
   "engines": {

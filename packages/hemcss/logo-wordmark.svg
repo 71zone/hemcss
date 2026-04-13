@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" width="180" height="40">
+  <style>
+    .wordmark { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: -0.02em; }
+  </style>
+  <text class="wordmark" y="30">
+    <tspan fill="#06b6d4">Hẻm</tspan><tspan fill="#e2e8f0">CSS</tspan>
+  </text>
+</svg>
