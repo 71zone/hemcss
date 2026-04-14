@@ -1,0 +1,5 @@
+/* Standalone avatar component entry.
+ * Import after hemcss/base to get just the avatar component.
+ */
+@import url("../layers.css");
+@import url("../components/avatar.css");

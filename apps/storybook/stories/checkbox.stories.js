@@ -2,10 +2,9 @@
 
 const createCheckboxWithLabel = (classes, label, checked, disabled) => {
   const wrapper = document.createElement('label')
-  wrapper.style.display = 'inline-flex'
-  wrapper.style.alignItems = 'center'
-  wrapper.style.gap = '0.5rem'
-  wrapper.style.cursor = disabled ? 'not-allowed' : 'pointer'
+  wrapper.className = 'stack stack-row items-center'
+  wrapper.setAttribute('data-gap', '0.5rem')
+  if (disabled) wrapper.style.cursor = 'not-allowed'
 
   const el = document.createElement('input')
   el.type = 'checkbox'
@@ -29,9 +28,8 @@ const renderCheckbox = ({ color, size, checked, disabled }) => {
   if (disabled) classes.push('is-disabled')
 
   const group = document.createElement('div')
-  group.style.display = 'flex'
-  group.style.flexDirection = 'column'
-  group.style.gap = '0.5rem'
+  group.className = 'stack'
+  group.setAttribute('data-gap', '0.5rem')
 
   group.appendChild(createCheckboxWithLabel(classes, 'Accept terms', checked, disabled))
   group.appendChild(createCheckboxWithLabel(classes, 'Subscribe to newsletter', false, disabled))
@@ -81,9 +79,8 @@ export const AllColors = {
   parameters: { controls: { disable: true } },
   render: () => {
     const wrap = document.createElement('div')
-    wrap.style.display = 'flex'
-    wrap.style.gap = '1rem'
-    wrap.style.alignItems = 'center'
+    wrap.className = 'stack stack-row items-center'
+    wrap.setAttribute('data-gap', '1rem')
     const colors = ['', 'primary', 'secondary', 'success', 'info', 'warning', 'error', 'neutral']
     for (const c of colors) {
       const cls = ['checkbox']

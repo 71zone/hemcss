@@ -1,0 +1,5 @@
+/* Standalone alert component entry.
+ * Import after hemcss/base to get just the alert component.
+ */
+@import url("../layers.css");
+@import url("../components/alert.css");

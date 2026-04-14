@@ -113,6 +113,49 @@
     --hem-label-font-size:         var(--hem-text-xs);
     --hem-label-alt-font-size:     var(--hem-text-2xs);
 
+    /* ---- Badge ---- */
+    --hem-badge-height-unit:     4;
+    --hem-badge-padding-x-unit:  1.5;
+    --hem-badge-font-size:       var(--hem-text-2xs);
+    --hem-badge-sm-size-unit:    0.18rem;
+    --hem-badge-lg-size-unit:    0.29rem;
+    --hem-badge-sm-font-size:    var(--hem-text-2xs);
+    --hem-badge-lg-font-size:    var(--hem-text-xs);
+
+    /* ---- Alert ---- */
+    --hem-alert-padding:         var(--hem-space-3);
+    --hem-alert-gap:             var(--hem-space-2);
+    --hem-alert-font-size:       var(--hem-text-xs);
+    --hem-alert-radius:          var(--hem-radius-md);
+
+    /* ---- Avatar ---- */
+    --hem-avatar-size:           var(--hem-space-7);
+    --hem-avatar-sm-size:        var(--hem-space-5);
+    --hem-avatar-lg-size:        var(--hem-space-6);
+    --hem-avatar-xl-size:        var(--hem-space-8);
+    --hem-avatar-font-size:      var(--hem-text-xs);
+    --hem-avatar-sm-font-size:   var(--hem-text-2xs);
+    --hem-avatar-lg-font-size:   var(--hem-text-sm);
+    --hem-avatar-xl-font-size:   var(--hem-text-lg);
+    --hem-avatar-group-overlap:  -0.375rem;
+
+    /* ---- Divider ---- */
+    --hem-divider-gap:           var(--hem-space-3);
+    --hem-divider-font-size:     var(--hem-text-2xs);
+
+    /* ---- Loading ---- */
+    --hem-loading-size:          var(--hem-space-5);
+
+    /* ---- Kbd ---- */
+    --hem-kbd-height-unit:       5;
+    --hem-kbd-padding-x-unit:    1;
+    --hem-kbd-font-size:         var(--hem-text-2xs);
+    --hem-kbd-radius:            var(--hem-radius-sm);
+    --hem-kbd-sm-size-unit:      0.18rem;
+    --hem-kbd-lg-size-unit:      0.29rem;
+    --hem-kbd-sm-font-size:      var(--hem-text-2xs);
+    --hem-kbd-lg-font-size:      var(--hem-text-xs);
+
     /* ---- Focus halo ---- */
     --hem-shadow-ring: 0 0 0 2px color-mix(in oklch, var(--hem-ring) 30%, transparent);
   }

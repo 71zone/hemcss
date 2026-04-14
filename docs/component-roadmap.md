@@ -16,10 +16,14 @@ Prioritized plan for expanding HẻmCSS beyond the initial components.
 - [x] stack — flex layout (column/row), wrap, gap via `data-*`
 - [x] grid — CSS Grid, dynamic cols/rows/gap/span via `data-*` + `attr()`, subgrid
 - [x] alignment — items-*, justify-* shared utilities
+- [x] badge — 7 color variants, outline, 2 sizes
+- [x] alert — success, info, warning, error
+- [x] avatar — sm, lg, xl, avatar-group
+- [x] divider — plain, labeled, horizontal
+- [x] loading — spinner, ring, dots
+- [x] kbd — sm, lg, monospace
 
-## Batch 2 — Feedback & decoration
-
-Common UI patterns that pair with forms and cards.
+## ~~Batch 2 — Feedback & decoration~~ (shipped)
 
 | Component | Classes | Notes |
 |---|---|---|
@@ -112,12 +116,12 @@ HẻmCSS ships `.stack` and `.grid` layout primitives. Use them in stories and d
 
 Existing docs and stories use `style=` attributes for layout that should use `.stack`/`.grid` instead. No `style=` in source.
 
-- [ ] **radio.md** — replace 17× `style="display:inline-flex;align-items:center;gap:0.5rem"` labels with `.stack-row items-center` + `data-gap`
-- [ ] **checkbox.md** — same as radio (17×)
-- [ ] **toggle.md** — same as radio (17×)
-- [ ] **stack.md** — replace inline width/border styles on wrap demo with a CSS class
-- [ ] **grid.md** — replace inline `width:100%`, `grid-template-rows`, `grid-template-areas`, `row-gap` with classes or `data-*` where possible (some like `grid-template-areas` genuinely need inline style)
-- [ ] **Stories** — replace `style.cssText` box/cell styling in stories with hemcss classes
+- [x] **radio.md** — replace 17× `style="display:inline-flex;align-items:center;gap:0.5rem"` labels with `.stack-row items-center` + `data-gap`
+- [x] **checkbox.md** — same as radio (17×)
+- [x] **toggle.md** — same as radio (17×)
+- [x] **stack.md** — replace inline width/border styles on wrap demo with a CSS class
+- [x] **grid.md** — replace inline `width:100%`, `grid-template-rows`, `grid-template-areas`, `row-gap` with classes or `data-*` where possible (some like `grid-template-areas` genuinely need inline style)
+- [x] **Stories** — replace `style.cssText` box/cell styling in stories with hemcss classes
 
 ## Principles
 

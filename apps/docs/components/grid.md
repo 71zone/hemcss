@@ -7,7 +7,7 @@ CSS Grid layout primitive with dynamic columns, rows, gap, and child placement v
 ## Basic grid
 
 <div class="preview">
-  <div class="grid" data-cols="3" data-gap="1rem" style="width:100%">
+  <div class="grid" data-cols="3" data-gap="1rem">
     <div class="card card-bordered"><div class="card-body">1</div></div>
     <div class="card card-bordered"><div class="card-body">2</div></div>
     <div class="card card-bordered"><div class="card-body">3</div></div>
@@ -31,7 +31,7 @@ CSS Grid layout primitive with dynamic columns, rows, gap, and child placement v
 ## Spanning columns
 
 <div class="preview">
-  <div class="grid" data-cols="4" data-gap="1rem" style="width:100%">
+  <div class="grid" data-cols="4" data-gap="1rem">
     <div class="card card-bordered" data-span="2"><div class="card-body">Span 2</div></div>
     <div class="card card-bordered"><div class="card-body">1</div></div>
     <div class="card card-bordered"><div class="card-body">1</div></div>
@@ -55,7 +55,7 @@ CSS Grid layout primitive with dynamic columns, rows, gap, and child placement v
 Use `data-col-start` and `data-row-start` to explicitly position items on the grid.
 
 <div class="preview">
-  <div class="grid" data-cols="3" data-rows="3" data-gap="1rem" style="width:100%">
+  <div class="grid" data-cols="3" data-rows="3" data-gap="1rem">
     <div class="card card-bordered" data-col-start="1" data-row-start="1"><div class="card-body">1,1</div></div>
     <div class="card card-bordered" data-col-start="3" data-row-start="1"><div class="card-body">3,1</div></div>
     <div class="card card-bordered" data-col-start="2" data-row-start="2"><div class="card-body">2,2</div></div>
@@ -79,15 +79,15 @@ Use `data-col-start` and `data-row-start` to explicitly position items on the gr
 `.grid-flow-col` fills columns first. `.grid-flow-dense` backfills gaps left by spanning items.
 
 <div class="preview preview-stack">
-  <p style="font-size:0.8rem;color:var(--hem-text-muted);margin:0"><code>grid-flow-col</code> — items fill down columns first</p>
-  <div class="grid grid-flow-col" data-rows="2" data-gap="0.75rem" style="width:100%">
+  <p class="label-text-alt"><code>grid-flow-col</code> — items fill down columns first</p>
+  <div class="grid grid-flow-col" data-rows="2" data-gap="0.75rem">
     <div class="card card-bordered"><div class="card-body">A</div></div>
     <div class="card card-bordered"><div class="card-body">B</div></div>
     <div class="card card-bordered"><div class="card-body">C</div></div>
     <div class="card card-bordered"><div class="card-body">D</div></div>
   </div>
-  <p style="font-size:0.8rem;color:var(--hem-text-muted);margin:0"><code>grid-flow-dense</code> — backfills gaps</p>
-  <div class="grid grid-flow-dense" data-cols="3" data-gap="0.75rem" style="width:100%">
+  <p class="label-text-alt"><code>grid-flow-dense</code> — backfills gaps</p>
+  <div class="grid grid-flow-dense" data-cols="3" data-gap="0.75rem">
     <div class="card card-bordered" data-span="2"><div class="card-body">Wide</div></div>
     <div class="card card-bordered"><div class="card-body">A</div></div>
     <div class="card card-bordered"><div class="card-body">B</div></div>
@@ -120,7 +120,7 @@ Use `data-col-start` and `data-row-start` to explicitly position items on the gr
 Use `data-area` on children. The template declaration requires inline `style` (CSS cannot read arbitrary strings from attributes).
 
 <div class="preview">
-  <div class="grid" data-gap="1rem" style="width:100%;grid-template-areas:'header header' 'sidebar main' 'footer footer';grid-template-columns:200px 1fr">
+  <div class="grid" data-gap="1rem" style="grid-template-areas:'header header' 'sidebar main' 'footer footer';grid-template-columns:200px 1fr">
     <div class="card card-bordered" data-area="header"><div class="card-body">Header</div></div>
     <div class="card card-bordered" data-area="sidebar"><div class="card-body">Sidebar</div></div>
     <div class="card card-bordered" data-area="main"><div class="card-body">Main</div></div>
@@ -148,21 +148,21 @@ Subgrid lets nested grids inherit the parent's track sizing. The killer use case
 Each card below is a `.subgrid-row` spanning 3 row tracks. Despite different content lengths, the titles, bodies, and buttons align across all 3 cards.
 
 <div class="preview">
-  <div class="grid" data-cols="3" data-gap="1rem" style="width:100%;grid-template-rows:auto auto auto">
-    <div class="subgrid-row card card-bordered" data-row-span="3" style="row-gap:0.5rem">
-      <div class="card-body" style="padding:0.75rem"><strong>Quick Start</strong></div>
-      <div class="card-body" style="padding:0.75rem">Get up and running in 2 minutes.</div>
-      <div class="card-body" style="padding:0.75rem"><button class="btn btn-primary btn-sm">Install</button></div>
+  <div class="grid" data-cols="3" data-gap="1rem" style="grid-template-rows:auto auto auto">
+    <div class="subgrid-row card card-bordered card-compact" data-row-span="3" data-gap-y="0.5rem">
+      <div class="card-body"><strong>Quick Start</strong></div>
+      <div class="card-body">Get up and running in 2 minutes.</div>
+      <div class="card-body"><button class="btn btn-primary btn-sm">Install</button></div>
     </div>
-    <div class="subgrid-row card card-bordered" data-row-span="3" style="row-gap:0.5rem">
-      <div class="card-body" style="padding:0.75rem"><strong>Advanced Configuration Guide</strong></div>
-      <div class="card-body" style="padding:0.75rem">Deep dive into tokens, themes, cascade layers, and the PostCSS plugin. Covers Saigon density, custom palettes, and Tailwind coexistence.</div>
-      <div class="card-body" style="padding:0.75rem"><button class="btn btn-primary btn-sm">Read docs</button></div>
+    <div class="subgrid-row card card-bordered card-compact" data-row-span="3" data-gap-y="0.5rem">
+      <div class="card-body"><strong>Advanced Configuration Guide</strong></div>
+      <div class="card-body">Deep dive into tokens, themes, cascade layers, and the PostCSS plugin. Covers Saigon density, custom palettes, and Tailwind coexistence.</div>
+      <div class="card-body"><button class="btn btn-primary btn-sm">Read docs</button></div>
     </div>
-    <div class="subgrid-row card card-bordered" data-row-span="3" style="row-gap:0.5rem">
-      <div class="card-body" style="padding:0.75rem"><strong>Components</strong></div>
-      <div class="card-body" style="padding:0.75rem">Browse the full component library.</div>
-      <div class="card-body" style="padding:0.75rem"><button class="btn btn-primary btn-sm">Explore</button></div>
+    <div class="subgrid-row card card-bordered card-compact" data-row-span="3" data-gap-y="0.5rem">
+      <div class="card-body"><strong>Components</strong></div>
+      <div class="card-body">Browse the full component library.</div>
+      <div class="card-body"><button class="btn btn-primary btn-sm">Explore</button></div>
     </div>
   </div>
 </div>

@@ -1,0 +1,33 @@
+/* src/components/kbd.css — keyboard shortcut display. */
+@layer component {
+  .kbd {
+    --_size: var(--hem-size-field);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: calc(var(--_size) * var(--hem-kbd-padding-x-unit));
+    min-height: calc(var(--_size) * var(--hem-kbd-height-unit));
+    font-size: var(--hem-kbd-font-size);
+    font-family: var(--hem-kbd-font-family);
+    line-height: var(--hem-kbd-line-height);
+    background-color: var(--hem-bg-elevated);
+    color: var(--hem-text);
+    border: var(--hem-kbd-border-width) solid var(--hem-border);
+    border-bottom-width: calc(var(--hem-kbd-border-width) * 2);
+    border-radius: var(--hem-kbd-radius);
+    box-shadow: var(--hem-shadow-sm);
+    white-space: nowrap;
+  }
+
+  .kbd-sm {
+    --_size: var(--hem-kbd-sm-size-unit);
+
+    font-size: var(--hem-kbd-sm-font-size);
+  }
+  .kbd-lg {
+    --_size: var(--hem-kbd-lg-size-unit);
+
+    font-size: var(--hem-kbd-lg-font-size);
+  }
+}

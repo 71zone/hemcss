@@ -2,8 +2,12 @@
 
 const cell = (text, span) => {
   const el = document.createElement('div')
-  el.textContent = text
-  el.style.cssText = 'padding:1rem;background:var(--hem-bg-elevated);border:1px solid var(--hem-border);border-radius:var(--hem-radius);font-size:0.875rem;text-align:center;'
+  el.className = 'card card-bordered'
+  const body = document.createElement('div')
+  body.className = 'card-body'
+  body.style.textAlign = 'center'
+  body.textContent = text
+  el.appendChild(body)
   if (span) el.setAttribute('data-span', span)
   return el
 }

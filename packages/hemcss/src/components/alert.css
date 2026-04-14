@@ -1,0 +1,36 @@
+/* src/components/alert.css — feedback banner. */
+@layer component {
+  .alert {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--hem-alert-gap);
+    padding: var(--hem-alert-padding);
+    font-size: var(--hem-alert-font-size);
+    line-height: var(--hem-alert-line-height);
+    background-color: var(--hem-bg-elevated);
+    color: var(--hem-text);
+    border: var(--hem-alert-border-width) solid var(--hem-border);
+    border-radius: var(--hem-alert-radius);
+  }
+
+  .alert-success {
+    background-color: color-mix(in oklch, var(--hem-success) 10%, var(--hem-bg));
+    color: var(--hem-text);
+    border-color: color-mix(in oklch, var(--hem-success) 30%, var(--hem-border));
+  }
+  .alert-info {
+    background-color: color-mix(in oklch, var(--hem-info) 10%, var(--hem-bg));
+    color: var(--hem-text);
+    border-color: color-mix(in oklch, var(--hem-info) 30%, var(--hem-border));
+  }
+  .alert-warning {
+    background-color: color-mix(in oklch, var(--hem-warning) 10%, var(--hem-bg));
+    color: var(--hem-text);
+    border-color: color-mix(in oklch, var(--hem-warning) 30%, var(--hem-border));
+  }
+  .alert-error {
+    background-color: color-mix(in oklch, var(--hem-error) 10%, var(--hem-bg));
+    color: var(--hem-text);
+    border-color: color-mix(in oklch, var(--hem-error) 30%, var(--hem-border));
+  }
+}

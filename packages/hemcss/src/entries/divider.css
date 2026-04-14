@@ -1,0 +1,5 @@
+/* Standalone divider component entry.
+ * Import after hemcss/base to get just the divider component.
+ */
+@import url("../layers.css");
+@import url("../components/divider.css");

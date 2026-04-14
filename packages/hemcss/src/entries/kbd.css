@@ -1,0 +1,5 @@
+/* Standalone kbd component entry.
+ * Import after hemcss/base to get just the kbd component.
+ */
+@import url("../layers.css");
+@import url("../components/kbd.css");

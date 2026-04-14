@@ -1,0 +1,5 @@
+/* Standalone loading component entry.
+ * Import after hemcss/base to get just the loading component.
+ */
+@import url("../layers.css");
+@import url("../components/loading.css");

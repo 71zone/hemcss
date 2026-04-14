@@ -1,0 +1,41 @@
+/* src/components/divider.css — labeled or plain separator. */
+@layer component {
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: var(--hem-divider-gap);
+    font-size: var(--hem-divider-font-size);
+    color: var(--hem-divider-color-text);
+    white-space: nowrap;
+  }
+
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    height: var(--hem-divider-thickness);
+    background-color: var(--hem-divider-color);
+  }
+
+  .divider:where(:empty)::before {
+    flex: none;
+    width: 100%;
+  }
+  .divider:where(:empty)::after {
+    display: none;
+  }
+
+  .divider-horizontal {
+    flex-direction: column;
+    align-self: stretch;
+    width: auto;
+    height: auto;
+  }
+
+  .divider-horizontal::before,
+  .divider-horizontal::after {
+    height: auto;
+    width: var(--hem-divider-thickness);
+    flex: 1;
+  }
+}

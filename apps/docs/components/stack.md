@@ -41,7 +41,7 @@ Flex layout primitive for quick vertical/horizontal stacking. Default direction 
 ## Alignment
 
 <div class="preview">
-  <div class="stack stack-row items-center justify-between" style="width:100%">
+  <div class="stack stack-row items-center justify-between">
     <span>Notifications</span>
     <button class="btn btn-sm btn-ghost">Manage</button>
   </div>
@@ -57,7 +57,7 @@ Flex layout primitive for quick vertical/horizontal stacking. Default direction 
 ## Wrap
 
 <div class="preview">
-  <div style="width:280px;border:2px dashed var(--hem-border);padding:0.5rem;border-radius:var(--hem-radius)">
+  <div class="card card-bordered">
     <div class="stack stack-row stack-wrap" data-gap="0.5rem">
       <button class="btn btn-sm">Alpha</button>
       <button class="btn btn-sm">Beta</button>
@@ -70,7 +70,7 @@ Flex layout primitive for quick vertical/horizontal stacking. Default direction 
 </div>
 
 ```html
-<div style="width: 280px">
+<div class="card card-bordered">
   <div class="stack stack-row stack-wrap" data-gap="0.5rem">
     <button class="btn btn-sm">Alpha</button>
     <button class="btn btn-sm">Beta</button>

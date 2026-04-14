@@ -192,5 +192,72 @@
     --hem-label-line-height:     var(--hem-leading-normal);
     --hem-label-alt-font-size:   var(--hem-text-xs);
     --hem-label-alt-color:       var(--hem-text-muted);
+
+
+    /* ==================== Badge ==================== */
+    --hem-badge-height-unit:     5;
+    --hem-badge-padding-x-unit:  2;
+    --hem-badge-font-size:       var(--hem-text-xs);
+    --hem-badge-font-weight:     var(--hem-font-weight-medium);
+    --hem-badge-line-height:     var(--hem-leading-normal);
+    --hem-badge-radius:          var(--hem-radius-badge);
+    --hem-badge-border-width:    var(--hem-border-width);
+    --hem-badge-sm-size-unit:    0.1875rem;
+    --hem-badge-sm-font-size:    var(--hem-text-2xs);
+    --hem-badge-lg-size-unit:    0.2813rem;
+    --hem-badge-lg-font-size:    var(--hem-text-sm);
+
+
+    /* ==================== Alert ==================== */
+    --hem-alert-padding:         var(--hem-space-4);
+    --hem-alert-gap:             var(--hem-space-3);
+    --hem-alert-font-size:       var(--hem-text-sm);
+    --hem-alert-line-height:     var(--hem-leading-normal);
+    --hem-alert-radius:          var(--hem-radius);
+    --hem-alert-border-width:    var(--hem-border-width);
+
+
+    /* ==================== Avatar ==================== */
+    --hem-avatar-size:           var(--hem-space-8);
+    --hem-avatar-radius:         var(--hem-radius-badge);
+    --hem-avatar-border-width:   var(--hem-border-width);
+    --hem-avatar-font-size:      var(--hem-text-sm);
+    --hem-avatar-font-weight:    var(--hem-font-weight-medium);
+    --hem-avatar-sm-size:        var(--hem-space-6);
+    --hem-avatar-sm-font-size:   var(--hem-text-xs);
+    --hem-avatar-lg-size:        var(--hem-space-7);
+    --hem-avatar-lg-font-size:   var(--hem-text-base);
+    --hem-avatar-xl-size:        3rem;
+    --hem-avatar-xl-font-size:   var(--hem-text-xl);
+    --hem-avatar-group-overlap:  -0.5rem;
+
+
+    /* ==================== Divider ==================== */
+    --hem-divider-color:         var(--hem-border);
+    --hem-divider-thickness:     var(--hem-border-width);
+    --hem-divider-gap:           var(--hem-space-4);
+    --hem-divider-font-size:     var(--hem-text-xs);
+    --hem-divider-color-text:    var(--hem-text-muted);
+
+
+    /* ==================== Loading ==================== */
+    --hem-loading-size:          var(--hem-space-6);
+    --hem-loading-color:         var(--hem-text-muted);
+    --hem-loading-border-width:  calc(var(--hem-border-width) * 2);
+    --hem-loading-speed:         0.7s;
+
+
+    /* ==================== Kbd ==================== */
+    --hem-kbd-height-unit:       5.5;
+    --hem-kbd-padding-x-unit:    1.5;
+    --hem-kbd-font-size:         var(--hem-text-xs);
+    --hem-kbd-font-family:       var(--hem-font-mono);
+    --hem-kbd-line-height:       var(--hem-leading-normal);
+    --hem-kbd-radius:            var(--hem-radius-md);
+    --hem-kbd-border-width:      var(--hem-border-width);
+    --hem-kbd-sm-size-unit:      0.1875rem;
+    --hem-kbd-sm-font-size:      var(--hem-text-2xs);
+    --hem-kbd-lg-size-unit:      0.2813rem;
+    --hem-kbd-lg-font-size:      var(--hem-text-sm);
   }
 }

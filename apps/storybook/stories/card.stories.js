@@ -6,7 +6,6 @@ const renderCard = ({ modifier, title, body, showActions }) => {
 
   const card = document.createElement('div')
   card.className = classes.join(' ')
-  card.style.width = '280px'
 
   const bodyEl = document.createElement('div')
   bodyEl.className = 'card-body'

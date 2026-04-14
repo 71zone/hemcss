@@ -97,10 +97,8 @@ export const AllVariants = {
   parameters: { controls: { disable: true } },
   render: () => {
     const wrap = document.createElement('div')
-    wrap.style.display = 'flex'
-    wrap.style.flexWrap = 'wrap'
-    wrap.style.gap = '0.5rem'
-    wrap.style.alignItems = 'center'
+    wrap.className = 'stack stack-row stack-wrap items-center'
+    wrap.setAttribute('data-gap', '0.5rem')
     const variants = [
       '',
       'primary',

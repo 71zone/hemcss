@@ -1,0 +1,52 @@
+/* src/components/avatar.css — image/initials circle with group stacking. */
+@layer component {
+  .avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--hem-avatar-size);
+    height: var(--hem-avatar-size);
+    font-size: var(--hem-avatar-font-size);
+    font-weight: var(--hem-avatar-font-weight);
+    line-height: 1;
+    background-color: var(--hem-bg-elevated);
+    color: var(--hem-text);
+    border: var(--hem-avatar-border-width) solid var(--hem-border);
+    border-radius: var(--hem-avatar-radius);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .avatar > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .avatar-sm {
+    width: var(--hem-avatar-sm-size);
+    height: var(--hem-avatar-sm-size);
+    font-size: var(--hem-avatar-sm-font-size);
+  }
+  .avatar-lg {
+    width: var(--hem-avatar-lg-size);
+    height: var(--hem-avatar-lg-size);
+    font-size: var(--hem-avatar-lg-font-size);
+  }
+  .avatar-xl {
+    width: var(--hem-avatar-xl-size);
+    height: var(--hem-avatar-xl-size);
+    font-size: var(--hem-avatar-xl-font-size);
+  }
+
+  .avatar-group {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .avatar-group > .avatar {
+    margin-inline-start: var(--hem-avatar-group-overlap);
+  }
+  .avatar-group > .avatar:where(:last-child) {
+    margin-inline-start: 0;
+  }
+}
