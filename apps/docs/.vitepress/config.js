@@ -65,6 +65,17 @@ export default defineConfig({
           ],
         },
         {
+          text: 'Navigation & structure',
+          items: [
+            { text: 'Navbar', link: '/components/navbar' },
+            { text: 'Menu', link: '/components/menu' },
+            { text: 'Breadcrumb', link: '/components/breadcrumb' },
+            { text: 'Tabs', link: '/components/tabs' },
+            { text: 'Steps', link: '/components/steps' },
+            { text: 'Pagination', link: '/components/pagination' },
+          ],
+        },
+        {
           text: 'Layout',
           items: [
             { text: 'Stack', link: '/components/stack' },

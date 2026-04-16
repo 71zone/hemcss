@@ -1,0 +1,5 @@
+/* Standalone tabs component entry.
+ * Import after hemcss/base to get just the tabs component.
+ */
+@import url("../layers.css");
+@import url("../components/tabs.css");

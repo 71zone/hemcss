@@ -1,0 +1,41 @@
+/* src/components/navbar.css — horizontal navigation bar.
+ * Three-section flex layout: start / center / end.
+ * Bottom border separates it from page content.
+ */
+@layer component {
+  .navbar {
+    display: flex;
+    align-items: center;
+    gap: var(--hem-navbar-gap);
+    min-height: var(--hem-navbar-height);
+    padding-inline: var(--hem-navbar-padding-x);
+    padding-block: var(--hem-navbar-padding-y);
+    font-size: var(--hem-navbar-font-size);
+    background-color: var(--hem-navbar-bg);
+    color: var(--hem-navbar-color);
+    border-bottom: var(--hem-navbar-border-width) solid var(--hem-navbar-border-color);
+  }
+
+  .navbar-start {
+    display: flex;
+    align-items: center;
+    gap: var(--hem-navbar-gap);
+    flex: 0 0 auto;
+  }
+
+  .navbar-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--hem-navbar-gap);
+    flex: 1 1 auto;
+  }
+
+  .navbar-end {
+    display: flex;
+    align-items: center;
+    gap: var(--hem-navbar-gap);
+    flex: 0 0 auto;
+    margin-inline-start: auto;
+  }
+}

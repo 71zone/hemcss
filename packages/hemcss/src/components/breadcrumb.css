@@ -1,0 +1,39 @@
+/* src/components/breadcrumb.css — path navigation.
+ * Expects: ol.breadcrumb > li > a | span
+ * Separators generated via ::before on li + li.
+ */
+@layer component {
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--hem-breadcrumb-gap);
+    font-size: var(--hem-breadcrumb-font-size);
+    line-height: var(--hem-breadcrumb-line-height);
+    color: var(--hem-breadcrumb-color);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb > li + li::before {
+    content: var(--hem-breadcrumb-separator);
+    color: var(--hem-breadcrumb-separator-color);
+    margin-inline-end: var(--hem-breadcrumb-gap);
+  }
+
+  .breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--hem-transition-fast);
+  }
+
+  .breadcrumb a:where(:hover) {
+    color: var(--hem-breadcrumb-color-active);
+    text-decoration: underline;
+  }
+
+  .breadcrumb > li:where(:last-child) {
+    color: var(--hem-breadcrumb-color-active);
+  }
+}

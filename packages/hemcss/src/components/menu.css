@@ -1,0 +1,77 @@
+/* src/components/menu.css — vertical/horizontal list menu.
+ * Expects: ul.menu > li > a.menu-item | .menu-title
+ * Modifiers: menu-horizontal, menu-compact.
+ */
+@layer component {
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--hem-menu-gap);
+    padding: var(--hem-menu-padding);
+    font-size: var(--hem-menu-font-size);
+    line-height: var(--hem-menu-line-height);
+    list-style: none;
+    margin: 0;
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: var(--hem-menu-gap);
+    padding-inline: var(--hem-menu-item-padding-x);
+    padding-block: var(--hem-menu-item-padding-y);
+    font-weight: var(--hem-menu-item-font-weight);
+    color: var(--hem-text);
+    background-color: transparent;
+    border: none;
+    border-radius: var(--hem-menu-item-radius);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background-color var(--hem-transition-fast),
+      color            var(--hem-transition-fast);
+  }
+
+  .menu-item:hover {
+    background-color: var(--hem-bg-accented);
+  }
+
+  .menu-item:where(.is-active) {
+    background-color: var(--hem-bg-accented);
+    color: var(--hem-text-highlighted);
+    font-weight: var(--hem-font-weight-medium);
+  }
+
+  .menu-item:focus-visible {
+    outline: none;
+    box-shadow: var(--hem-shadow-ring);
+  }
+
+  .menu-item:where(:disabled, [disabled], .is-disabled) {
+    pointer-events: none;
+    opacity: var(--hem-menu-disabled-opacity);
+    cursor: not-allowed;
+  }
+
+  .menu-title {
+    display: flex;
+    align-items: center;
+    padding-inline: var(--hem-menu-title-padding-x);
+    padding-block: var(--hem-menu-title-padding-y);
+    font-size: var(--hem-menu-title-font-size);
+    font-weight: var(--hem-menu-title-font-weight);
+    color: var(--hem-menu-title-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    user-select: none;
+  }
+
+  .menu-horizontal {
+    flex-direction: row;
+  }
+
+  .menu-compact .menu-item {
+    padding-inline: var(--hem-menu-compact-item-padding-x);
+    padding-block: var(--hem-menu-compact-item-padding-y);
+  }
+}

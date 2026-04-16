@@ -13,9 +13,15 @@
 @import url("./badge.css");
 @import url("./alert.css");
 @import url("./avatar.css");
+@import url("./navbar.css");
+@import url("./menu.css");
+@import url("./breadcrumb.css");
 @import url("./alignment.css");
 @import url("./stack.css");
 @import url("./grid.css");
 @import url("./divider.css");
 @import url("./loading.css");
 @import url("./kbd.css");
+@import url("./tabs.css");
+@import url("./steps.css");
+@import url("./pagination.css");

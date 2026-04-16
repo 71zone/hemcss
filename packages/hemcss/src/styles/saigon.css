@@ -156,6 +156,49 @@
     --hem-kbd-sm-font-size:      var(--hem-text-2xs);
     --hem-kbd-lg-font-size:      var(--hem-text-xs);
 
+    /* ---- Navbar ---- */
+    --hem-navbar-height:          3rem;
+    --hem-navbar-padding-x:       var(--hem-space-3);
+    --hem-navbar-padding-y:       var(--hem-space-1);
+    --hem-navbar-gap:             var(--hem-space-1);
+    --hem-navbar-font-size:       var(--hem-text-xs);
+
+    /* ---- Menu ---- */
+    --hem-menu-padding:           var(--hem-space-1);
+    --hem-menu-gap:               0px;
+    --hem-menu-font-size:         var(--hem-text-xs);
+    --hem-menu-item-padding-x:    var(--hem-space-2);
+    --hem-menu-item-padding-y:    var(--hem-space-1);
+    --hem-menu-item-radius:       var(--hem-radius-sm);
+    --hem-menu-title-padding-x:   var(--hem-space-2);
+    --hem-menu-title-padding-y:   var(--hem-space-1);
+    --hem-menu-title-font-size:   var(--hem-text-2xs);
+    --hem-menu-compact-item-padding-x: var(--hem-space-1);
+    --hem-menu-compact-item-padding-y: 0.125rem;
+
+    /* ---- Breadcrumb ---- */
+    --hem-breadcrumb-font-size:    var(--hem-text-xs);
+
+    /* ---- Tabs ---- */
+    --hem-tabs-font-size:         var(--hem-text-xs);
+    --hem-tab-padding-x:          var(--hem-space-3);
+    --hem-tab-padding-y:          var(--hem-space-1);
+    --hem-tab-radius:             var(--hem-radius-sm);
+
+    /* ---- Steps ---- */
+    --hem-steps-gap:              var(--hem-space-1);
+    --hem-steps-font-size:        var(--hem-text-xs);
+    --hem-step-circle-size:       1.5rem;
+    --hem-step-circle-font-size:  var(--hem-text-xs);
+    --hem-step-label-font-size:   var(--hem-text-2xs);
+
+    /* ---- Pagination ---- */
+    --hem-pagination-gap:          0px;
+    --hem-pagination-font-size:    var(--hem-text-xs);
+    --hem-pagination-item-size:    1.5rem;
+    --hem-pagination-item-padding: var(--hem-space-1);
+    --hem-pagination-item-radius:  var(--hem-radius-sm);
+
     /* ---- Focus halo ---- */
     --hem-shadow-ring: 0 0 0 2px color-mix(in oklch, var(--hem-ring) 30%, transparent);
   }

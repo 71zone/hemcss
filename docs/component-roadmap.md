@@ -22,6 +22,12 @@ Prioritized plan for expanding HẻmCSS beyond the initial components.
 - [x] divider — plain, labeled, horizontal
 - [x] loading — spinner, ring, dots
 - [x] kbd — sm, lg, monospace
+- [x] navbar — start, center, end sections
+- [x] menu — item, title, horizontal, compact
+- [x] breadcrumb — auto separators, last-child active
+- [x] tabs — bordered, lifted, is-active/tab-active
+- [x] steps — CSS counters, 7 color variants
+- [x] pagination — ghost-button items, aria-current support
 
 ## ~~Batch 2 — Feedback & decoration~~ (shipped)
 
@@ -34,7 +40,7 @@ Prioritized plan for expanding HẻmCSS beyond the initial components.
 | **loading** | `.loading` `.loading-spinner` `.loading-dots` `.loading-ring` | Standalone spinners (not just btn state) |
 | **kbd** | `.kbd` `.kbd-{sm,lg}` | Keyboard shortcut display |
 
-## Batch 3 — Navigation & structure
+## ~~Batch 3 — Navigation & structure~~ (shipped)
 
 Site-level components.
 

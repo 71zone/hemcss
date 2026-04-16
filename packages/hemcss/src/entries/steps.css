@@ -1,0 +1,5 @@
+/* Standalone steps component entry.
+ * Import after hemcss/base to get just the steps component.
+ */
+@import url("../layers.css");
+@import url("../components/steps.css");

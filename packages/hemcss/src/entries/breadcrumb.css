@@ -1,0 +1,5 @@
+/* Standalone breadcrumb component entry.
+ * Import after hemcss/base to get just the breadcrumb component.
+ */
+@import url("../layers.css");
+@import url("../components/breadcrumb.css");

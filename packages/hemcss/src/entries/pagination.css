@@ -1,0 +1,5 @@
+/* Standalone pagination component entry.
+ * Import after hemcss/base to get just the pagination component.
+ */
+@import url("../layers.css");
+@import url("../components/pagination.css");

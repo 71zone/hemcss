@@ -1,0 +1,130 @@
+/* src/components/steps.css — horizontal progress steps indicator.
+ * Uses CSS counters for numbering.
+ * Expects: ol.steps > li.step
+ */
+@layer component {
+  .steps {
+    display: flex;
+    align-items: flex-start;
+    counter-reset: hem-step;
+    font-size: var(--hem-steps-font-size);
+    line-height: var(--hem-steps-line-height);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--hem-steps-gap);
+    flex: 1 1 0%;
+    position: relative;
+    counter-increment: hem-step;
+    min-width: 0;
+  }
+
+  .step::before {
+    content: counter(hem-step);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--hem-step-circle-size);
+    height: var(--hem-step-circle-size);
+    font-size: var(--hem-step-circle-font-size);
+    font-weight: var(--hem-step-circle-font-weight);
+    color: var(--hem-step-circle-color);
+    background-color: var(--hem-step-circle-bg);
+    border: var(--hem-step-circle-border-width) solid var(--hem-step-circle-border-color);
+    border-radius: var(--hem-radius-badge);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--hem-step-circle-size) / 2);
+    right: calc(50% + var(--hem-step-circle-size) / 2 + var(--hem-space-1));
+    left: calc(-50% + var(--hem-step-circle-size) / 2 + var(--hem-space-1));
+    height: var(--hem-step-line-thickness);
+    background-color: var(--hem-step-line-color);
+    transform: translateY(-50%);
+  }
+
+  .step:where(:first-child)::after {
+    display: none;
+  }
+
+  .step > * {
+    font-size: var(--hem-step-label-font-size);
+    color: var(--hem-step-label-color);
+    text-align: center;
+  }
+
+  .step-primary::before {
+    background-color: var(--hem-primary);
+    border-color: var(--hem-primary);
+    color: var(--hem-text-inverted);
+  }
+  .step-primary::after {
+    background-color: var(--hem-primary);
+  }
+
+  .step-secondary::before {
+    background-color: var(--hem-secondary);
+    border-color: var(--hem-secondary);
+    color: var(--hem-text-inverted);
+  }
+  .step-secondary::after {
+    background-color: var(--hem-secondary);
+  }
+
+  .step-success::before {
+    background-color: var(--hem-success);
+    border-color: var(--hem-success);
+    color: var(--hem-text-inverted);
+  }
+  .step-success::after {
+    background-color: var(--hem-success);
+  }
+
+  .step-info::before {
+    background-color: var(--hem-info);
+    border-color: var(--hem-info);
+    color: var(--hem-text-inverted);
+  }
+  .step-info::after {
+    background-color: var(--hem-info);
+  }
+
+  .step-warning::before {
+    background-color: var(--hem-warning);
+    border-color: var(--hem-warning);
+    color: var(--hem-text-inverted);
+  }
+  .step-warning::after {
+    background-color: var(--hem-warning);
+  }
+
+  .step-error::before {
+    background-color: var(--hem-error);
+    border-color: var(--hem-error);
+    color: var(--hem-text-inverted);
+  }
+  .step-error::after {
+    background-color: var(--hem-error);
+  }
+
+  .step-neutral::before {
+    background-color: var(--hem-neutral);
+    border-color: var(--hem-neutral);
+    color: var(--hem-text-inverted);
+  }
+  .step-neutral::after {
+    background-color: var(--hem-neutral);
+  }
+}

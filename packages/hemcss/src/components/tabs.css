@@ -1,0 +1,73 @@
+/* src/components/tabs.css — tab navigation.
+ * Expects: .tabs > button.tab | a.tab
+ * Modifiers: tab-bordered, tab-lifted.
+ */
+@layer component {
+  .tabs {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--hem-tabs-gap);
+    font-size: var(--hem-tabs-font-size);
+    line-height: var(--hem-tabs-line-height);
+    border-bottom: var(--hem-border-width) solid var(--hem-border);
+  }
+
+  .tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: var(--hem-tab-padding-x);
+    padding-block: var(--hem-tab-padding-y);
+    font-weight: var(--hem-tab-font-weight);
+    color: var(--hem-tab-color);
+    background-color: transparent;
+    border: none;
+    border-bottom: var(--hem-tab-border-width) solid var(--hem-tab-border-color);
+    margin-bottom: calc(var(--hem-border-width) * -1);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    transition:
+      color            var(--hem-transition-fast),
+      border-color     var(--hem-transition-fast),
+      background-color var(--hem-transition-fast);
+  }
+
+  .tab:hover {
+    color: var(--hem-tab-color-active);
+  }
+
+  .tab:focus-visible {
+    outline: none;
+    box-shadow: var(--hem-shadow-ring);
+  }
+
+  .tab:where(.is-active, .tab-active) {
+    color: var(--hem-tab-color-active);
+  }
+
+  .tab:where(:disabled, [disabled], .is-disabled) {
+    pointer-events: none;
+    opacity: var(--hem-tab-disabled-opacity);
+    cursor: not-allowed;
+  }
+
+  .tab-bordered .tab:where(.is-active, .tab-active) {
+    border-bottom-color: var(--hem-tab-border-color-active);
+  }
+
+  .tab-lifted .tab {
+    border: var(--hem-border-width) solid transparent;
+    border-bottom: none;
+    border-radius: var(--hem-tab-radius) var(--hem-tab-radius) 0 0;
+    margin-bottom: calc(var(--hem-border-width) * -1);
+    padding-bottom: calc(var(--hem-tab-padding-y) + var(--hem-border-width));
+  }
+
+  .tab-lifted .tab:where(.is-active, .tab-active) {
+    background-color: var(--hem-tab-bg-active);
+    border-color: var(--hem-border);
+    color: var(--hem-tab-color-active);
+  }
+}

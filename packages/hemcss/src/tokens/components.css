@@ -259,5 +259,95 @@
     --hem-kbd-sm-font-size:      var(--hem-text-2xs);
     --hem-kbd-lg-size-unit:      0.2813rem;
     --hem-kbd-lg-font-size:      var(--hem-text-sm);
+
+
+    /* ==================== Navbar ==================== */
+    --hem-navbar-height:          3.5rem;
+    --hem-navbar-padding-x:       var(--hem-space-4);
+    --hem-navbar-padding-y:       var(--hem-space-2);
+    --hem-navbar-gap:             var(--hem-space-2);
+    --hem-navbar-font-size:       var(--hem-text-sm);
+    --hem-navbar-bg:              var(--hem-bg);
+    --hem-navbar-color:           var(--hem-text);
+    --hem-navbar-border-width:    var(--hem-border-width);
+    --hem-navbar-border-color:    var(--hem-border);
+
+
+    /* ==================== Menu ==================== */
+    --hem-menu-padding:           var(--hem-space-2);
+    --hem-menu-gap:               var(--hem-space-1);
+    --hem-menu-font-size:         var(--hem-text-sm);
+    --hem-menu-line-height:       var(--hem-leading-normal);
+    --hem-menu-radius:            var(--hem-radius);
+    --hem-menu-item-padding-x:    var(--hem-space-3);
+    --hem-menu-item-padding-y:    var(--hem-space-2);
+    --hem-menu-item-radius:       var(--hem-radius-md);
+    --hem-menu-item-font-weight:  var(--hem-font-weight-normal);
+    --hem-menu-title-padding-x:   var(--hem-space-3);
+    --hem-menu-title-padding-y:   var(--hem-space-2);
+    --hem-menu-title-font-size:   var(--hem-text-xs);
+    --hem-menu-title-font-weight: var(--hem-font-weight-semibold);
+    --hem-menu-title-color:       var(--hem-text-muted);
+    --hem-menu-compact-item-padding-x: var(--hem-space-2);
+    --hem-menu-compact-item-padding-y: var(--hem-space-1);
+    --hem-menu-disabled-opacity:  var(--hem-opacity-disabled);
+
+
+    /* ==================== Breadcrumb ==================== */
+    --hem-breadcrumb-gap:          var(--hem-space-1);
+    --hem-breadcrumb-font-size:    var(--hem-text-sm);
+    --hem-breadcrumb-line-height:  var(--hem-leading-normal);
+    --hem-breadcrumb-color:        var(--hem-text-muted);
+    --hem-breadcrumb-color-active: var(--hem-text);
+    --hem-breadcrumb-separator:    "/";
+    --hem-breadcrumb-separator-color: var(--hem-text-muted);
+
+
+    /* ==================== Tabs ==================== */
+    --hem-tabs-gap:               0px;
+    --hem-tabs-font-size:         var(--hem-text-sm);
+    --hem-tabs-line-height:       var(--hem-leading-normal);
+    --hem-tab-padding-x:          var(--hem-space-4);
+    --hem-tab-padding-y:          var(--hem-space-2);
+    --hem-tab-font-weight:        var(--hem-font-weight-medium);
+    --hem-tab-color:              var(--hem-text-muted);
+    --hem-tab-color-active:       var(--hem-text-highlighted);
+    --hem-tab-border-width:       calc(var(--hem-border-width) * 2);
+    --hem-tab-border-color:       transparent;
+    --hem-tab-border-color-active: var(--hem-primary);
+    --hem-tab-radius:             var(--hem-radius-md);
+    --hem-tab-bg-active:          var(--hem-bg);
+    --hem-tab-disabled-opacity:   var(--hem-opacity-disabled);
+
+
+    /* ==================== Steps ==================== */
+    --hem-steps-gap:              var(--hem-space-2);
+    --hem-steps-font-size:        var(--hem-text-sm);
+    --hem-steps-line-height:      var(--hem-leading-normal);
+    --hem-step-circle-size:       2rem;
+    --hem-step-circle-font-size:  var(--hem-text-sm);
+    --hem-step-circle-font-weight: var(--hem-font-weight-medium);
+    --hem-step-circle-bg:         var(--hem-bg-elevated);
+    --hem-step-circle-color:      var(--hem-text-muted);
+    --hem-step-circle-border-width: var(--hem-border-width);
+    --hem-step-circle-border-color: var(--hem-border);
+    --hem-step-line-thickness:    calc(var(--hem-border-width) * 2);
+    --hem-step-line-color:        var(--hem-border);
+    --hem-step-label-color:       var(--hem-text-muted);
+    --hem-step-label-font-size:   var(--hem-text-xs);
+
+
+    /* ==================== Pagination ==================== */
+    --hem-pagination-gap:          var(--hem-space-1);
+    --hem-pagination-font-size:    var(--hem-text-sm);
+    --hem-pagination-line-height:  var(--hem-leading-normal);
+    --hem-pagination-item-size:    2rem;
+    --hem-pagination-item-padding: var(--hem-space-2);
+    --hem-pagination-item-radius:  var(--hem-radius-md);
+    --hem-pagination-item-font-weight: var(--hem-font-weight-medium);
+    --hem-pagination-item-color:   var(--hem-text);
+    --hem-pagination-active-bg:    var(--hem-bg-accented);
+    --hem-pagination-active-color: var(--hem-text-highlighted);
+    --hem-pagination-disabled-opacity: var(--hem-opacity-disabled);
   }
 }
