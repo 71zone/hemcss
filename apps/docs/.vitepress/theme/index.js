@@ -43,5 +43,6 @@ export default {
       attributes: true,
       attributeFilter: ['class'],
     })
+
   },
 }

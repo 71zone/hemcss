@@ -1,11 +1,14 @@
 /* src/components/tabs.css — tab navigation.
- * Expects: .tabs > button.tab | a.tab
+ * CSS-only via hidden radio + label: the radio is visually hidden,
+ * the label acts as the clickable tab, :has(:checked) drives state.
+ * Also supports .is-active on any element for JS-driven switching.
  * Modifiers: tab-bordered, tab-lifted.
  */
 @layer component {
   .tabs {
     display: flex;
     align-items: flex-end;
+    flex-wrap: wrap;
     gap: var(--hem-tabs-gap);
     font-size: var(--hem-tabs-font-size);
     line-height: var(--hem-tabs-line-height);
@@ -34,30 +37,41 @@
       background-color var(--hem-transition-fast);
   }
 
+  /* Hide radio inside label tab */
+  .tab > :where(input[type="radio"]) {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
   .tab:hover {
     color: var(--hem-tab-color-active);
     background-color: var(--hem-bg-accented);
   }
 
-  .tab:focus-visible {
-    outline: none;
+  .tab:focus-within {
     box-shadow: var(--hem-shadow-ring);
   }
 
-  .tab:where(.is-active, .tab-active) {
+  /* Active: label :has(:checked) or .is-active or .tab-active */
+  .tab:where(:has(:checked), .is-active, .tab-active) {
     color: var(--hem-tab-color-active);
   }
 
-  .tab:where(:disabled, [disabled], .is-disabled) {
+  .tab:where(:has(:disabled), .is-disabled) {
     pointer-events: none;
     opacity: var(--hem-tab-disabled-opacity);
     cursor: not-allowed;
   }
 
-  .tab-bordered .tab:where(.is-active, .tab-active) {
+  /* ==== Bordered ==== */
+  .tab-bordered .tab:where(:has(:checked), .is-active, .tab-active) {
     border-bottom-color: var(--hem-tab-border-color-active);
   }
 
+  /* ==== Lifted ==== */
   .tab-lifted .tab {
     border: var(--hem-border-width) solid transparent;
     border-bottom: none;
@@ -66,9 +80,20 @@
     padding-bottom: calc(var(--hem-tab-padding-y) + var(--hem-border-width));
   }
 
-  .tab-lifted .tab:where(.is-active, .tab-active) {
+  .tab-lifted .tab:where(:has(:checked), .is-active, .tab-active) {
     background-color: var(--hem-tab-bg-active);
     border-color: var(--hem-border);
     color: var(--hem-tab-color-active);
+  }
+
+  /* ==== Tab content panels ==== */
+  .tab-content {
+    display: none;
+    width: 100%;
+    order: 99;
+  }
+
+  .tab:where(:has(:checked), .is-active, .tab-active) + .tab-content {
+    display: block;
   }
 }

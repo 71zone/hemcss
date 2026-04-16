@@ -181,38 +181,54 @@
   font-family: inherit;
 }
 
-/* VitePress's unlayered button reset strips component styles.
- * Re-apply hemcss tab/pagination/step styles for buttons in previews. */
+/* VitePress's unlayered styles strip component styles on buttons/inputs.
+ * Re-apply hemcss tab/pagination/step styles inside previews. */
 .preview .tab {
   background-color: transparent;
   border: none;
-  border-bottom: var(--hem-tab-border-width) solid var(--hem-tab-border-color);
+  border-bottom: 2px solid transparent;
   border-radius: 0;
-  margin-bottom: calc(var(--hem-border-width) * -1);
-  color: var(--hem-tab-color);
+  margin-bottom: -1px;
+  color: var(--hem-text-muted);
+  font-weight: var(--hem-font-weight-medium);
+  padding: var(--hem-space-2) var(--hem-space-4);
+  cursor: pointer;
+  transition:
+    color            var(--hem-transition-fast),
+    border-color     var(--hem-transition-fast),
+    background-color var(--hem-transition-fast);
 }
 
-.preview .tab.is-active,
-.preview .tab.tab-active {
-  color: var(--hem-tab-color-active);
+.preview .tab:hover {
+  color: var(--hem-text-highlighted);
+  background-color: var(--hem-bg-accented);
 }
 
-.preview .tab-bordered .tab.is-active,
-.preview .tab-bordered .tab.tab-active {
+.preview .tab:has(:checked),
+.preview .tab.is-active {
+  color: var(--hem-text-highlighted);
+}
+
+.preview .tab-bordered .tab:has(:checked),
+.preview .tab-bordered .tab.is-active {
   border-bottom-color: var(--hem-primary);
 }
 
 .preview .tab-lifted .tab {
-  border: var(--hem-border-width) solid transparent;
+  border: 1px solid transparent;
   border-bottom: none;
-  border-radius: var(--hem-tab-radius) var(--hem-tab-radius) 0 0;
+  border-radius: var(--hem-radius-md) var(--hem-radius-md) 0 0;
 }
 
-.preview .tab-lifted .tab.is-active,
-.preview .tab-lifted .tab.tab-active {
+.preview .tab-lifted .tab:has(:checked),
+.preview .tab-lifted .tab.is-active {
   background-color: var(--hem-bg);
   border-color: var(--hem-border);
   color: var(--hem-text-highlighted);
+}
+
+.preview .tab-content {
+  padding: var(--hem-space-4) 0;
 }
 
 .preview .steps {
@@ -228,6 +244,14 @@
   padding-inline: var(--hem-pagination-item-padding);
   font-weight: var(--hem-pagination-item-font-weight);
   cursor: pointer;
+  transition:
+    background-color var(--hem-transition-fast),
+    color            var(--hem-transition-fast),
+    border-color     var(--hem-transition-fast);
+}
+
+.preview .pagination > button:hover:not(:disabled) {
+  background-color: var(--hem-bg-accented);
 }
 
 .preview .pagination > button.is-active {
