@@ -201,7 +201,8 @@
 
 .preview .tab:hover {
   color: var(--hem-text-highlighted);
-  background-color: var(--hem-bg-accented);
+  background-color: var(--hem-bg-muted);
+  border-radius: var(--hem-radius-md) var(--hem-radius-md) 0 0;
 }
 
 .preview .tab:has(:checked),
@@ -251,7 +252,8 @@
 }
 
 .preview .pagination > button:hover:not(:disabled) {
-  background-color: var(--hem-bg-accented);
+  background-color: var(--hem-bg-muted);
+  border-color: var(--hem-border-accented);
 }
 
 .preview .pagination > button.is-active {

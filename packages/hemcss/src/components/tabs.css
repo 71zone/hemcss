@@ -48,11 +48,14 @@
 
   .tab:hover {
     color: var(--hem-tab-color-active);
-    background-color: var(--hem-bg-accented);
+    background-color: var(--hem-bg-muted);
+    border-radius: var(--hem-tab-radius) var(--hem-tab-radius) 0 0;
   }
 
   .tab:focus-within {
-    box-shadow: var(--hem-shadow-ring);
+    outline: var(--hem-ring-width) solid color-mix(in oklch, var(--hem-ring) 40%, transparent);
+    outline-offset: calc(var(--hem-ring-width) * -1);
+    border-radius: var(--hem-tab-radius) var(--hem-tab-radius) 0 0;
   }
 
   /* Active: label :has(:checked) or .is-active or .tab-active */
