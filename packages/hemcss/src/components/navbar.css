@@ -6,6 +6,7 @@
   .navbar {
     display: flex;
     align-items: center;
+    width: 100%;
     gap: var(--hem-navbar-gap);
     min-height: var(--hem-navbar-height);
     padding-inline: var(--hem-navbar-padding-x);

@@ -93,25 +93,26 @@
 }
 
 /* ---- VitePress class-name collision fixes ----
- * VitePress uses .menu, .divider, and .label internally.
- * hemcss components with those names leak styles into VitePress's
- * own UI. Reset the offending properties here. */
+ * VitePress internally uses .menu, .divider, and .label as class names.
+ * hemcss @layer component styles leak into VP's UI because unlayered
+ * styles win over layered ones. Fix: undo hemcss styles on VP elements
+ * using revert-layer so the VP defaults come through. */
 .VPNavBarMenu.menu,
 .VPFlyout .menu {
-  flex-direction: row;
-  padding: 0;
-  gap: 0;
-  list-style: initial;
-  margin: initial;
+  flex-direction: revert-layer;
+  padding: revert-layer;
+  gap: revert-layer;
+  list-style: revert-layer;
+  margin: revert-layer;
 }
 
 .VPNavBar > .divider {
-  display: initial;
-  align-items: initial;
-  gap: initial;
-  font-size: initial;
-  color: initial;
-  white-space: initial;
+  display: revert-layer;
+  align-items: revert-layer;
+  gap: revert-layer;
+  font-size: revert-layer;
+  color: revert-layer;
+  white-space: revert-layer;
 }
 
 .VPNavBar > .divider::before,
@@ -121,10 +122,10 @@
 
 .VPSwitchAppearance + .label,
 .item.appearance > .label {
-  gap: initial;
-  font-size: initial;
-  font-weight: initial;
-  line-height: initial;
+  gap: revert-layer;
+  font-size: revert-layer;
+  font-weight: revert-layer;
+  line-height: revert-layer;
 }
 
 /* ---- Component preview containers ---- */
@@ -153,6 +154,76 @@
  * (e.g. the default link underline would show up on .btn-link). */
 .preview a {
   text-decoration: none;
+}
+
+/* VitePress's unlayered ul/ol styles override @layer component rules.
+ * Re-apply hemcss list resets for components inside previews. */
+.preview .menu,
+.preview .breadcrumb,
+.preview .steps {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* VitePress's unlayered button reset strips component styles.
+ * Re-apply hemcss tab/pagination/step styles for buttons in previews. */
+.preview .tab {
+  background-color: transparent;
+  border: none;
+  border-bottom: var(--hem-tab-border-width) solid var(--hem-tab-border-color);
+  border-radius: 0;
+  margin-bottom: calc(var(--hem-border-width) * -1);
+  color: var(--hem-tab-color);
+}
+
+.preview .tab.is-active,
+.preview .tab.tab-active {
+  color: var(--hem-tab-color-active);
+}
+
+.preview .tab-bordered .tab.is-active,
+.preview .tab-bordered .tab.tab-active {
+  border-bottom-color: var(--hem-primary);
+}
+
+.preview .tab-lifted .tab {
+  border: var(--hem-border-width) solid transparent;
+  border-bottom: none;
+  border-radius: var(--hem-tab-radius) var(--hem-tab-radius) 0 0;
+}
+
+.preview .tab-lifted .tab.is-active,
+.preview .tab-lifted .tab.tab-active {
+  background-color: var(--hem-bg);
+  border-color: var(--hem-border);
+  color: var(--hem-text-highlighted);
+}
+
+.preview .steps {
+  width: 100%;
+}
+
+.preview .pagination > button {
+  background-color: var(--hem-bg-elevated);
+  border: var(--hem-border-width) solid var(--hem-border);
+  border-radius: var(--hem-pagination-item-radius);
+  min-width: var(--hem-pagination-item-size);
+  min-height: var(--hem-pagination-item-size);
+  padding-inline: var(--hem-pagination-item-padding);
+  font-weight: var(--hem-pagination-item-font-weight);
+  cursor: pointer;
+}
+
+.preview .pagination > button.is-active {
+  background-color: var(--hem-primary);
+  color: var(--hem-text-inverted);
+  border-color: var(--hem-primary);
+}
+
+.preview .pagination > button:disabled {
+  opacity: var(--hem-opacity-disabled);
+  cursor: not-allowed;
 }
 
 /* ---- Token visualization ---- */

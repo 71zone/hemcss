@@ -48,8 +48,8 @@
     content: "";
     position: absolute;
     top: calc(var(--hem-step-circle-size) / 2);
-    right: calc(50% + var(--hem-step-circle-size) / 2 + var(--hem-space-1));
-    left: calc(-50% + var(--hem-step-circle-size) / 2 + var(--hem-space-1));
+    right: 50%;
+    left: -50%;
     height: var(--hem-step-line-thickness);
     background-color: var(--hem-step-line-color);
     transform: translateY(-50%);

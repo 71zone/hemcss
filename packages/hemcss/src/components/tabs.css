@@ -36,6 +36,7 @@
 
   .tab:hover {
     color: var(--hem-tab-color-active);
+    background-color: var(--hem-bg-accented);
   }
 
   .tab:focus-visible {

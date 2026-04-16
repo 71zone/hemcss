@@ -346,8 +346,8 @@
     --hem-pagination-item-radius:  var(--hem-radius-md);
     --hem-pagination-item-font-weight: var(--hem-font-weight-medium);
     --hem-pagination-item-color:   var(--hem-text);
-    --hem-pagination-active-bg:    var(--hem-bg-accented);
-    --hem-pagination-active-color: var(--hem-text-highlighted);
+    --hem-pagination-active-bg:    var(--hem-primary);
+    --hem-pagination-active-color: var(--hem-text-inverted);
     --hem-pagination-disabled-opacity: var(--hem-opacity-disabled);
   }
 }

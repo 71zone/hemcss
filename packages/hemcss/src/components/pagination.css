@@ -21,8 +21,8 @@
     font-size: inherit;
     font-weight: var(--hem-pagination-item-font-weight);
     color: var(--hem-pagination-item-color);
-    background-color: transparent;
-    border: none;
+    background-color: var(--hem-bg-elevated);
+    border: var(--hem-border-width) solid var(--hem-border);
     border-radius: var(--hem-pagination-item-radius);
     text-decoration: none;
     cursor: pointer;
@@ -44,6 +44,7 @@
   .pagination > :where(a, button):where(.is-active, [aria-current="page"]) {
     background-color: var(--hem-pagination-active-bg);
     color: var(--hem-pagination-active-color);
+    border-color: var(--hem-pagination-active-bg);
   }
 
   .pagination > :where(a, button):where(:disabled, [disabled], .is-disabled) {
