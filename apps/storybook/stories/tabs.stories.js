@@ -18,6 +18,10 @@ const renderTabs = ({ variant, activeIndex }) => {
     label.appendChild(radio)
     label.appendChild(document.createTextNode(labels[i]))
     div.appendChild(label)
+    const content = document.createElement('div')
+    content.className = 'tab-content'
+    content.textContent = `${labels[i]} content panel`
+    div.appendChild(content)
   }
 
   if (variant === 'bordered' || variant === '') {

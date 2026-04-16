@@ -7,24 +7,24 @@ Tab navigation with a sliding indicator that physically moves between tabs. CSS-
 <div class="preview preview-stack">
   <div class="tabs tab-bordered">
     <label class="tab"><input type="radio" name="demo-bordered" checked />Overview</label>
-    <label class="tab"><input type="radio" name="demo-bordered" />Features</label>
-    <label class="tab"><input type="radio" name="demo-bordered" />Pricing</label>
-    <div class="tab-indicator"></div>
     <div class="tab-content"><p>Overview content goes here.</p></div>
+    <label class="tab"><input type="radio" name="demo-bordered" />Features</label>
     <div class="tab-content"><p>Features content goes here.</p></div>
+    <label class="tab"><input type="radio" name="demo-bordered" />Pricing</label>
     <div class="tab-content"><p>Pricing content goes here.</p></div>
+    <div class="tab-indicator"></div>
   </div>
 </div>
 
 ```html
 <div class="tabs tab-bordered">
   <label class="tab"><input type="radio" name="tabs-1" checked />Overview</label>
-  <label class="tab"><input type="radio" name="tabs-1" />Features</label>
-  <label class="tab"><input type="radio" name="tabs-1" />Pricing</label>
-  <div class="tab-indicator"></div>
   <div class="tab-content">Overview content</div>
+  <label class="tab"><input type="radio" name="tabs-1" />Features</label>
   <div class="tab-content">Features content</div>
+  <label class="tab"><input type="radio" name="tabs-1" />Pricing</label>
   <div class="tab-content">Pricing content</div>
+  <div class="tab-indicator"></div>
 </div>
 ```
 
@@ -55,10 +55,10 @@ Tab navigation with a sliding indicator that physically moves between tabs. CSS-
 <div class="preview preview-stack">
   <div class="tabs tab-lifted">
     <label class="tab"><input type="radio" name="demo-lifted" checked />Overview</label>
-    <label class="tab"><input type="radio" name="demo-lifted" />Features</label>
-    <label class="tab"><input type="radio" name="demo-lifted" />Pricing</label>
     <div class="tab-content"><p>Overview panel.</p></div>
+    <label class="tab"><input type="radio" name="demo-lifted" />Features</label>
     <div class="tab-content"><p>Features panel.</p></div>
+    <label class="tab"><input type="radio" name="demo-lifted" />Pricing</label>
     <div class="tab-content"><p>Pricing panel.</p></div>
   </div>
 </div>
@@ -66,8 +66,8 @@ Tab navigation with a sliding indicator that physically moves between tabs. CSS-
 ```html
 <div class="tabs tab-lifted">
   <label class="tab"><input type="radio" name="tabs-2" checked />Overview</label>
-  <label class="tab"><input type="radio" name="tabs-2" />Features</label>
   <div class="tab-content">Overview panel</div>
+  <label class="tab"><input type="radio" name="tabs-2" />Features</label>
   <div class="tab-content">Features panel</div>
 </div>
 ```
