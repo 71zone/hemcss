@@ -1,63 +1,28 @@
 /* src/components/tabs.css — tab navigation.
- * CSS-only via hidden radio + label. Sliding indicator uses @property
- * for smooth animation and anchor positioning for correct placement.
+ * CSS-only via hidden radio + label: the radio is visually hidden,
+ * the label acts as the clickable tab, :has(:checked) drives state.
  * Modifiers: tab-bordered, tab-lifted, tabs-boxed.
  */
 @layer component {
-  @property --_indicator-left {
-    syntax: "<length-percentage>";
-    inherits: true;
-    initial-value: 0%;
-  }
-
-  @property --_indicator-right {
-    syntax: "<length-percentage>";
-    inherits: true;
-    initial-value: 100%;
-  }
-
   .tabs {
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
-    width: 100%;
     gap: var(--hem-tabs-gap);
     font-size: var(--hem-tabs-font-size);
     line-height: var(--hem-tabs-line-height);
     border-bottom: var(--hem-border-width) solid var(--hem-border);
-    position: relative;
   }
 
   .tabs-boxed {
     border-bottom: none;
   }
 
-  /* ==== Sliding indicator track ====
-   * Sits at the bottom of the tab row, not the container.
-   * Uses registered custom properties so the browser can interpolate. */
-  .tab-bordered::after {
-    content: "";
-    height: var(--hem-tab-border-width);
-    background-color: var(--hem-tab-border-color-active);
-    border-radius: var(--hem-tab-border-width) var(--hem-tab-border-width) 0 0;
-    pointer-events: none;
-    order: 1;
-    flex-basis: 100%;
-    margin-top: calc(var(--hem-border-width) * -1);
-    margin-left: var(--_indicator-left);
-    margin-right: var(--_indicator-right);
-    transition:
-      --_indicator-left  var(--hem-transition-base),
-      --_indicator-right var(--hem-transition-base);
-  }
-
-  /* ==== Tab ==== */
   .tab {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    flex: 1 1 0%;
     padding-inline: var(--hem-tab-padding-x);
     padding-block: var(--hem-tab-padding-y);
     font-weight: var(--hem-tab-font-weight);
@@ -65,6 +30,7 @@
     background-color: transparent;
     border: none;
     border-radius: var(--hem-tab-radius) var(--hem-tab-radius) 0 0;
+    margin-bottom: calc(var(--hem-border-width) * -1);
     text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
@@ -82,9 +48,28 @@
     pointer-events: none;
   }
 
+  :where(.tab-bordered) .tab::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--hem-tab-border-width);
+    background-color: var(--hem-tab-border-color-active);
+    border-radius: var(--hem-tab-border-width) var(--hem-tab-border-width) 0 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--hem-transition-base);
+  }
+
   .tab:hover {
     color: var(--hem-tab-color-active);
     background-color: var(--hem-bg-muted);
+  }
+
+  :where(.tab-bordered) .tab:where(:hover)::after {
+    transform: scaleX(1);
+    transform-origin: left;
   }
 
   .tab:focus-within {
@@ -96,104 +81,14 @@
     color: var(--hem-tab-color-active);
   }
 
+  :where(.tab-bordered) .tab:where(:has(:checked), .is-active, .tab-active)::after {
+    transform: scaleX(1);
+  }
+
   .tab:where(:has(:disabled), .is-disabled) {
     pointer-events: none;
     opacity: var(--hem-tab-disabled-opacity);
     cursor: not-allowed;
-  }
-
-  /* ==== Indicator position per tab count ====
-   * Equal-width tabs (flex:1). Detect count via :nth-last-child(1 of .tab).
-   * :has(:hover) overrides :has(:checked) for hover-follow behavior. */
-
-  /* 2 tabs */
-  .tab-bordered:where(:has(:nth-child(1 of .tab):hover), :has(:nth-child(1 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 0%;
-    --_indicator-right: 50%;
-  }
-  .tab-bordered:where(:has(:nth-child(2 of .tab):hover), :has(:nth-child(2 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 50%;
-    --_indicator-right: 0%;
-  }
-
-  /* 3 tabs */
-  .tab-bordered:where(:has(:nth-child(3 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(1 of .tab):hover), :has(:nth-child(1 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 0%;
-    --_indicator-right: 66.666%;
-  }
-  .tab-bordered:where(:has(:nth-child(3 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(2 of .tab):hover), :has(:nth-child(2 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 33.333%;
-    --_indicator-right: 33.333%;
-  }
-  .tab-bordered:where(:has(:nth-child(3 of .tab):hover), :has(:nth-child(3 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 66.666%;
-    --_indicator-right: 0%;
-  }
-
-  /* 4 tabs */
-  .tab-bordered:where(:has(:nth-child(4 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(1 of .tab):hover), :has(:nth-child(1 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 0%;
-    --_indicator-right: 75%;
-  }
-  .tab-bordered:where(:has(:nth-child(4 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(2 of .tab):hover), :has(:nth-child(2 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 25%;
-    --_indicator-right: 50%;
-  }
-  .tab-bordered:where(:has(:nth-child(4 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(3 of .tab):hover), :has(:nth-child(3 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 50%;
-    --_indicator-right: 25%;
-  }
-  .tab-bordered:where(:has(:nth-child(4 of .tab):hover), :has(:nth-child(4 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 75%;
-    --_indicator-right: 0%;
-  }
-
-  /* 5 tabs */
-  .tab-bordered:where(:has(:nth-child(5 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(1 of .tab):hover), :has(:nth-child(1 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 0%;
-    --_indicator-right: 80%;
-  }
-  .tab-bordered:where(:has(:nth-child(5 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(2 of .tab):hover), :has(:nth-child(2 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 20%;
-    --_indicator-right: 60%;
-  }
-  .tab-bordered:where(:has(:nth-child(5 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(3 of .tab):hover), :has(:nth-child(3 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 40%;
-    --_indicator-right: 40%;
-  }
-  .tab-bordered:where(:has(:nth-child(5 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(4 of .tab):hover), :has(:nth-child(4 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 60%;
-    --_indicator-right: 20%;
-  }
-  .tab-bordered:where(:has(:nth-child(5 of .tab):hover), :has(:nth-child(5 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 80%;
-    --_indicator-right: 0%;
-  }
-
-  /* 6 tabs */
-  .tab-bordered:where(:has(:nth-child(6 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(1 of .tab):hover), :has(:nth-child(1 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 0%;
-    --_indicator-right: 83.333%;
-  }
-  .tab-bordered:where(:has(:nth-child(6 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(2 of .tab):hover), :has(:nth-child(2 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 16.666%;
-    --_indicator-right: 66.666%;
-  }
-  .tab-bordered:where(:has(:nth-child(6 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(3 of .tab):hover), :has(:nth-child(3 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 33.333%;
-    --_indicator-right: 50%;
-  }
-  .tab-bordered:where(:has(:nth-child(6 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(4 of .tab):hover), :has(:nth-child(4 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 50%;
-    --_indicator-right: 33.333%;
-  }
-  .tab-bordered:where(:has(:nth-child(6 of .tab):nth-last-child(1 of .tab))):where(:has(:nth-child(5 of .tab):hover), :has(:nth-child(5 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 66.666%;
-    --_indicator-right: 16.666%;
-  }
-  .tab-bordered:where(:has(:nth-child(6 of .tab):hover), :has(:nth-child(6 of .tab) :checked):not(:has(.tab:hover))) {
-    --_indicator-left: 83.333%;
-    --_indicator-right: 0%;
   }
 
   /* ==== Lifted ==== */
