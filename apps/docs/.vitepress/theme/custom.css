@@ -192,21 +192,6 @@
   font-weight: var(--hem-font-weight-medium);
   padding: var(--hem-space-2) var(--hem-space-4);
   cursor: pointer;
-  margin-bottom: -1px;
-}
-
-.preview .tab-bordered .tab::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: var(--hem-primary);
-  border-radius: 2px 2px 0 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .preview .tab:hover {
@@ -214,18 +199,9 @@
   background-color: var(--hem-bg-muted);
 }
 
-.preview .tab-bordered .tab:hover::after {
-  transform: scaleX(1);
-}
-
 .preview .tab:has(:checked),
 .preview .tab.is-active {
   color: var(--hem-text-highlighted);
-}
-
-.preview .tab-bordered .tab:has(:checked)::after,
-.preview .tab-bordered .tab.is-active::after {
-  transform: scaleX(1);
 }
 
 .preview .tab-lifted .tab {

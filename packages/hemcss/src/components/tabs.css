@@ -1,6 +1,7 @@
 /* src/components/tabs.css — tab navigation.
- * CSS-only via hidden radio + label: the radio is visually hidden,
- * the label acts as the clickable tab, :has(:checked) drives state.
+ * CSS-only via hidden radio + label. Sliding indicator uses CSS Anchor
+ * Positioning — the active tab declares anchor-name, a .tab-indicator
+ * div tracks it with transition on left/right for smooth sliding.
  * Modifiers: tab-bordered, tab-lifted, tabs-boxed.
  */
 @layer component {
@@ -12,6 +13,7 @@
     font-size: var(--hem-tabs-font-size);
     line-height: var(--hem-tabs-line-height);
     border-bottom: var(--hem-border-width) solid var(--hem-border);
+    position: relative;
   }
 
   .tabs-boxed {
@@ -30,7 +32,6 @@
     background-color: transparent;
     border: none;
     border-radius: var(--hem-tab-radius) var(--hem-tab-radius) 0 0;
-    margin-bottom: calc(var(--hem-border-width) * -1);
     text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
@@ -48,28 +49,18 @@
     pointer-events: none;
   }
 
-  :where(.tab-bordered) .tab::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: var(--hem-tab-border-width);
-    background-color: var(--hem-tab-border-color-active);
-    border-radius: var(--hem-tab-border-width) var(--hem-tab-border-width) 0 0;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform var(--hem-transition-base);
+  /* Checked tab is the default anchor for the sliding indicator.
+   * anchor-name declared here so hover (below) can override it. */
+  .tab:where(:has(:checked), .is-active, .tab-active) {
+    color: var(--hem-tab-color-active);
+    anchor-name: --hem-active-tab;
   }
 
+  /* Hover temporarily claims anchor — source order wins over :checked. */
   .tab:hover {
     color: var(--hem-tab-color-active);
     background-color: var(--hem-bg-muted);
-  }
-
-  :where(.tab-bordered) .tab:where(:hover)::after {
-    transform: scaleX(1);
-    transform-origin: left;
+    anchor-name: --hem-active-tab;
   }
 
   .tab:focus-within {
@@ -77,18 +68,27 @@
     outline-offset: calc(var(--hem-ring-width) * -1);
   }
 
-  .tab:where(:has(:checked), .is-active, .tab-active) {
-    color: var(--hem-tab-color-active);
-  }
-
-  :where(.tab-bordered) .tab:where(:has(:checked), .is-active, .tab-active)::after {
-    transform: scaleX(1);
-  }
-
   .tab:where(:has(:disabled), .is-disabled) {
     pointer-events: none;
     opacity: var(--hem-tab-disabled-opacity);
     cursor: not-allowed;
+  }
+
+  .tab-indicator {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    position-anchor: --hem-active-tab;
+    top: anchor(bottom);
+    left: anchor(left);
+    right: anchor(right);
+    height: var(--hem-tab-border-width);
+    background-color: var(--hem-tab-border-color-active);
+    border-radius: var(--hem-tab-border-width) var(--hem-tab-border-width) 0 0;
+    transition:
+      top   var(--hem-transition-base),
+      left  var(--hem-transition-base),
+      right var(--hem-transition-base);
   }
 
   /* ==== Lifted ==== */
@@ -107,6 +107,10 @@
     background-color: var(--hem-tab-bg-active);
     border-color: var(--hem-border);
     color: var(--hem-tab-color-active);
+  }
+
+  .tab-lifted .tab-indicator {
+    display: none;
   }
 
   /* ==== Tab content panels ==== */

@@ -6,14 +6,26 @@ const renderTabs = ({ variant, activeIndex }) => {
   if (variant) classes.push(`tab-${variant}`)
   div.className = classes.join(' ')
 
+  const name = `tabs-${Date.now()}`
   const labels = ['Overview', 'Features', 'Pricing', 'FAQ']
   for (let i = 0; i < labels.length; i++) {
-    const btn = document.createElement('button')
-    btn.type = 'button'
-    btn.className = 'tab' + (i === activeIndex ? ' is-active' : '')
-    btn.textContent = labels[i]
-    div.appendChild(btn)
+    const label = document.createElement('label')
+    label.className = 'tab'
+    const radio = document.createElement('input')
+    radio.type = 'radio'
+    radio.name = name
+    if (i === activeIndex) radio.checked = true
+    label.appendChild(radio)
+    label.appendChild(document.createTextNode(labels[i]))
+    div.appendChild(label)
   }
+
+  if (variant === 'bordered' || variant === '') {
+    const indicator = document.createElement('div')
+    indicator.className = 'tab-indicator'
+    div.appendChild(indicator)
+  }
+
   return div
 }
 
