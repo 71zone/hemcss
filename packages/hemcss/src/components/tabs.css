@@ -2,7 +2,7 @@
  * CSS-only via hidden radio + label: the radio is visually hidden,
  * the label acts as the clickable tab, :has(:checked) drives state.
  * Also supports .is-active on any element for JS-driven switching.
- * Modifiers: tab-bordered, tab-lifted.
+ * Modifiers: tab-bordered, tab-lifted, tabs-boxed.
  */
 @layer component {
   .tabs {
@@ -15,17 +15,22 @@
     border-bottom: var(--hem-border-width) solid var(--hem-border);
   }
 
+  .tabs-boxed {
+    border-bottom: none;
+  }
+
   .tab {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     padding-inline: var(--hem-tab-padding-x);
     padding-block: var(--hem-tab-padding-y);
     font-weight: var(--hem-tab-font-weight);
     color: var(--hem-tab-color);
     background-color: transparent;
     border: none;
-    border-bottom: var(--hem-tab-border-width) solid var(--hem-tab-border-color);
+    border-radius: var(--hem-tab-radius) var(--hem-tab-radius) 0 0;
     margin-bottom: calc(var(--hem-border-width) * -1);
     text-decoration: none;
     white-space: nowrap;
@@ -33,11 +38,9 @@
     user-select: none;
     transition:
       color            var(--hem-transition-fast),
-      border-color     var(--hem-transition-fast),
       background-color var(--hem-transition-fast);
   }
 
-  /* Hide radio inside label tab */
   .tab > :where(input[type="radio"]) {
     position: absolute;
     opacity: 0;
@@ -46,21 +49,39 @@
     pointer-events: none;
   }
 
+  .tab::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--hem-tab-border-width);
+    background-color: var(--hem-tab-border-color-active);
+    border-radius: var(--hem-tab-border-width) var(--hem-tab-border-width) 0 0;
+    transform: scaleX(0);
+    transition: transform var(--hem-transition-base);
+  }
+
   .tab:hover {
     color: var(--hem-tab-color-active);
     background-color: var(--hem-bg-muted);
-    border-radius: var(--hem-tab-radius) var(--hem-tab-radius) 0 0;
+  }
+
+  .tab:where(:hover)::after {
+    transform: scaleX(0.6);
   }
 
   .tab:focus-within {
     outline: var(--hem-ring-width) solid color-mix(in oklch, var(--hem-ring) 40%, transparent);
     outline-offset: calc(var(--hem-ring-width) * -1);
-    border-radius: var(--hem-tab-radius) var(--hem-tab-radius) 0 0;
   }
 
-  /* Active: label :has(:checked) or .is-active or .tab-active */
   .tab:where(:has(:checked), .is-active, .tab-active) {
     color: var(--hem-tab-color-active);
+  }
+
+  .tab:where(:has(:checked), .is-active, .tab-active)::after {
+    transform: scaleX(1);
   }
 
   .tab:where(:has(:disabled), .is-disabled) {
@@ -69,18 +90,22 @@
     cursor: not-allowed;
   }
 
-  /* ==== Bordered ==== */
-  .tab-bordered .tab:where(:has(:checked), .is-active, .tab-active) {
-    border-bottom-color: var(--hem-tab-border-color-active);
-  }
+  /* ==== Bordered (default indicator via ::after — already handled above) ==== */
 
   /* ==== Lifted ==== */
   .tab-lifted .tab {
     border: var(--hem-border-width) solid transparent;
     border-bottom: none;
-    border-radius: var(--hem-tab-radius) var(--hem-tab-radius) 0 0;
     margin-bottom: calc(var(--hem-border-width) * -1);
     padding-bottom: calc(var(--hem-tab-padding-y) + var(--hem-border-width));
+    transition:
+      color            var(--hem-transition-fast),
+      background-color var(--hem-transition-fast),
+      border-color     var(--hem-transition-fast);
+  }
+
+  :where(.tab-lifted) .tab::after {
+    display: none;
   }
 
   .tab-lifted .tab:where(:has(:checked), .is-active, .tab-active) {

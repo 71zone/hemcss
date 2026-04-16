@@ -184,10 +184,10 @@
 /* VitePress's unlayered styles strip component styles on buttons/inputs.
  * Re-apply hemcss tab/pagination/step styles inside previews. */
 .preview .tab {
+  position: relative;
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid transparent;
-  border-radius: 0;
+  border-radius: var(--hem-radius-md) var(--hem-radius-md) 0 0;
   margin-bottom: -1px;
   color: var(--hem-text-muted);
   font-weight: var(--hem-font-weight-medium);
@@ -195,14 +195,29 @@
   cursor: pointer;
   transition:
     color            var(--hem-transition-fast),
-    border-color     var(--hem-transition-fast),
     background-color var(--hem-transition-fast);
+}
+
+.preview .tab::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--hem-primary);
+  border-radius: 2px 2px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .preview .tab:hover {
   color: var(--hem-text-highlighted);
   background-color: var(--hem-bg-muted);
-  border-radius: var(--hem-radius-md) var(--hem-radius-md) 0 0;
+}
+
+.preview .tab:hover::after {
+  transform: scaleX(0.6);
 }
 
 .preview .tab:has(:checked),
@@ -210,15 +225,22 @@
   color: var(--hem-text-highlighted);
 }
 
-.preview .tab-bordered .tab:has(:checked),
-.preview .tab-bordered .tab.is-active {
-  border-bottom-color: var(--hem-primary);
+.preview .tab:has(:checked)::after,
+.preview .tab.is-active::after {
+  transform: scaleX(1);
 }
 
 .preview .tab-lifted .tab {
   border: 1px solid transparent;
   border-bottom: none;
-  border-radius: var(--hem-radius-md) var(--hem-radius-md) 0 0;
+  transition:
+    color            var(--hem-transition-fast),
+    background-color var(--hem-transition-fast),
+    border-color     var(--hem-transition-fast);
+}
+
+.preview .tab-lifted .tab::after {
+  display: none;
 }
 
 .preview .tab-lifted .tab:has(:checked),
