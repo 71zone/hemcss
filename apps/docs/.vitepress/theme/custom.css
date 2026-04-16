@@ -150,20 +150,35 @@
   margin: 0 auto;
 }
 
-/* Ensure VitePress's own typography doesn't leak into live previews
- * (e.g. the default link underline would show up on .btn-link). */
-.preview a {
-  text-decoration: none;
+/* Kill ALL VitePress .vp-doc leaks inside component previews.
+ * .vp-doc sets margins, paddings, list-styles, link colors, and
+ * spacing rules (li+li, p, ul, ol) that break hemcss components. */
+.preview *:not(style) {
+  margin: revert;
 }
 
-/* VitePress's unlayered ul/ol styles override @layer component rules.
- * Re-apply hemcss list resets for components inside previews. */
-.preview .menu,
-.preview .breadcrumb,
-.preview .steps {
+.preview a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.preview ul,
+.preview ol {
   list-style: none;
   padding-left: 0;
   margin: 0;
+}
+
+.preview li + li {
+  margin-top: 0;
+}
+
+.preview p {
+  margin: 0;
+}
+
+.preview button {
+  font-family: inherit;
 }
 
 /* VitePress's unlayered button reset strips component styles.
