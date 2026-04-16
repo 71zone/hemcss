@@ -92,6 +92,41 @@
   --vp-code-block-bg: var(--hem-bg-muted);
 }
 
+/* ---- VitePress class-name collision fixes ----
+ * VitePress uses .menu, .divider, and .label internally.
+ * hemcss components with those names leak styles into VitePress's
+ * own UI. Reset the offending properties here. */
+.VPNavBarMenu.menu,
+.VPFlyout .menu {
+  flex-direction: row;
+  padding: 0;
+  gap: 0;
+  list-style: initial;
+  margin: initial;
+}
+
+.VPNavBar > .divider {
+  display: initial;
+  align-items: initial;
+  gap: initial;
+  font-size: initial;
+  color: initial;
+  white-space: initial;
+}
+
+.VPNavBar > .divider::before,
+.VPNavBar > .divider::after {
+  content: none;
+}
+
+.VPSwitchAppearance + .label,
+.item.appearance > .label {
+  gap: initial;
+  font-size: initial;
+  font-weight: initial;
+  line-height: initial;
+}
+
 /* ---- Component preview containers ---- */
 .preview {
   display: flex;
