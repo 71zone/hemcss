@@ -25,7 +25,7 @@ Prioritized plan for expanding HẻmCSS beyond the initial components.
 - [x] navbar — start, center, end sections
 - [x] menu — item, title, horizontal, compact
 - [x] breadcrumb — auto separators, last-child active
-- [x] tabs — bordered, lifted, is-active/tab-active
+- [x] tabs — bordered (CSS Anchor sliding indicator), lifted, radio + label CSS-only switching, tab-content panels
 - [x] steps — CSS counters, 7 color variants
 - [x] pagination — ghost-button items, aria-current support
 
@@ -129,10 +129,18 @@ Existing docs and stories use `style=` attributes for layout that should use `.s
 - [x] **grid.md** — replace inline `width:100%`, `grid-template-rows`, `grid-template-areas`, `row-gap` with classes or `data-*` where possible (some like `grid-template-areas` genuinely need inline style)
 - [x] **Stories** — replace `style.cssText` box/cell styling in stories with hemcss classes
 
+## Cross-cutting improvements (shipped)
+
+- [x] **Inline style cleanup** — all docs and stories use `.stack`/`.grid` layout classes
+- [x] **VitePress isolation** — `.preview` containers reset VP leaks (list-style, margins, button resets)
+- [x] **Focus ring redesign** — soft glow with offset gap, keyboard-only (`:focus-visible`), no ring on click
+- [x] **DaisyUI patterns** — CSS-only interaction reference (`docs/daisyui-patterns.md`)
+- [x] **CSS Anchor Positioning** — tabs sliding indicator tracks active tab with smooth transitions
+
 ## Principles
 
-- **CSS-only** — no JS runtime. Use `<details>`, `<dialog>`, checkbox hacks, `:focus-within`
+- **CSS-only** — no JS runtime. Use `<details>`, `<dialog>`, checkbox hacks, `:has(:checked)`, CSS Anchor Positioning
 - **OOCSS** — structure in base class, skin in variant, size in modifier, state in `.is-*`
 - **Token-driven** — components reference only `--hem-{component}-*` tokens
 - **Progressive** — every component works with zero JS; JS enhances but never gates
-- **Browser target** — Chromium 133+ for layout `data-*` attributes (uses CSS `attr()` with `type()`)
+- **Browser target** — Chromium 133+ (`attr()` with `type()`, `:has()`, CSS Anchor Positioning)
