@@ -43,8 +43,8 @@
   }
 
   .menu-item:focus-visible {
-    outline: none;
     box-shadow: var(--hem-shadow-ring);
+    outline: none;
   }
 
   .menu-item:where(:disabled, [disabled], .is-disabled) {

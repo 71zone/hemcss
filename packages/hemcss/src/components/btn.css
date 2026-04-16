@@ -49,8 +49,8 @@
   /* Focus: border → ring + box-shadow halo. Visible indicator replaces
    * the suppressed outline. */
   .btn:focus-visible {
-    border-color: var(--hem-ring);
     box-shadow: var(--hem-shadow-ring);
+    outline: none;
   }
 
   /* Subtle press animation. */

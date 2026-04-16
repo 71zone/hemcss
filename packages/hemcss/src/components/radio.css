@@ -28,8 +28,8 @@
   }
 
   .radio:focus-visible {
-    border-color: var(--hem-ring);
     box-shadow: var(--hem-shadow-ring);
+    outline: none;
   }
 
   .radio:checked {

@@ -38,8 +38,8 @@
   }
 
   .pagination > :where(a, button):focus-visible {
-    outline: var(--hem-ring-width) solid color-mix(in oklch, var(--hem-ring) 40%, transparent);
-    outline-offset: calc(var(--hem-ring-width) * -1);
+    box-shadow: var(--hem-shadow-ring);
+    outline: none;
   }
 
   .pagination > :where(a, button):where(.is-active, [aria-current="page"]) {

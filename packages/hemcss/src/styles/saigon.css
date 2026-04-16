@@ -200,6 +200,8 @@
     --hem-pagination-item-radius:  var(--hem-radius-sm);
 
     /* ---- Focus halo ---- */
-    --hem-shadow-ring: 0 0 0 2px color-mix(in oklch, var(--hem-ring) 30%, transparent);
+    --hem-shadow-ring:
+      0 0 0 var(--hem-ring-offset-width) var(--hem-ring-offset),
+      0 0 0 calc(var(--hem-ring-offset-width) + var(--hem-ring-width)) color-mix(in oklch, var(--hem-ring) 30%, transparent);
   }
 }

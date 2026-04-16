@@ -38,10 +38,9 @@
     color: var(--hem-text-muted);
   }
 
-  /* Focus matches .btn: border-color → ring + box-shadow ring glow. */
   .input:focus-visible {
-    border-color: var(--hem-ring);
     box-shadow: var(--hem-shadow-ring);
+    outline: none;
   }
 
   /* ==== Variants ==== */
@@ -55,7 +54,7 @@
   }
   .input-ghost:focus-visible {
     background-color: var(--hem-bg);
-    border-color: var(--hem-ring);
+    border-color: var(--hem-border);
   }
 
   /* ==== Sizes ==== */

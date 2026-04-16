@@ -18,6 +18,8 @@
     --hem-shadow-lg:
       0 10px 15px -3px oklch(0% 0 0deg / 10%),
       0 4px 6px -4px oklch(0% 0 0deg / 8%);
-    --hem-shadow-ring: 0 0 0 3px color-mix(in oklch, var(--hem-ring) 50%, transparent);
+    --hem-shadow-ring:
+      0 0 0 var(--hem-ring-offset-width) var(--hem-ring-offset),
+      0 0 0 calc(var(--hem-ring-offset-width) + var(--hem-ring-width)) color-mix(in oklch, var(--hem-ring) 40%, transparent);
   }
 }

@@ -63,9 +63,9 @@
     anchor-name: --hem-active-tab;
   }
 
-  .tab:focus-within {
-    outline: var(--hem-ring-width) solid color-mix(in oklch, var(--hem-ring) 40%, transparent);
-    outline-offset: calc(var(--hem-ring-width) * -1);
+  .tab:where(:has(:focus-visible)) {
+    box-shadow: var(--hem-shadow-ring);
+    outline: none;
   }
 
   .tab:where(:has(:disabled), .is-disabled) {

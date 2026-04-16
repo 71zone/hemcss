@@ -38,8 +38,8 @@
   }
 
   .textarea:focus-visible {
-    border-color: var(--hem-ring);
     box-shadow: var(--hem-shadow-ring);
+    outline: none;
   }
 
   /* ==== Variants ==== */
@@ -53,7 +53,7 @@
   }
   .textarea-ghost:focus-visible {
     background-color: var(--hem-bg);
-    border-color: var(--hem-ring);
+    border-color: var(--hem-border);
   }
 
   /* ==== Sizes ==== */
