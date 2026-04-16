@@ -54,6 +54,17 @@ export default defineConfig({
           ],
         },
         {
+          text: 'Feedback & decoration',
+          items: [
+            { text: 'Badge', link: '/components/badge' },
+            { text: 'Alert', link: '/components/alert' },
+            { text: 'Avatar', link: '/components/avatar' },
+            { text: 'Divider', link: '/components/divider' },
+            { text: 'Loading', link: '/components/loading' },
+            { text: 'Kbd', link: '/components/kbd' },
+          ],
+        },
+        {
           text: 'Layout',
           items: [
             { text: 'Stack', link: '/components/stack' },
