@@ -20,6 +20,7 @@
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
+    width: 100%;
     gap: var(--hem-tabs-gap);
     font-size: var(--hem-tabs-font-size);
     line-height: var(--hem-tabs-line-height);
