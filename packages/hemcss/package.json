@@ -96,6 +96,8 @@
     "./components/tooltip/min": "./dist/components/tooltip.min.css",
     "./components/toast": "./dist/components/toast.css",
     "./components/toast/min": "./dist/components/toast.min.css",
+    "./components/table": "./dist/components/table.css",
+    "./components/table/min": "./dist/components/table.min.css",
     "./polyfill/grid": "./polyfill/grid.js",
     "./tokens/schema": "./dist/tokens/schema.json",
     "./plugin": "./plugin/index.js",

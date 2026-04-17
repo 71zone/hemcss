@@ -87,6 +87,12 @@ export default defineConfig({
           ],
         },
         {
+          text: 'Data & content',
+          items: [
+            { text: 'Table', link: '/components/table' },
+          ],
+        },
+        {
           text: 'Layout',
           items: [
             { text: 'Stack', link: '/components/stack' },

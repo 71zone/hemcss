@@ -1,0 +1,81 @@
+/* src/components/table.css — Styled data table.
+ *
+ * Variants: zebra (alternating rows), compact (tighter padding), pin-rows (sticky header),
+ * pin-cols (sticky first column).
+ *
+ * HTML structure:
+ *   <div class="overflow-x-auto">
+ *     <table class="table">
+ *       <thead><tr><th>...</th></tr></thead>
+ *       <tbody><tr><td>...</td></tr></tbody>
+ *     </table>
+ *   </div>
+ */
+@layer component {
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: var(--hem-table-font-size);
+    line-height: var(--hem-table-line-height);
+  }
+
+  .table :where(th, td) {
+    padding: var(--hem-table-padding-y) var(--hem-table-padding-x);
+    vertical-align: middle;
+  }
+
+  .table :where(thead, tfoot) :where(th, td) {
+    font-size: var(--hem-table-head-font-size);
+    font-weight: var(--hem-table-head-font-weight);
+    color: var(--hem-table-head-color);
+    background-color: var(--hem-table-head-bg);
+  }
+
+  .table :where(tbody tr) {
+    border-bottom: var(--hem-table-border-width) solid var(--hem-table-border-color);
+  }
+
+  /* Hover */
+  .table :where(tbody tr):hover {
+    background-color: var(--hem-table-hover-bg);
+  }
+
+  /* ---- Zebra ---- */
+  .table-zebra :where(tbody tr:nth-child(even)) {
+    background-color: var(--hem-table-stripe-bg);
+  }
+
+  /* ---- Compact ---- */
+  .table-compact :where(th, td) {
+    padding: var(--hem-table-compact-padding-y) var(--hem-table-compact-padding-x);
+  }
+
+  /* ---- Pin rows (sticky header) ---- */
+  .table-pin-rows :where(thead th) {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--hem-table-head-bg);
+  }
+
+  .table-pin-rows :where(tfoot th, tfoot td) {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+    background-color: var(--hem-table-head-bg);
+  }
+
+  /* ---- Pin cols (sticky first column) ---- */
+  .table-pin-cols :where(th:first-child, td:first-child) {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background-color: var(--hem-table-head-bg);
+  }
+
+  /* ---- Overflow wrapper ---- */
+  .overflow-x-auto {
+    overflow-x: auto;
+  }
+}

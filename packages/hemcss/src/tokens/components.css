@@ -415,5 +415,22 @@
     --hem-toast-padding:           var(--hem-space-4);
     --hem-toast-gap:               var(--hem-space-3);
     --hem-toast-z-index:           1000;
+
+
+    /* ==================== Table ==================== */
+    --hem-table-font-size:           var(--hem-text-sm);
+    --hem-table-line-height:         var(--hem-leading-normal);
+    --hem-table-padding-x:           var(--hem-space-4);
+    --hem-table-padding-y:           var(--hem-space-3);
+    --hem-table-compact-padding-x:   var(--hem-space-3);
+    --hem-table-compact-padding-y:   var(--hem-space-1);
+    --hem-table-border-width:        var(--hem-border-width);
+    --hem-table-border-color:        var(--hem-border);
+    --hem-table-head-font-size:      var(--hem-text-xs);
+    --hem-table-head-font-weight:    var(--hem-font-weight-semibold);
+    --hem-table-head-color:          var(--hem-text-muted);
+    --hem-table-head-bg:             var(--hem-bg-elevated);
+    --hem-table-hover-bg:            var(--hem-bg-elevated);
+    --hem-table-stripe-bg:           var(--hem-bg-elevated);
   }
 }

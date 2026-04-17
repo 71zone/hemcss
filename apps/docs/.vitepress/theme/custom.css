@@ -291,6 +291,47 @@
   transform: translateY(0);
 }
 
+/* ---- Table override ----
+ * VitePress .vp-doc sets its own th/td padding and borders (unlayered),
+ * which overrides our @layer component table styles. Re-declare here. */
+.preview .table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--hem-table-font-size);
+}
+
+.preview .table :where(th, td) {
+  padding: var(--hem-table-padding-y) var(--hem-table-padding-x);
+  border: none;
+}
+
+.preview .table :where(thead, tfoot) :where(th, td) {
+  font-size: var(--hem-table-head-font-size);
+  font-weight: var(--hem-table-head-font-weight);
+  color: var(--hem-table-head-color);
+  background-color: var(--hem-table-head-bg);
+}
+
+.preview .table :where(tbody tr) {
+  border-bottom: var(--hem-table-border-width) solid var(--hem-table-border-color);
+}
+
+.preview .table-compact :where(th, td) {
+  padding: var(--hem-table-compact-padding-y) var(--hem-table-compact-padding-x);
+}
+
+.preview .table {
+  display: table;
+  width: 100%;
+}
+
+.preview > .table,
+.preview > div {
+  flex: 1 1 100%;
+  min-width: 0;
+}
+
 /* ---- Token visualization ---- */
 .swatch-grid {
   display: grid;

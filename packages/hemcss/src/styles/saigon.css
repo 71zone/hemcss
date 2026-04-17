@@ -232,6 +232,14 @@
     --hem-toast-padding:           var(--hem-space-3);
     --hem-toast-gap:               var(--hem-space-2);
 
+    /* ---- Table ---- */
+    --hem-table-font-size:           var(--hem-text-xs);
+    --hem-table-padding-x:           var(--hem-space-3);
+    --hem-table-padding-y:           var(--hem-space-2);
+    --hem-table-compact-padding-x:   var(--hem-space-2);
+    --hem-table-compact-padding-y:   var(--hem-space-1);
+    --hem-table-head-font-size:      var(--hem-text-2xs);
+
     /* ---- Focus halo ---- */
     --hem-shadow-ring:
       0 0 0 var(--hem-ring-offset-width) var(--hem-ring-offset),

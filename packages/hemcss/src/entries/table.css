@@ -1,0 +1,5 @@
+/* Standalone table component entry.
+ * Import after hemcss/base to get just the table component.
+ */
+@import url("../layers.css");
+@import url("../components/table.css");
