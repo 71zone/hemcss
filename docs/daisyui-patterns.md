@@ -24,25 +24,25 @@ Reference for HẻmCSS component authors. We adopt DaisyUI's proven CSS-only int
 
 **Used by:** tabs, tab-content
 
-### 2. Checkbox toggle (drawer, swap)
+### 2. Checkbox toggle (sheet, swap)
 
 **Technique:** Hidden checkbox + sibling selector. Clicking a label toggles the checkbox; `:checked` state drives visibility.
 
 ```html
-<div class="drawer">
-  <input type="checkbox" id="drawer-1" class="drawer-toggle" />
-  <div class="drawer-content">
-    <label for="drawer-1" class="btn">Open drawer</label>
+<div class="sheet">
+  <input type="checkbox" id="sheet-1" class="sheet-toggle" />
+  <div class="sheet-content">
+    <label for="sheet-1" class="btn">Open sheet</label>
     <!-- page content -->
   </div>
-  <div class="drawer-side">
-    <label for="drawer-1" class="drawer-overlay"></label>
-    <!-- sidebar content -->
+  <div class="sheet-side">
+    <label for="sheet-1" class="sheet-overlay"></label>
+    <!-- panel content -->
   </div>
 </div>
 ```
 
-**Used by:** drawer, swap, mobile menu
+**Used by:** sheet (left/right/top/bottom), swap, mobile menu
 
 ### 3. `<details>` / `<summary>` (collapse, accordion)
 
@@ -138,7 +138,7 @@ Reference for HẻmCSS component authors. We adopt DaisyUI's proven CSS-only int
 | Component | DaisyUI pattern | CSS technique |
 |---|---|---|
 | modal | `<dialog>` | Native dialog + `::backdrop` |
-| drawer | Checkbox toggle | Hidden checkbox + `:checked` sibling |
+| sheet | Checkbox toggle | Hidden checkbox + `:checked` sibling |
 | dropdown | `:focus-within` | Tabindex + focus state |
 | collapse | `<details>` | Native disclosure + `[open]` |
 | tooltip | `data-tip` attr | `::before`/`::after` on `:hover` |

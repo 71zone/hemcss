@@ -29,7 +29,7 @@ Prioritized plan for expanding HẻmCSS beyond the initial components.
 - [x] steps — CSS counters, 7 color variants
 - [x] pagination — ghost-button items, aria-current support
 - [x] modal — native `<dialog>`, `::backdrop`, modal-box, modal-action, backdrop close
-- [x] drawer — checkbox-toggle sidebar, overlay, slide transition
+- [x] sheet — multi-direction slide-in panel (left, right, top, bottom), checkbox-toggle, bottom sheet mobile modal
 - [x] dropdown — `:focus-within`, 4 directions, end-aligned
 - [x] collapse — `<details>`/`<summary>`, collapse-arrow with rotation
 - [x] tooltip — `data-tip` + `::before`/`::after`, 4 directions, 6 color variants
@@ -66,7 +66,7 @@ Interactive patterns (CSS-only where possible).
 | Component | Classes | Notes |
 |---|---|---|
 | **modal** | `.modal` `.modal-box` `.modal-action` `.modal-backdrop` | Native `<dialog>` + `::backdrop` |
-| **drawer** | `.drawer` `.drawer-side` `.drawer-content` `.drawer-toggle` `.drawer-overlay` | Sidebar drawer via checkbox hack |
+| **sheet** | `.sheet` `.sheet-side` `.sheet-content` `.sheet-toggle` `.sheet-overlay` `.sheet-{right,top,bottom}` | Multi-direction slide-in panel via checkbox hack |
 | **dropdown** | `.dropdown` `.dropdown-content` `.dropdown-{top,bottom,left,right}` `.dropdown-end` | CSS-only via `:focus-within` |
 | **collapse** | `.collapse` `.collapse-title` `.collapse-content` `.collapse-arrow` | Accordion via `<details>` |
 | **tooltip** | `.tooltip` `.tooltip-{bottom,left,right}` `.tooltip-{primary,...}` | CSS-only via `data-tip` + `::before`/`::after` |

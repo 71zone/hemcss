@@ -1,0 +1,147 @@
+/* src/components/sheet.css — multi-direction slide-in panel.
+ *
+ * Checkbox-toggle pattern. Slides from any edge: left (default), right, top, bottom.
+ * Bottom sheet = mobile modal pattern.
+ *
+ * HTML structure:
+ *   <div class="sheet">                          <!-- or sheet-right, sheet-top, sheet-bottom -->
+ *     <input type="checkbox" id="s1" class="sheet-toggle" />
+ *     <div class="sheet-content">
+ *       <label for="s1" class="btn">Open</label>
+ *     </div>
+ *     <div class="sheet-side">
+ *       <label for="s1" class="sheet-overlay"></label>
+ *       <div>Panel content</div>
+ *     </div>
+ *   </div>
+ */
+@layer component {
+  .sheet {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+  }
+
+  .sheet-toggle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .sheet-content {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 100vh;
+  }
+
+  /* ---- Side container (overlay + panel) ---- */
+  .sheet-side {
+    grid-column: 1;
+    grid-row: 1;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: grid;
+    grid-template-columns: var(--hem-sheet-width) 1fr;
+    pointer-events: none;
+    visibility: hidden;
+    overflow: hidden;
+    transition: visibility var(--hem-sheet-transition) allow-discrete;
+  }
+
+  /* Panel — slides in from the edge. Default: left. */
+  .sheet-side > :not(.sheet-overlay) {
+    grid-column: 1;
+    grid-row: 1;
+    width: var(--hem-sheet-width);
+    background-color: var(--hem-sheet-bg);
+    box-shadow: var(--hem-sheet-shadow);
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform var(--hem-sheet-transition);
+  }
+
+  /* Overlay — dimmed backdrop, covers entire grid, fades in/out. */
+  .sheet-overlay {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    cursor: pointer;
+    background-color: var(--hem-sheet-overlay-bg);
+    opacity: 0;
+    transform: none;
+    transition: opacity var(--hem-sheet-transition);
+  }
+
+  /* ---- Open state (checkbox hack) ---- */
+  :where(.sheet-toggle:checked) ~ .sheet-side {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  :where(.sheet-toggle:checked) ~ .sheet-side > :not(.sheet-overlay) {
+    transform: translateX(0);
+  }
+
+  :where(.sheet-toggle:checked) ~ .sheet-side > .sheet-overlay {
+    opacity: 1;
+  }
+
+  /* ================ Direction variants ================ */
+
+  /* ---- Right ---- */
+  .sheet-right > .sheet-side {
+    grid-template-columns: 1fr var(--hem-sheet-width);
+  }
+
+  :where(.sheet-right) .sheet-side > :not(.sheet-overlay) {
+    grid-column: 2;
+    transform: translateX(100%);
+  }
+
+
+  :where(.sheet-right .sheet-toggle:checked) ~ .sheet-side > :not(.sheet-overlay) {
+    transform: translateX(0);
+  }
+
+  /* ---- Top ---- */
+  .sheet-top > .sheet-side {
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--hem-sheet-height) 1fr;
+  }
+
+  :where(.sheet-top) .sheet-side > :not(.sheet-overlay) {
+    grid-column: 1;
+    grid-row: 1;
+    width: auto;
+    height: var(--hem-sheet-height);
+    transform: translateY(-100%);
+  }
+
+
+  :where(.sheet-top .sheet-toggle:checked) ~ .sheet-side > :not(.sheet-overlay) {
+    transform: translateY(0);
+  }
+
+  /* ---- Bottom ---- */
+  .sheet-bottom > .sheet-side {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr var(--hem-sheet-height);
+  }
+
+  :where(.sheet-bottom) .sheet-side > :not(.sheet-overlay) {
+    grid-column: 1;
+    grid-row: 2;
+    width: auto;
+    height: var(--hem-sheet-height);
+    transform: translateY(100%);
+    border-radius: var(--hem-sheet-bottom-radius) var(--hem-sheet-bottom-radius) 0 0;
+  }
+
+
+  :where(.sheet-bottom .sheet-toggle:checked) ~ .sheet-side > :not(.sheet-overlay) {
+    transform: translateY(0);
+  }
+}

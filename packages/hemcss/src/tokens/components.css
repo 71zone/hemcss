@@ -367,12 +367,14 @@
     --hem-modal-action-gap:        var(--hem-space-2);
 
 
-    /* ==================== Drawer ==================== */
-    --hem-drawer-width:            20rem;
-    --hem-drawer-bg:               var(--hem-bg);
-    --hem-drawer-shadow:           var(--hem-shadow-lg);
-    --hem-drawer-overlay-bg:       oklch(0% 0 0deg / 50%);
-    --hem-drawer-transition:       var(--hem-transition-base);
+    /* ==================== Sheet ==================== */
+    --hem-sheet-width:             20rem;
+    --hem-sheet-height:            50vh;
+    --hem-sheet-bg:                var(--hem-bg);
+    --hem-sheet-shadow:            var(--hem-shadow-lg);
+    --hem-sheet-overlay-bg:        oklch(0% 0 0deg / 50%);
+    --hem-sheet-transition:        var(--hem-transition-base);
+    --hem-sheet-bottom-radius:     var(--hem-radius-box);
 
 
     /* ==================== Dropdown ==================== */

@@ -79,7 +79,7 @@ export default defineConfig({
           text: 'Overlays & disclosure',
           items: [
             { text: 'Modal', link: '/components/modal' },
-            { text: 'Drawer', link: '/components/drawer' },
+            { text: 'Sheet', link: '/components/sheet' },
             { text: 'Dropdown', link: '/components/dropdown' },
             { text: 'Collapse', link: '/components/collapse' },
             { text: 'Tooltip', link: '/components/tooltip' },

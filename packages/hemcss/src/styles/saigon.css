@@ -207,8 +207,9 @@
     --hem-modal-font-size:         var(--hem-text-xs);
     --hem-modal-title-font-size:   var(--hem-text-base);
 
-    /* ---- Drawer ---- */
-    --hem-drawer-width:            16rem;
+    /* ---- Sheet ---- */
+    --hem-sheet-width:             16rem;
+    --hem-sheet-height:            40vh;
 
     /* ---- Dropdown ---- */
     --hem-dropdown-padding:        var(--hem-space-1);

@@ -1,0 +1,5 @@
+/* Standalone sheet component entry.
+ * Import after hemcss/base to get just the sheet component.
+ */
+@import url("../layers.css");
+@import url("../components/sheet.css");
