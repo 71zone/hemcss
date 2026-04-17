@@ -349,5 +349,69 @@
     --hem-pagination-active-bg:    var(--hem-primary);
     --hem-pagination-active-color: var(--hem-text-inverted);
     --hem-pagination-disabled-opacity: var(--hem-opacity-disabled);
+
+
+    /* ==================== Modal ==================== */
+    --hem-modal-padding:           var(--hem-space-6);
+    --hem-modal-gap:               var(--hem-space-3);
+    --hem-modal-radius:            var(--hem-radius-box);
+    --hem-modal-bg:                var(--hem-bg);
+    --hem-modal-shadow:            var(--hem-shadow-lg);
+    --hem-modal-max-width:         28rem;
+    --hem-modal-font-size:         var(--hem-text-sm);
+    --hem-modal-line-height:       var(--hem-leading-normal);
+    --hem-modal-title-font-size:   var(--hem-text-lg);
+    --hem-modal-title-font-weight: var(--hem-font-weight-semibold);
+    --hem-modal-title-line-height: var(--hem-leading-tight);
+    --hem-modal-backdrop-bg:       oklch(0% 0 0deg / 50%);
+    --hem-modal-action-gap:        var(--hem-space-2);
+
+
+    /* ==================== Drawer ==================== */
+    --hem-drawer-width:            20rem;
+    --hem-drawer-bg:               var(--hem-bg);
+    --hem-drawer-shadow:           var(--hem-shadow-lg);
+    --hem-drawer-overlay-bg:       oklch(0% 0 0deg / 50%);
+    --hem-drawer-transition:       var(--hem-transition-base);
+
+
+    /* ==================== Dropdown ==================== */
+    --hem-dropdown-padding:        var(--hem-space-2);
+    --hem-dropdown-radius:         var(--hem-radius);
+    --hem-dropdown-bg:             var(--hem-bg);
+    --hem-dropdown-shadow:         var(--hem-shadow-md);
+    --hem-dropdown-border-width:   var(--hem-border-width);
+    --hem-dropdown-border-color:   var(--hem-border);
+    --hem-dropdown-min-width:      12rem;
+    --hem-dropdown-offset:         var(--hem-space-1);
+
+
+    /* ==================== Collapse ==================== */
+    --hem-collapse-padding:         var(--hem-space-4);
+    --hem-collapse-radius:          var(--hem-radius);
+    --hem-collapse-bg:              var(--hem-bg);
+    --hem-collapse-border-width:    var(--hem-border-width);
+    --hem-collapse-border-color:    var(--hem-border);
+    --hem-collapse-font-size:       var(--hem-text-sm);
+    --hem-collapse-line-height:     var(--hem-leading-normal);
+    --hem-collapse-title-font-size: var(--hem-text-sm);
+    --hem-collapse-title-font-weight: var(--hem-font-weight-medium);
+
+
+    /* ==================== Tooltip ==================== */
+    --hem-tooltip-padding-x:       var(--hem-space-3);
+    --hem-tooltip-padding-y:       var(--hem-space-2);
+    --hem-tooltip-radius:          var(--hem-radius-md);
+    --hem-tooltip-font-size:       var(--hem-text-xs);
+    --hem-tooltip-line-height:     var(--hem-leading-normal);
+    --hem-tooltip-bg:              var(--hem-bg-inverted);
+    --hem-tooltip-color:           var(--hem-text-inverted);
+    --hem-tooltip-offset:          var(--hem-space-2);
+
+
+    /* ==================== Toast ==================== */
+    --hem-toast-padding:           var(--hem-space-4);
+    --hem-toast-gap:               var(--hem-space-3);
+    --hem-toast-z-index:           1000;
   }
 }

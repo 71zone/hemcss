@@ -1,0 +1,74 @@
+/* src/components/drawer.css — checkbox-toggle sidebar drawer. */
+@layer component {
+  .drawer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+  }
+
+  .drawer-toggle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .drawer-content {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 100vh;
+  }
+
+  .drawer-side {
+    grid-column: 1;
+    grid-row: 1;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: grid;
+    grid-template-columns: var(--hem-drawer-width) 1fr;
+    pointer-events: none;
+    visibility: hidden;
+    overflow: hidden;
+  }
+
+  .drawer-side > * {
+    pointer-events: auto;
+    transform: translateX(calc(-1 * var(--hem-drawer-width)));
+    transition: transform var(--hem-drawer-transition);
+  }
+
+  .drawer-overlay {
+    grid-column: 2;
+    grid-row: 1;
+    cursor: pointer;
+    background-color: var(--hem-drawer-overlay-bg);
+    opacity: 0;
+    transition: opacity var(--hem-drawer-transition);
+  }
+
+  .drawer-side > :not(.drawer-overlay) {
+    grid-column: 1;
+    grid-row: 1;
+    width: var(--hem-drawer-width);
+    background-color: var(--hem-drawer-bg);
+    box-shadow: var(--hem-drawer-shadow);
+    overflow-y: auto;
+  }
+
+  /* Open state — checkbox hack. */
+  :where(.drawer-toggle:checked) ~ .drawer-side {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  :where(.drawer-toggle:checked) ~ .drawer-side > * {
+    transform: translateX(0);
+  }
+
+  :where(.drawer-toggle:checked) ~ .drawer-side > .drawer-overlay {
+    opacity: 1;
+  }
+}

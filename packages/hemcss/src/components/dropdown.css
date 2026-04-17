@@ -1,0 +1,87 @@
+/* src/components/dropdown.css — Popover + Anchor Positioning dropdown.
+ *
+ * Uses popover="auto" for click-triggered light-dismiss (Escape, click outside).
+ * CSS Anchor Positioning places the panel relative to the trigger button.
+ *
+ * HTML structure:
+ *   <div class="dropdown">
+ *     <button class="btn dropdown-trigger" popovertarget="dd-1">Click</button>
+ *     <div id="dd-1" popover class="dropdown-content">
+ *       <ul class="menu">...</ul>
+ *     </div>
+ *   </div>
+ */
+@layer component {
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-trigger {
+    anchor-name: var(--_anchor, --dropdown);
+  }
+
+  .dropdown-content {
+    position: fixed;
+    position-anchor: var(--_anchor, --dropdown);
+    position-area: bottom span-right;
+    position-try-fallbacks: flip-block;
+    margin-top: var(--hem-dropdown-offset);
+    min-width: var(--hem-dropdown-min-width);
+    padding: var(--hem-dropdown-padding);
+    background-color: var(--hem-dropdown-bg);
+    border: var(--hem-dropdown-border-width) solid var(--hem-dropdown-border-color);
+    border-radius: var(--hem-dropdown-radius);
+    box-shadow: var(--hem-dropdown-shadow);
+    overflow: visible;
+
+    /* Entrance/exit animation. */
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity var(--hem-transition-fast),
+      transform var(--hem-transition-fast),
+      display var(--hem-transition-fast) allow-discrete,
+      overlay var(--hem-transition-fast) allow-discrete;
+  }
+
+  /* Exit state. */
+  .dropdown-content:not(:popover-open) {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  /* Entrance state. */
+  @starting-style {
+    .dropdown-content:popover-open {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+  }
+
+  /* Direction variants — override position-area. */
+  .dropdown-top > .dropdown-content {
+    position-area: top span-right;
+    position-try-fallbacks: flip-block;
+    margin-top: 0;
+    margin-bottom: var(--hem-dropdown-offset);
+  }
+
+  .dropdown-left > .dropdown-content {
+    position-area: left;
+    position-try-fallbacks: flip-inline;
+    margin-top: 0;
+    margin-right: var(--hem-dropdown-offset);
+  }
+
+  .dropdown-right > .dropdown-content {
+    position-area: right;
+    position-try-fallbacks: flip-inline;
+    margin-top: 0;
+    margin-left: var(--hem-dropdown-offset);
+  }
+
+  .dropdown-end > .dropdown-content {
+    position-area: bottom span-left;
+  }
+}

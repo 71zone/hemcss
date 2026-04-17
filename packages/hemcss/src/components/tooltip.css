@@ -1,0 +1,92 @@
+/* src/components/tooltip.css — CSS hover tooltip with Anchor Positioning.
+ *
+ * Uses CSS :hover/:focus-within to show, CSS Anchor Positioning for placement.
+ * position-try-fallbacks auto-flips when there's no room.
+ *
+ * HTML structure:
+ *   <span class="tooltip" style="anchor-name: --tip-1">
+ *     <button class="btn">Hover me</button>
+ *     <span class="tooltip-content" style="position-anchor: --tip-1">Tooltip text</span>
+ *   </span>
+ */
+@layer component {
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+
+  .tooltip-content {
+    position: fixed;
+    bottom: anchor(top);
+    left: anchor(center);
+    translate: -50% calc(-1 * var(--hem-tooltip-offset));
+    /* No position-try-fallbacks — direction is author-controlled. */
+    width: max-content;
+    max-width: 20rem;
+    padding: var(--hem-tooltip-padding-y) var(--hem-tooltip-padding-x);
+    font-size: var(--hem-tooltip-font-size);
+    line-height: var(--hem-tooltip-line-height);
+    background-color: var(--hem-tooltip-bg);
+    color: var(--hem-tooltip-color);
+    border-radius: var(--hem-tooltip-radius);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--hem-transition-fast);
+  }
+
+  /* Show on hover/focus. */
+  :where(.tooltip:hover, .tooltip:focus-within) > .tooltip-content {
+    opacity: 1;
+  }
+
+  /* Direction variants. */
+  .tooltip-bottom > .tooltip-content {
+    bottom: auto;
+    top: anchor(bottom);
+    translate: -50% var(--hem-tooltip-offset);
+  }
+
+  .tooltip-left > .tooltip-content {
+    inset: anchor(center) auto auto;
+    right: anchor(left);
+    translate: calc(-1 * var(--hem-tooltip-offset)) -50%;
+  }
+
+  .tooltip-right > .tooltip-content {
+    bottom: auto;
+    top: anchor(center);
+    left: anchor(right);
+    translate: var(--hem-tooltip-offset) -50%;
+  }
+
+  /* Color variants. */
+  .tooltip-primary > .tooltip-content {
+    background-color: var(--hem-primary);
+    color: var(--hem-text-inverted);
+  }
+
+  .tooltip-secondary > .tooltip-content {
+    background-color: var(--hem-secondary);
+    color: var(--hem-text-inverted);
+  }
+
+  .tooltip-success > .tooltip-content {
+    background-color: var(--hem-success);
+    color: var(--hem-text-inverted);
+  }
+
+  .tooltip-info > .tooltip-content {
+    background-color: var(--hem-info);
+    color: var(--hem-text-inverted);
+  }
+
+  .tooltip-warning > .tooltip-content {
+    background-color: var(--hem-warning);
+    color: var(--hem-text-inverted);
+  }
+
+  .tooltip-error > .tooltip-content {
+    background-color: var(--hem-error);
+    color: var(--hem-text-inverted);
+  }
+}

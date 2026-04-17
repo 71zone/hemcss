@@ -1,0 +1,5 @@
+/* Standalone drawer component entry.
+ * Import after hemcss/base to get just the drawer component.
+ */
+@import url("../layers.css");
+@import url("../components/drawer.css");

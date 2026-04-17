@@ -1,0 +1,81 @@
+/* src/components/toast.css — popover="manual" toast container.
+ *
+ * Uses popover="manual" for top-layer stacking without light-dismiss.
+ * Toasts stay visible until explicitly dismissed.
+ * @starting-style provides slide-in entrance.
+ *
+ * HTML structure:
+ *   <div popover="manual" class="toast toast-end">
+ *     <div class="alert alert-success">Saved!</div>
+ *   </div>
+ *
+ * Show via JS: el.showPopover()
+ * Hide via JS: el.hidePopover()
+ */
+@layer component {
+  .toast {
+    position: fixed;
+    z-index: var(--hem-toast-z-index);
+    display: flex;
+    flex-direction: column;
+    gap: var(--hem-toast-gap);
+    padding: var(--hem-toast-padding);
+    max-width: calc(100vw - var(--hem-toast-padding) * 2);
+    pointer-events: none;
+    inset: auto 0 0 auto;
+    border: none;
+    background: transparent;
+    overflow: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity var(--hem-transition-base),
+      transform var(--hem-transition-base),
+      display var(--hem-transition-base) allow-discrete,
+      overlay var(--hem-transition-base) allow-discrete;
+  }
+
+  .toast > * {
+    pointer-events: auto;
+    box-shadow: var(--hem-shadow-md);
+  }
+
+  /* Exit state. */
+  :where(.toast):not(:popover-open) {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  /* Entrance state. */
+  @starting-style {
+    :where(.toast):popover-open {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+  }
+
+  /* Vertical position. */
+  .toast-top {
+    inset: 0 0 auto auto;
+  }
+
+  /* Horizontal alignment. */
+  .toast-start {
+    inset: auto auto 0 0;
+  }
+
+  :where(.toast-top).toast-start {
+    inset: 0 auto auto 0;
+  }
+
+  .toast-center {
+    left: 50%;
+    right: auto;
+    translate: -50%;
+  }
+
+  .toast-end {
+    right: 0;
+    left: auto;
+  }
+}

@@ -1,0 +1,68 @@
+/* src/components/collapse.css — details/summary accordion. */
+@layer component {
+  .collapse {
+    border: var(--hem-collapse-border-width) solid var(--hem-collapse-border-color);
+    border-radius: var(--hem-collapse-radius);
+    background-color: var(--hem-collapse-bg);
+    font-size: var(--hem-collapse-font-size);
+    line-height: var(--hem-collapse-line-height);
+    interpolate-size: allow-keywords;
+  }
+
+  .collapse-title {
+    display: flex;
+    align-items: center;
+    padding: var(--hem-collapse-padding);
+    font-size: var(--hem-collapse-title-font-size);
+    font-weight: var(--hem-collapse-title-font-weight);
+    color: var(--hem-text-highlighted);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  /* Remove default <summary> marker. */
+  .collapse-title::-webkit-details-marker {
+    display: none;
+  }
+
+  .collapse-content {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0 var(--hem-collapse-padding);
+    color: var(--hem-text);
+    transition:
+      height var(--hem-transition-base),
+      opacity var(--hem-transition-base),
+      padding var(--hem-transition-base);
+  }
+
+  :where(.collapse[open]) > .collapse-content {
+    height: auto;
+    opacity: 1;
+    padding-bottom: var(--hem-collapse-padding);
+  }
+
+  /* Arrow indicator — use :where() to stay within 0,2,0 specificity. */
+  :where(.collapse-arrow) > .collapse-title {
+    padding-right: calc(var(--hem-collapse-padding) + 1.5em);
+    position: relative;
+  }
+
+  :where(.collapse-arrow) > .collapse-title::after {
+    content: "";
+    position: absolute;
+    right: var(--hem-collapse-padding);
+    top: 50%;
+    width: 0.5em;
+    height: 0.5em;
+    border-right: 2px solid currentcolor;
+    border-bottom: 2px solid currentcolor;
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform var(--hem-transition-fast);
+  }
+
+  :where(.collapse-arrow[open]) > .collapse-title::after {
+    transform: translateY(-30%) rotate(-135deg);
+  }
+}

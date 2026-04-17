@@ -1,0 +1,111 @@
+/* src/components/modal.css — dialog-based modal overlay with @starting-style animation. */
+@layer component {
+  .modal {
+    padding: 0;
+    border: none;
+    background: transparent;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: visible;
+    color: inherit;
+
+    /* Entrance/exit animation. */
+    opacity: 1;
+    transform: scale(1);
+    transition:
+      opacity var(--hem-transition-base),
+      transform var(--hem-transition-base),
+      display var(--hem-transition-base) allow-discrete,
+      overlay var(--hem-transition-base) allow-discrete;
+  }
+
+  /* Exit state. */
+  .modal:not([open]) {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  /* Entrance state. */
+  @starting-style {
+    .modal[open] {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+
+  /* Backdrop animation. */
+  .modal::backdrop {
+    background-color: transparent;
+    transition:
+      background-color var(--hem-transition-base),
+      display var(--hem-transition-base) allow-discrete,
+      overlay var(--hem-transition-base) allow-discrete;
+  }
+
+  :where(.modal[open])::backdrop {
+    background-color: var(--hem-modal-backdrop-bg);
+  }
+
+  @starting-style {
+    :where(.modal[open])::backdrop {
+      background-color: transparent;
+    }
+  }
+
+  /* Grid layout — dialog fills viewport, box and backdrop share the same cell. */
+  :where(.modal[open]) {
+    display: grid;
+    place-items: center;
+  }
+
+  .modal-box {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--hem-modal-gap);
+    padding: var(--hem-modal-padding);
+    max-width: var(--hem-modal-max-width);
+    width: calc(100vw - var(--hem-space-8));
+    background-color: var(--hem-modal-bg);
+    border-radius: var(--hem-modal-radius);
+    box-shadow: var(--hem-modal-shadow);
+    font-size: var(--hem-modal-font-size);
+    line-height: var(--hem-modal-line-height);
+    color: var(--hem-text);
+  }
+
+  .modal-box > h3 {
+    font-size: var(--hem-modal-title-font-size);
+    font-weight: var(--hem-modal-title-font-weight);
+    line-height: var(--hem-modal-title-line-height);
+    color: var(--hem-text-highlighted);
+  }
+
+  .modal-action {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--hem-modal-action-gap);
+    margin-top: var(--hem-space-2);
+  }
+
+  /* Click-outside-to-close — same grid cell, stretches to fill, behind the box. */
+  .modal-backdrop {
+    grid-column: 1;
+    grid-row: 1;
+    place-self: stretch;
+    z-index: -1;
+  }
+
+  .modal-backdrop > button {
+    width: 100%;
+    height: 100%;
+    cursor: default;
+    appearance: none;
+    background: transparent;
+    border: none;
+    font-size: 0;
+  }
+}

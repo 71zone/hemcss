@@ -255,6 +255,42 @@
   cursor: not-allowed;
 }
 
+/* ---- Overlay component overrides ----
+ * Layered (@layer component) rules lose to the browser's unlayered
+ * defaults for ::backdrop, popover, and dialog. Re-declare key
+ * properties here (unlayered) so they win in the cascade. */
+.modal::backdrop {
+  background-color: transparent;
+  transition:
+    background-color var(--hem-transition-base),
+    display var(--hem-transition-base) allow-discrete,
+    overlay var(--hem-transition-base) allow-discrete;
+}
+
+.modal[open]::backdrop {
+  background-color: var(--hem-modal-backdrop-bg);
+}
+
+@starting-style {
+  .modal[open]::backdrop {
+    background-color: transparent;
+  }
+}
+
+.modal[open] {
+  display: grid;
+  place-items: center;
+}
+
+/* ---- Tooltip hover override ----
+ * The tooltip hover rule is in @layer component with :where() (0 specificity),
+ * so it loses to any unlayered style. Re-declare the show rule here. */
+.tooltip:hover > .tooltip-content,
+.tooltip:focus-within > .tooltip-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ---- Token visualization ---- */
 .swatch-grid {
   display: grid;

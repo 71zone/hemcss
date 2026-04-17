@@ -28,6 +28,12 @@ Prioritized plan for expanding HẻmCSS beyond the initial components.
 - [x] tabs — bordered (CSS Anchor sliding indicator), lifted, radio + label CSS-only switching, tab-content panels
 - [x] steps — CSS counters, 7 color variants
 - [x] pagination — ghost-button items, aria-current support
+- [x] modal — native `<dialog>`, `::backdrop`, modal-box, modal-action, backdrop close
+- [x] drawer — checkbox-toggle sidebar, overlay, slide transition
+- [x] dropdown — `:focus-within`, 4 directions, end-aligned
+- [x] collapse — `<details>`/`<summary>`, collapse-arrow with rotation
+- [x] tooltip — `data-tip` + `::before`/`::after`, 4 directions, 6 color variants
+- [x] toast — fixed-position container, 6 positions (top/bottom × start/center/end)
 
 ## ~~Batch 2 — Feedback & decoration~~ (shipped)
 
@@ -53,18 +59,18 @@ Site-level components.
 | **steps** | `.steps` `.step` `.step-{primary,...}` | Progress steps indicator |
 | **pagination** | `.pagination` | Page navigation |
 
-## Batch 4 — Overlays & disclosure
+## ~~Batch 4 — Overlays & disclosure~~ (shipped)
 
 Interactive patterns (CSS-only where possible).
 
 | Component | Classes | Notes |
 |---|---|---|
-| **modal** | `.modal` `.modal-box` `.modal-action` `.modal-open` | Uses `<dialog>` + `.modal-open` |
-| **drawer** | `.drawer` `.drawer-side` `.drawer-content` `.drawer-toggle` | Sidebar drawer via checkbox hack |
-| **dropdown** | `.dropdown` `.dropdown-content` `.dropdown-{top,bottom,left,right}` | CSS-only via `:focus-within` |
+| **modal** | `.modal` `.modal-box` `.modal-action` `.modal-backdrop` | Native `<dialog>` + `::backdrop` |
+| **drawer** | `.drawer` `.drawer-side` `.drawer-content` `.drawer-toggle` `.drawer-overlay` | Sidebar drawer via checkbox hack |
+| **dropdown** | `.dropdown` `.dropdown-content` `.dropdown-{top,bottom,left,right}` `.dropdown-end` | CSS-only via `:focus-within` |
 | **collapse** | `.collapse` `.collapse-title` `.collapse-content` `.collapse-arrow` | Accordion via `<details>` |
-| **tooltip** | `.tooltip` `.tooltip-{top,bottom,left,right}` `.tooltip-{primary,...}` | CSS-only via `data-tip` + `::before` |
-| **toast** | `.toast` `.toast-{top,bottom}` `.toast-{start,center,end}` | Fixed position container for alerts |
+| **tooltip** | `.tooltip` `.tooltip-{bottom,left,right}` `.tooltip-{primary,...}` | CSS-only via `data-tip` + `::before`/`::after` |
+| **toast** | `.toast` `.toast-top` `.toast-{start,center,end}` | Fixed position container for alerts |
 
 ## Batch 5 — Data & content
 

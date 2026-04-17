@@ -1,0 +1,5 @@
+/* Standalone modal component entry.
+ * Import after hemcss/base to get just the modal component.
+ */
+@import url("../layers.css");
+@import url("../components/modal.css");

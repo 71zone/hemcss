@@ -25,3 +25,9 @@
 @import url("./tabs.css");
 @import url("./steps.css");
 @import url("./pagination.css");
+@import url("./modal.css");
+@import url("./drawer.css");
+@import url("./dropdown.css");
+@import url("./collapse.css");
+@import url("./tooltip.css");
+@import url("./toast.css");

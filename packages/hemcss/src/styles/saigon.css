@@ -199,6 +199,38 @@
     --hem-pagination-item-padding: var(--hem-space-1);
     --hem-pagination-item-radius:  var(--hem-radius-sm);
 
+    /* ---- Modal ---- */
+    --hem-modal-padding:           var(--hem-space-4);
+    --hem-modal-gap:               var(--hem-space-2);
+    --hem-modal-radius:            var(--hem-radius);
+    --hem-modal-max-width:         24rem;
+    --hem-modal-font-size:         var(--hem-text-xs);
+    --hem-modal-title-font-size:   var(--hem-text-base);
+
+    /* ---- Drawer ---- */
+    --hem-drawer-width:            16rem;
+
+    /* ---- Dropdown ---- */
+    --hem-dropdown-padding:        var(--hem-space-1);
+    --hem-dropdown-radius:         var(--hem-radius-md);
+    --hem-dropdown-min-width:      10rem;
+
+    /* ---- Collapse ---- */
+    --hem-collapse-padding:         var(--hem-space-3);
+    --hem-collapse-radius:          var(--hem-radius-md);
+    --hem-collapse-font-size:       var(--hem-text-xs);
+    --hem-collapse-title-font-size: var(--hem-text-xs);
+
+    /* ---- Tooltip ---- */
+    --hem-tooltip-padding-x:       var(--hem-space-2);
+    --hem-tooltip-padding-y:       var(--hem-space-1);
+    --hem-tooltip-radius:          var(--hem-radius-sm);
+    --hem-tooltip-font-size:       var(--hem-text-2xs);
+
+    /* ---- Toast ---- */
+    --hem-toast-padding:           var(--hem-space-3);
+    --hem-toast-gap:               var(--hem-space-2);
+
     /* ---- Focus halo ---- */
     --hem-shadow-ring:
       0 0 0 var(--hem-ring-offset-width) var(--hem-ring-offset),

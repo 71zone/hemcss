@@ -1,0 +1,5 @@
+/* Standalone toast component entry.
+ * Import after hemcss/base to get just the toast component.
+ */
+@import url("../layers.css");
+@import url("../components/toast.css");

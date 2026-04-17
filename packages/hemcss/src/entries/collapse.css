@@ -1,0 +1,5 @@
+/* Standalone collapse component entry.
+ * Import after hemcss/base to get just the collapse component.
+ */
+@import url("../layers.css");
+@import url("../components/collapse.css");
