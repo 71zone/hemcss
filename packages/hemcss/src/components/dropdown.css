@@ -21,12 +21,14 @@
     anchor-name: var(--_anchor, --dropdown);
   }
 
+  /* Default: below trigger, left-aligned. */
   .dropdown-content {
     position: fixed;
     position-anchor: var(--_anchor, --dropdown);
-    position-area: bottom span-right;
-    position-try-fallbacks: flip-block;
-    margin-top: var(--hem-dropdown-offset);
+    inset: auto;
+    margin: 0;
+    top: calc(anchor(bottom) + var(--hem-dropdown-offset));
+    left: anchor(left);
     min-width: var(--hem-dropdown-min-width);
     padding: var(--hem-dropdown-padding);
     background-color: var(--hem-dropdown-bg);
@@ -59,29 +61,30 @@
     }
   }
 
-  /* Direction variants — override position-area. */
+  /* ---- Direction variants ---- */
+
+  /* Top: above trigger, left-aligned. */
   .dropdown-top > .dropdown-content {
-    position-area: top span-right;
-    position-try-fallbacks: flip-block;
-    margin-top: 0;
-    margin-bottom: var(--hem-dropdown-offset);
+    top: auto;
+    bottom: calc(anchor(top) + var(--hem-dropdown-offset));
   }
 
+  /* Left: left of trigger. */
   .dropdown-left > .dropdown-content {
-    position-area: left;
-    position-try-fallbacks: flip-inline;
-    margin-top: 0;
-    margin-right: var(--hem-dropdown-offset);
+    top: anchor(top);
+    left: auto;
+    right: calc(anchor(left) + var(--hem-dropdown-offset));
   }
 
+  /* Right: right of trigger. */
   .dropdown-right > .dropdown-content {
-    position-area: right;
-    position-try-fallbacks: flip-inline;
-    margin-top: 0;
-    margin-left: var(--hem-dropdown-offset);
+    top: anchor(top);
+    left: calc(anchor(right) + var(--hem-dropdown-offset));
   }
 
+  /* End: below trigger, right-aligned. */
   .dropdown-end > .dropdown-content {
-    position-area: bottom span-left;
+    left: auto;
+    right: anchor(right);
   }
 }
