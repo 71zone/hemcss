@@ -90,6 +90,7 @@ export default defineConfig({
           text: 'Data & content',
           items: [
             { text: 'Table', link: '/components/table' },
+            { text: 'Stat', link: '/components/stat' },
           ],
         },
         {

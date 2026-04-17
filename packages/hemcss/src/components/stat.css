@@ -1,0 +1,77 @@
+/* src/components/stat.css — Dashboard metric card.
+ *
+ * Displays a key metric with optional title, description, and figure.
+ * Multiple stats can be placed side by side in a grid or stack.
+ *
+ * HTML structure:
+ *   <div class="stat">
+ *     <div class="stat-figure">📊</div>
+ *     <div class="stat-title">Total Users</div>
+ *     <div class="stat-value">25,600</div>
+ *     <div class="stat-desc">21% more than last month</div>
+ *   </div>
+ */
+@layer component {
+  .stats {
+    display: inline-grid;
+    grid-auto-flow: column;
+  }
+
+  .stats > :where(.stat) {
+    border-inline-end: var(--hem-stat-border-width) solid var(--hem-stat-border-color);
+  }
+
+  .stats > :where(.stat:last-child) {
+    border-inline-end: none;
+  }
+
+  /* Vertical layout */
+  .stats-vertical {
+    grid-auto-flow: row;
+  }
+
+  .stats-vertical > :where(.stat) {
+    border-inline-end: none;
+    border-block-end: var(--hem-stat-border-width) solid var(--hem-stat-border-color);
+  }
+
+  .stats-vertical > :where(.stat:last-child) {
+    border-block-end: none;
+  }
+
+  .stat {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: var(--hem-stat-gap);
+    padding: var(--hem-stat-padding);
+  }
+
+  .stat-figure {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stat-title {
+    grid-column: 1;
+    font-size: var(--hem-stat-title-font-size);
+    color: var(--hem-stat-title-color);
+    white-space: nowrap;
+  }
+
+  .stat-value {
+    grid-column: 1;
+    font-size: var(--hem-stat-value-font-size);
+    font-weight: var(--hem-stat-value-font-weight);
+    white-space: nowrap;
+  }
+
+  .stat-desc {
+    grid-column: 1;
+    font-size: var(--hem-stat-desc-font-size);
+    color: var(--hem-stat-desc-color);
+    white-space: nowrap;
+  }
+}

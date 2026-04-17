@@ -1,0 +1,5 @@
+/* Standalone stat component entry.
+ * Import after hemcss/base to get just the stat component.
+ */
+@import url("../layers.css");
+@import url("../components/stat.css");

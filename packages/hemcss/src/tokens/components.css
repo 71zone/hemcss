@@ -417,6 +417,19 @@
     --hem-toast-z-index:           1000;
 
 
+    /* ==================== Stat ==================== */
+    --hem-stat-padding:              var(--hem-space-4);
+    --hem-stat-gap:                  var(--hem-space-4);
+    --hem-stat-border-width:         var(--hem-border-width);
+    --hem-stat-border-color:         var(--hem-border);
+    --hem-stat-title-font-size:      var(--hem-text-sm);
+    --hem-stat-title-color:          var(--hem-text-muted);
+    --hem-stat-value-font-size:      var(--hem-text-2xl);
+    --hem-stat-value-font-weight:    var(--hem-font-weight-bold);
+    --hem-stat-desc-font-size:       var(--hem-text-xs);
+    --hem-stat-desc-color:           var(--hem-text-muted);
+
+
     /* ==================== Table ==================== */
     --hem-table-font-size:           var(--hem-text-sm);
     --hem-table-line-height:         var(--hem-leading-normal);

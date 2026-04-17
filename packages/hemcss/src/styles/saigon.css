@@ -232,6 +232,13 @@
     --hem-toast-padding:           var(--hem-space-3);
     --hem-toast-gap:               var(--hem-space-2);
 
+    /* ---- Stat ---- */
+    --hem-stat-padding:              var(--hem-space-3);
+    --hem-stat-gap:                  var(--hem-space-3);
+    --hem-stat-title-font-size:      var(--hem-text-xs);
+    --hem-stat-value-font-size:      var(--hem-text-xl);
+    --hem-stat-desc-font-size:       var(--hem-text-2xs);
+
     /* ---- Table ---- */
     --hem-table-font-size:           var(--hem-text-xs);
     --hem-table-padding-x:           var(--hem-space-3);
