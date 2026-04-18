@@ -91,6 +91,7 @@ export default defineConfig({
           items: [
             { text: 'Table', link: '/components/table' },
             { text: 'Stat', link: '/components/stat' },
+            { text: 'Countdown', link: '/components/countdown' },
           ],
         },
         {

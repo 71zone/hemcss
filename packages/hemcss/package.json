@@ -100,6 +100,8 @@
     "./components/table/min": "./dist/components/table.min.css",
     "./components/stat": "./dist/components/stat.css",
     "./components/stat/min": "./dist/components/stat.min.css",
+    "./components/countdown": "./dist/components/countdown.css",
+    "./components/countdown/min": "./dist/components/countdown.min.css",
     "./polyfill/grid": "./polyfill/grid.js",
     "./tokens/schema": "./dist/tokens/schema.json",
     "./plugin": "./plugin/index.js",

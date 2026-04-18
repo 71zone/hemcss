@@ -232,6 +232,9 @@
     --hem-toast-padding:           var(--hem-space-3);
     --hem-toast-gap:               var(--hem-space-2);
 
+    /* ---- Countdown ---- */
+    --hem-countdown-font-size:       var(--hem-text-xl);
+
     /* ---- Stat ---- */
     --hem-stat-padding:              var(--hem-space-3);
     --hem-stat-gap:                  var(--hem-space-3);

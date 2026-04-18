@@ -417,6 +417,12 @@
     --hem-toast-z-index:           1000;
 
 
+    /* ==================== Countdown ==================== */
+    --hem-countdown-font-size:       var(--hem-text-2xl);
+    --hem-countdown-font-weight:     var(--hem-font-weight-bold);
+    --hem-countdown-gap:             var(--hem-space-1);
+
+
     /* ==================== Stat ==================== */
     --hem-stat-padding:              var(--hem-space-4);
     --hem-stat-gap:                  var(--hem-space-4);

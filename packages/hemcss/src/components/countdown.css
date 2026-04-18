@@ -1,0 +1,35 @@
+/* src/components/countdown.css — Digit-based countdown display.
+ *
+ * Each digit uses CSS counter + @property to animate --value.
+ * Set --value via inline style. Text content is the counter output.
+ *
+ * HTML structure:
+ *   <div class="countdown">
+ *     <span style="--value: 15;"></span>:<span style="--value: 30;"></span>:<span style="--value: 45;"></span>
+ *   </div>
+ */
+@layer component {
+  @property --value {
+    syntax: "<integer>";
+    inherits: false;
+    initial-value: 0;
+  }
+
+  .countdown {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--hem-countdown-gap);
+    font-family: var(--hem-font-mono);
+    font-size: var(--hem-countdown-font-size);
+    font-weight: var(--hem-countdown-font-weight);
+    line-height: 1;
+  }
+
+  .countdown > span {
+    counter-reset: countdown var(--value);
+  }
+
+  .countdown > span::after {
+    content: counter(countdown, decimal-leading-zero);
+  }
+}
